@@ -7,5 +7,7 @@ export default {
 		passwordPlaceholder: 'Enter your password',
 		login: 'Sign in',
 		forgotPassword: 'Forgot password?',
+		noAccount: "Don't have an account?",
+		signUp: 'Sign up',
 	},
 };
