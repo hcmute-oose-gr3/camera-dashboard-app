@@ -1,7 +1,5 @@
-import { Outlet } from "solid-start";
+import { Outlet } from 'solid-start';
 
 export default () => {
-  return (
-	<h1>Dashboard</h1>
-  );
-}
+	return <h1>Dashboard</h1>;
+};
