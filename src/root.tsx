@@ -35,7 +35,7 @@ export default function Root() {
 					rel="stylesheet"
 				/>
 			</Head>
-			<Body class="bg-fill-50">
+			<Body>
 				<Suspense>
 					<ErrorBoundary>
 						<I18nProvider>
