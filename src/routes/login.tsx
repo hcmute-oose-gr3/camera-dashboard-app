@@ -5,13 +5,13 @@ export default () => {
 	const [t] = useI18nContext();
 	return (
 		<div class="mx-auto mt-24 w-fit">
-			<h1 class="text-center">{t.login.header()}</h1>
+			<h4 class="text-center">{t.login.header()}</h4>
 			<form
 				class="flex flex-col gap-y-6 min-w-[300px]
 				bg-fill-300 border-fill-600 border-[1px] rounded-md p-4 mt-8"
 			>
 				<div class="flex flex-col gap-y-1">
-					<label for="username" class="text-stroke-300">
+					<label for="username">
 						{t.login.usernameLabel()}
 					</label>
 					<input
@@ -23,7 +23,7 @@ export default () => {
 				</div>
 				<div class="flex flex-col gap-y-1">
 					<div class="flex justify-between">
-						<label for="password" class="text-stroke-300">
+						<label for="password">
 							{t.login.passwordLabel()}
 						</label>
 						<a href="#">{t.login.forgotPassword()}</a>
