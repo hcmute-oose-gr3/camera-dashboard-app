@@ -13,7 +13,7 @@
 		"paths": {
 			"~/*": ["./src/*"]
 		},
-		"typeRoots": ["./src/@types"],
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"plugins": [{ "name": "typescript-plugin-css-modules" }]
 	}
 }
