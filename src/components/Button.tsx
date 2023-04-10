@@ -7,7 +7,7 @@ const Button: ParentComponent<JSX.ButtonHTMLAttributes<HTMLButtonElement>> = (
 	return (
 		<button
 			{...rest}
-			class={`px-2 py-2 rounded-md bg-primary-500 border-primary-600 border-[1px] ${props.class}`}
+			class={`px-2 py-2 rounded-md text-fill-100 bg-primary-700 border-primary-600 border-[1px] disabled:bg-primary-300 disabled:border-primary-400/30 ${props.class}`}
 		>
 			{props.children}
 		</button>

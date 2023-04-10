@@ -1,0 +1,23 @@
+.label-negative {
+	@apply text-negative-700;
+}
+
+.label-positive {
+	@apply text-positive-700;
+}
+
+.input-negative {
+	@apply border-negative-700;
+}
+
+.input-positive {
+	@apply border-positive-700;
+}
+
+.caption-negative {
+	@apply text-negative-700;
+}
+
+.caption-positive {
+	@apply text-positive-700;
+}

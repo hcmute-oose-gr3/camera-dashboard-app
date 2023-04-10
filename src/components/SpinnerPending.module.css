@@ -1,0 +1,10 @@
+.container {
+	transition-property: opacity;
+	transition-duration: 0.4s;
+	transition-timing-function: ease-in;
+}
+
+.pending {
+	transition-duration: 0.2s;
+	opacity: 0.8;
+}
