@@ -3,14 +3,25 @@ module.exports = {
 	content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
 	theme: {
 		fontSize: {
-			h1: ['1.5rem', { fontWeight: 'bold' }],
-			h2: ['1.25rem', { fontWeight: 'bold' }],
-			h3: ['1rem', { fontWeight: 'bold' }],
-			h4: ['0.875rem', { fontWeight: 'bold' }],
-			h5: ['0.8125rem', { fontWeight: 'bold' }],
-			p: ['0.8125rem'],
-			button: ['0.875rem', { fontWeight: 'bold' }],
-			a: ['0.8125rem', { fontWeight: 'bold' }],
+			// 16px based
+			h1: ['1.8462rem', { fontWeight: 'bold' }],
+			h2: ['1.5385rem', { fontWeight: 'bold' }],
+			h3: ['1.2307rem', { fontWeight: 'bold' }],
+			h4: ['1.0769rem', { fontWeight: 'bold' }],
+			h5: ['1rem', { fontWeight: 'bold' }],
+			p: ['1rem'],
+			button: ['1.0769rem', { fontWeight: 'bold' }],
+			a: ['1rem', { fontWeight: 'bold' }],
+
+			// 13px based
+			// h1: ['1.5rem', { fontWeight: 'bold' }],
+			// h2: ['1.25rem', { fontWeight: 'bold' }],
+			// h3: ['1rem', { fontWeight: 'bold' }],
+			// h4: ['0.875rem', { fontWeight: 'bold' }],
+			// h5: ['0.8125rem', { fontWeight: 'bold' }],
+			// p: ['0.8125rem'],
+			// button: ['0.875rem', { fontWeight: 'bold' }],
+			// a: ['0.8125rem', { fontWeight: 'bold' }],
 		},
 		fontFamily: {
 			body: ["'Poppins'", 'sans-serif'],
