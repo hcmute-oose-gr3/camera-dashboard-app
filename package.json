@@ -19,11 +19,12 @@
 	"dependencies": {
 		"@solid-primitives/i18n": "^1.2.4",
 		"@solidjs/meta": "^0.28.2",
-		"@solidjs/router": "^0.8.1",
+		"@solidjs/router": "^0.8.2",
 		"http-status": "^1.6.2",
 		"mongodb": "^5.2.0",
-		"solid-js": "^1.6.11",
-		"solid-start": "^0.2.23",
+		"solid-js": "^1.7.3",
+		"solid-start": "^0.2.26",
+		"solid-transition-group": "^0.2.2",
 		"undici": "^5.15.1"
 	},
 	"engines": {
