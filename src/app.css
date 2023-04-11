@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	html {
+		font-size: 100%;
+	}
+
+	body {
+		@apply bg-fill-100 text-fill-1000 font-body text-p;
+		line-height: 1.75;
+	}
+
+	*:not(a) {
+		@apply transition focus:outline-none focus:ring focus:ring-offset-1 focus:ring-primary-700;
+	}
+
+	input {
+		@apply px-2 py-2 rounded-md bg-fill-100 border-fill-300 border-[1px] placeholder:text-fill-300;
+	}
+
+	a {
+		@apply active:underline-offset-1 active:scale-[0.98] text-primary-700 hover:underline hover:underline-offset-2 visited:text-fill-700 text-a focus:underline-offset-2 focus:underline focus:outline-none;
+	}
+
+	p {
+		@apply text-p;
+		line-height: 1.5;
+	}
+
+	label {
+		@apply font-medium;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		line-height: 1.3;
+	}
+
+	h1 {
+		@apply text-h1;
+	}
+
+	h2 {
+		@apply text-h2;
+	}
+
+	h3 {
+		@apply text-h3;
+	}
+
+	h4 {
+		@apply text-h4;
+	}
+
+	h5 {
+		@apply text-h5;
+	}
+
+	button {
+		@apply text-button;
+	}
+}
