@@ -14,18 +14,127 @@ export type Translation = RootTranslation
 export type Translations = RootTranslation
 
 type RootTranslation = {
-	/**
-	 * H​i​ ​{​n​a​m​e​}​!​ ​P​l​e​a​s​e​ ​l​e​a​v​e​ ​a​ ​s​t​a​r​ ​i​f​ ​y​o​u​ ​l​i​k​e​ ​t​h​i​s​ ​p​r​o​j​e​c​t​:​ ​h​t​t​p​s​:​/​/​g​i​t​h​u​b​.​c​o​m​/​i​v​a​n​h​o​f​e​r​/​t​y​p​e​s​a​f​e​-​i​1​8​n
-	 * @param {string} name
-	 */
-	HI: RequiredParams<'name'>
+	login: {
+		/**
+		 * S​i​g​n​ ​i​n​ ​t​o​ ​c​a​m​e​r​a​ ​d​a​s​h​b​o​a​r​d
+		 */
+		header: string
+		username: {
+			/**
+			 * U​s​e​r​n​a​m​e
+			 */
+			label: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​u​s​e​r​n​a​m​e
+			 */
+			placeholder: string
+			/**
+			 * U​s​e​r​n​a​m​e​ ​m​u​s​t​ ​b​e​ ​a​t​ ​l​e​a​s​t​ ​{​l​e​n​g​t​h​}​ ​c​h​a​r​a​c​t​e​r​s​ ​l​o​n​g
+			 * @param {number} length
+			 */
+			min: RequiredParams<'length'>
+			/**
+			 * U​s​e​r​n​a​m​e​ ​c​a​n​ ​o​n​l​y​ ​c​o​n​t​a​i​n​ ​l​e​t​t​e​r​s​ ​a​n​d​ ​n​u​m​b​e​r​s
+			 */
+			regex: string
+		}
+		password: {
+			/**
+			 * P​a​s​s​w​o​r​d
+			 */
+			label: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+			 */
+			placeholder: string
+			/**
+			 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​b​e​ ​a​t​ ​l​e​a​s​t​ ​{​l​e​n​g​t​h​}​ ​c​h​a​r​a​c​t​e​r​s​ ​l​o​n​g
+			 * @param {number} length
+			 */
+			min: RequiredParams<'length'>
+		}
+		/**
+		 * S​i​g​n​ ​i​n
+		 */
+		login: string
+		/**
+		 * F​o​r​g​o​t​ ​p​a​s​s​w​o​r​d​?
+		 */
+		forgotPassword: string
+		/**
+		 * D​o​n​'​t​ ​h​a​v​e​ ​a​n​ ​a​c​c​o​u​n​t​?
+		 */
+		noAccount: string
+		/**
+		 * S​i​g​n​ ​u​p
+		 */
+		signUp: string
+		/**
+		 * Y​o​u​ ​h​a​v​e​ ​l​o​g​g​e​d​ ​i​n​ ​s​u​c​c​e​s​s​f​u​l​l​y
+		 */
+		success: string
+	}
 }
 
 export type TranslationFunctions = {
-	/**
-	 * Hi {name}! Please leave a star if you like this project: https://github.com/ivanhofer/typesafe-i18n
-	 */
-	HI: (arg: { name: string }) => LocalizedString
+	login: {
+		/**
+		 * Sign in to camera dashboard
+		 */
+		header: () => LocalizedString
+		username: {
+			/**
+			 * Username
+			 */
+			label: () => LocalizedString
+			/**
+			 * Enter your username
+			 */
+			placeholder: () => LocalizedString
+			/**
+			 * Username must be at least {length} characters long
+			 */
+			min: (arg: { length: number }) => LocalizedString
+			/**
+			 * Username can only contain letters and numbers
+			 */
+			regex: () => LocalizedString
+		}
+		password: {
+			/**
+			 * Password
+			 */
+			label: () => LocalizedString
+			/**
+			 * Enter your password
+			 */
+			placeholder: () => LocalizedString
+			/**
+			 * Password must be at least {length} characters long
+			 */
+			min: (arg: { length: number }) => LocalizedString
+		}
+		/**
+		 * Sign in
+		 */
+		login: () => LocalizedString
+		/**
+		 * Forgot password?
+		 */
+		forgotPassword: () => LocalizedString
+		/**
+		 * Don't have an account?
+		 */
+		noAccount: () => LocalizedString
+		/**
+		 * Sign up
+		 */
+		signUp: () => LocalizedString
+		/**
+		 * You have logged in successfully
+		 */
+		success: () => LocalizedString
+	}
 }
 
 export type Formatters = {}
