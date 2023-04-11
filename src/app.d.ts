@@ -1,5 +1,3 @@
-// See https://kit.svelte.dev/docs/types#app
-
 import type { TranslationFunctions } from './i18n/i18n-types';
 
 // for information about these interfaces
@@ -12,6 +10,10 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 	}
-}
 
-export {};
+	namespace NodeJS {
+		interface ProcessEnv {
+			MONGO_URI: string;
+		}
+	}
+}
