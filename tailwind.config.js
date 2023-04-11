@@ -11,7 +11,10 @@ export default {
 			h5: ['1rem', { fontWeight: 'bold' }],
 			p: ['1rem'],
 			button: ['1.0769rem', { fontWeight: 'bold' }],
-			a: ['1rem', { fontWeight: 'bold' }]
+			a: ['1rem', { fontWeight: 'bold' }],
+			'icon-base': ['1.5rem'],
+			'icon-small': ['1rem'],
+			'icon-large': ['2.5rem']
 
 			// 13px based
 			// h1: ['1.5rem', { fontWeight: 'bold' }],
