@@ -2,34 +2,34 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		fontSize: {
-			// 16px based
-			h1: ['1.8462rem', { fontWeight: 'bold' }],
-			h2: ['1.5385rem', { fontWeight: 'bold' }],
-			h3: ['1.2307rem', { fontWeight: 'bold' }],
-			h4: ['1.0769rem', { fontWeight: 'bold' }],
-			h5: ['1rem', { fontWeight: 'bold' }],
-			p: ['1rem'],
-			button: ['1.0769rem', { fontWeight: 'bold' }],
-			a: ['1rem', { fontWeight: 'bold' }],
-			'icon-base': ['1.5rem'],
-			'icon-small': ['1rem'],
-			'icon-large': ['2.5rem']
-
-			// 13px based
-			// h1: ['1.5rem', { fontWeight: 'bold' }],
-			// h2: ['1.25rem', { fontWeight: 'bold' }],
-			// h3: ['1rem', { fontWeight: 'bold' }],
-			// h4: ['0.875rem', { fontWeight: 'bold' }],
-			// h5: ['0.8125rem', { fontWeight: 'bold' }],
-			// p: ['0.8125rem'],
-			// button: ['0.875rem', { fontWeight: 'bold' }],
-			// a: ['0.8125rem', { fontWeight: 'bold' }],
-		},
-		fontFamily: {
-			body: ["'Poppins'", 'sans-serif']
-		},
 		extend: {
+			fontSize: {
+				// 16px based
+				h1: ['1.8462rem', { fontWeight: 'bold' }],
+				h2: ['1.5385rem', { fontWeight: 'bold' }],
+				h3: ['1.2307rem', { fontWeight: 'bold' }],
+				h4: ['1.0769rem', { fontWeight: 'bold' }],
+				h5: ['1rem', { fontWeight: 'bold' }],
+				p: ['1rem'],
+				button: ['1.0769rem', { fontWeight: 'bold' }],
+				a: ['1rem', { fontWeight: 'bold' }],
+				'icon-base': ['1.5rem'],
+				'icon-small': ['1rem'],
+				'icon-large': ['2.5rem']
+	
+				// 13px based
+				// h1: ['1.5rem', { fontWeight: 'bold' }],
+				// h2: ['1.25rem', { fontWeight: 'bold' }],
+				// h3: ['1rem', { fontWeight: 'bold' }],
+				// h4: ['0.875rem', { fontWeight: 'bold' }],
+				// h5: ['0.8125rem', { fontWeight: 'bold' }],
+				// p: ['0.8125rem'],
+				// button: ['0.875rem', { fontWeight: 'bold' }],
+				// a: ['0.8125rem', { fontWeight: 'bold' }],
+			},
+			fontFamily: {
+				body: ["'IBM Plex Sans'", 'sans-serif']
+			},
 			colors: {
 				primary: {
 					100: '#f6f7fe',
