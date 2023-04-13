@@ -16,7 +16,7 @@ export const POST = async (e) => {
 	}
 	const user = await mongodbCollections.users.findOne(
 		{ name: username },
-		{ projection: { _id: 0, name: 1 }, limit: 1 }
+		{ projection: { name: 1 }, limit: 1 }
 	);
 	if (!user) {
 		return apiResponder.error({
@@ -26,5 +26,21 @@ export const POST = async (e) => {
 			}
 		});
 	}
+
+	const token = crypto.randomUUID();
+	await mongodbCollections.users.updateOne(
+		{
+			_id: user._id
+		},
+		{ $set: { sessionToken: token } }
+	);
+
+	e.cookies.set('session_token', token, {
+		path: '/',
+		maxAge: 60 * 60 * 24 * 30,
+		httpOnly: true,
+		sameSite: 'strict',
+		secure: process.env.NODE_ENV === 'production'
+	});
 	return apiResponder.data({ data: user }, { status: httpStatus.OK });
 };
