@@ -12,7 +12,8 @@
 		line-height: 1.75;
 	}
 
-	*:not(a) {
+	input,
+	button {
 		@apply transition focus:outline-none focus:ring focus:ring-offset-1 focus:ring-primary-500;
 	}
 
