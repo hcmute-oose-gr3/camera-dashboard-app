@@ -1,6 +1,7 @@
 import httpStatus from 'http-status';
 import apiResponder from '~/lib/server/services/api-responder';
 import mongodbCollections from '~/lib/server/services/mongodb-collections';
+import bcrypt from 'bcrypt';
 
 export const POST = async (e) => {
 	const formData = await e.request.formData();
@@ -16,13 +17,23 @@ export const POST = async (e) => {
 	}
 	const user = await mongodbCollections.users.findOne(
 		{ name: username },
-		{ projection: { name: 1 }, limit: 1 }
+		{ projection: { name: 1, password: 1 }, limit: 1 }
 	);
 	if (!user) {
 		return apiResponder.error({
 			error: {
 				code: httpStatus.UNAUTHORIZED,
 				message: 'Username not found'
+			}
+		});
+	}
+
+	const matched = await bcrypt.compare(password.toString(), user.password);
+	if (!matched) {
+		return apiResponder.error({
+			error: {
+				code: httpStatus.UNAUTHORIZED,
+				message: 'Password does not match'
 			}
 		});
 	}
