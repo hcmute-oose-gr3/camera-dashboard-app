@@ -2,6 +2,7 @@
 	export let accent: 'positive' | 'negative' | undefined = undefined;
 	export let label: string | undefined = undefined;
 	export let caption: string | undefined = undefined;
+	export let input: HTMLInputElement;
 </script>
 
 {#if label}
@@ -10,6 +11,7 @@
 	</label>
 {/if}
 <input
+	bind:this={input}
 	{...$$restProps}
 	class={'active:scale-[0.99] active:ring-0 active:ring-offset-0 ease-in' +
 		(accent ? `input-${accent}` : '')}
