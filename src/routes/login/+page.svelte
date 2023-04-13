@@ -80,14 +80,14 @@
 
 {#if data.userId}
 	<section class="mx-auto w-fit mt-48 text-center">
-		<h1 class="uppercase text-h1 text-8xl text-primary-700">Oops!</h1>
-		<h3 class="mt-4">It seems like you have already logged in.</h3>
+		<h1 class="uppercase text-h1 text-8xl text-primary-700">{$LL.login.oops()}</h1>
+		<h3 class="mt-4">{$LL.login.alreadyLoggedIn()}</h3>
 		<div class="mt-4">
 			<a href="/">
-				<Button type="button">Back</Button>
+				<Button type="button">${LL.login.back()}</Button>
 			</a>
 			<a href="/logout" class="ml-4">
-				<SecondaryButton type="button">Log out</SecondaryButton>
+				<SecondaryButton type="button">${LL.login.logout()}</SecondaryButton>
 			</a>
 		</div>
 	</section>

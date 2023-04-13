@@ -18,7 +18,11 @@ const en = {
 		forgotPassword: 'Forgot password?',
 		noAccount: "Don't have an account?",
 		signUp: 'Sign up',
-		success: 'You have logged in successfully'
+		success: 'You have logged in successfully',
+		oops: 'Oops!',
+		alreadyLoggedIn: 'It seems like you have already logged in.',
+		back: 'Back',
+		logout: 'Log out'
 	}
 } satisfies BaseTranslation;
 

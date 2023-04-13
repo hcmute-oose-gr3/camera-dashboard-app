@@ -73,6 +73,22 @@ type RootTranslation = {
 		 * Y​o​u​ ​h​a​v​e​ ​l​o​g​g​e​d​ ​i​n​ ​s​u​c​c​e​s​s​f​u​l​l​y
 		 */
 		success: string
+		/**
+		 * O​o​p​s​!
+		 */
+		oops: string
+		/**
+		 * I​t​ ​s​e​e​m​s​ ​l​i​k​e​ ​y​o​u​ ​h​a​v​e​ ​a​l​r​e​a​d​y​ ​l​o​g​g​e​d​ ​i​n​.
+		 */
+		alreadyLoggedIn: string
+		/**
+		 * B​a​c​k
+		 */
+		back: string
+		/**
+		 * L​o​g​ ​o​u​t
+		 */
+		logout: string
 	}
 }
 
@@ -134,6 +150,22 @@ export type TranslationFunctions = {
 		 * You have logged in successfully
 		 */
 		success: () => LocalizedString
+		/**
+		 * Oops!
+		 */
+		oops: () => LocalizedString
+		/**
+		 * It seems like you have already logged in.
+		 */
+		alreadyLoggedIn: () => LocalizedString
+		/**
+		 * Back
+		 */
+		back: () => LocalizedString
+		/**
+		 * Log out
+		 */
+		logout: () => LocalizedString
 	}
 }
 
