@@ -14,7 +14,7 @@
 	import type { PageData } from './$types';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 
-	type FormFields = 'username' | 'password';
+	type FormFields = 'email' | 'password';
 
 	export let data: PageData;
 	let logging = false;
@@ -34,17 +34,14 @@
 		const data = new FormData(this);
 		const schema = object({
 			password: string().min(3, $LL.login.password.min({ length: 6 })),
-			username: string()
-				.trim()
-				.min(3, $LL.login.username.min({ length: 3 }))
-				.matches(/^[a-zA-Z0-9]+$/, $LL.login.username.regex())
+			email: string().trim().email($LL.login.email.regex())
 		});
 
 		let result!: InferType<typeof schema>;
 		try {
 			result = await schema.validate(
 				{
-					username: data.get('username'),
+					email: data.get('email'),
 					password: data.get('password')
 				},
 				{ abortEarly: true }
@@ -60,7 +57,7 @@
 		}
 
 		fieldErrors = {};
-		data.set('username', result.username!);
+		data.set('email', result.email!);
 		const json = await fetch(this.action, {
 			method: 'post',
 			body: data
@@ -105,16 +102,16 @@
 			>
 				<div class="flex flex-col gap-y-1">
 					<Input
-						bind:input={inputElements.username}
-						id="username"
-						name="username"
-						type="text"
+						bind:input={inputElements.email}
+						id="email"
+						name="email"
+						type="email"
 						spellcheck={false}
-						placeholder={$LL.login.username.placeholder()}
+						placeholder={$LL.login.email.placeholder()}
 						class="transition"
-						label={$LL.login.username.label()}
-						caption={fieldErrors?.username}
-						accent={fieldErrors?.username ? 'negative' : undefined}
+						label={$LL.login.email.label()}
+						caption={fieldErrors?.email}
+						accent={fieldErrors?.email ? 'negative' : undefined}
 					/>
 				</div>
 				<div class="flex flex-col gap-y-1 relative">

@@ -19,22 +19,17 @@ type RootTranslation = {
 		 * S​i​g​n​ ​i​n​ ​t​o​ ​c​a​m​e​r​a​ ​d​a​s​h​b​o​a​r​d
 		 */
 		header: string
-		username: {
+		email: {
 			/**
-			 * U​s​e​r​n​a​m​e
+			 * E​m​a​i​l
 			 */
 			label: string
 			/**
-			 * E​n​t​e​r​ ​y​o​u​r​ ​u​s​e​r​n​a​m​e
+			 * E​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
 			 */
 			placeholder: string
 			/**
-			 * U​s​e​r​n​a​m​e​ ​m​u​s​t​ ​b​e​ ​a​t​ ​l​e​a​s​t​ ​{​l​e​n​g​t​h​}​ ​c​h​a​r​a​c​t​e​r​s​ ​l​o​n​g
-			 * @param {number} length
-			 */
-			min: RequiredParams<'length'>
-			/**
-			 * U​s​e​r​n​a​m​e​ ​c​a​n​ ​o​n​l​y​ ​c​o​n​t​a​i​n​ ​l​e​t​t​e​r​s​ ​a​n​d​ ​n​u​m​b​e​r​s
+			 * E​m​a​i​l​ ​i​s​ ​i​n​v​a​l​i​d
 			 */
 			regex: string
 		}
@@ -98,21 +93,17 @@ export type TranslationFunctions = {
 		 * Sign in to camera dashboard
 		 */
 		header: () => LocalizedString
-		username: {
+		email: {
 			/**
-			 * Username
+			 * Email
 			 */
 			label: () => LocalizedString
 			/**
-			 * Enter your username
+			 * Enter your email
 			 */
 			placeholder: () => LocalizedString
 			/**
-			 * Username must be at least {length} characters long
-			 */
-			min: (arg: { length: number }) => LocalizedString
-			/**
-			 * Username can only contain letters and numbers
+			 * Email is invalid
 			 */
 			regex: () => LocalizedString
 		}

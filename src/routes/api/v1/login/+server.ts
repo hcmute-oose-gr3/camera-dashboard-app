@@ -5,9 +5,9 @@ import bcrypt from 'bcrypt';
 
 export const POST = async (e) => {
 	const formData = await e.request.formData();
-	const username = formData.get('username');
+	const email = formData.get('email');
 	const password = formData.get('password');
-	if (!username || !password) {
+	if (!email || !password) {
 		return apiResponder.error({
 			error: {
 				code: httpStatus.UNAUTHORIZED,
@@ -16,14 +16,14 @@ export const POST = async (e) => {
 		});
 	}
 	const user = await mongodbCollections.users.findOne(
-		{ name: username },
-		{ projection: { name: 1, password: 1 }, limit: 1 }
+		{ email },
+		{ projection: { email: 1, password: 1 }, limit: 1 }
 	);
 	if (!user) {
 		return apiResponder.error({
 			error: {
 				code: httpStatus.UNAUTHORIZED,
-				message: 'Username not found'
+				message: 'Email not found'
 			}
 		});
 	}

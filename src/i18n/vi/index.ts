@@ -3,11 +3,10 @@ import type { Translation } from '../i18n-types';
 const vi = {
 	login: {
 		header: 'Đăng nhập vào camera dashboard',
-		username: {
-			label: 'Tên tài khoản',
-			placeholder: 'Nhập tên tài khoản',
-			min: 'Tên tài khoản cần có ít nhất {length} ký tự',
-			regex: 'Tên tài khoản chỉ bao gồm chữ và số'
+		email: {
+			label: 'Email',
+			placeholder: 'Nhập email',
+			regex: 'Email không hợp lệ'
 		},
 		password: {
 			label: 'Mật khẩu',
@@ -18,7 +17,11 @@ const vi = {
 		forgotPassword: 'Quên mật khẩu?',
 		noAccount: 'Chưa có tài khoản?',
 		signUp: 'Đăng ký',
-		success: 'Đăng nhập thành công'
+		success: 'Đăng nhập thành công',
+		oops: 'Oops!',
+		alreadyLoggedIn: 'Có vẻ như bạn đã đăng nhập trước đó.',
+		back: 'Quay lại',
+		logout: 'Đăng xuất'
 	}
 } satisfies Translation;
 

@@ -3,11 +3,10 @@ import type { BaseTranslation } from '../i18n-types';
 const en = {
 	login: {
 		header: 'Sign in to camera dashboard',
-		username: {
-			label: 'Username',
-			placeholder: 'Enter your username',
-			min: 'Username must be at least {length:number} characters long',
-			regex: 'Username can only contain letters and numbers'
+		email: {
+			label: 'Email',
+			placeholder: 'Enter your email',
+			regex: 'Email is invalid'
 		},
 		password: {
 			label: 'Password',
