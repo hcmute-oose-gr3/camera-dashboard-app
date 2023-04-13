@@ -6,6 +6,7 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			locale: Locales;
+			userId?: string;
 		}
 		// interface PageData {}
 		// interface Platform {}
@@ -14,6 +15,7 @@ declare global {
 	namespace NodeJS {
 		interface ProcessEnv {
 			MONGO_URI: string;
+			NODE_ENV: string;
 		}
 	}
 }
