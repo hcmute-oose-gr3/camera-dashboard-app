@@ -81,10 +81,10 @@
 		<h3 class="mt-4">{$LL.login.alreadyLoggedIn()}</h3>
 		<div class="mt-4">
 			<a href="/">
-				<Button type="button">${LL.login.back()}</Button>
+				<Button type="button">{$LL.login.back()}</Button>
 			</a>
 			<a href="/logout" class="ml-4">
-				<SecondaryButton type="button">${LL.login.logout()}</SecondaryButton>
+				<SecondaryButton type="button">{$LL.login.logout()}</SecondaryButton>
 			</a>
 		</div>
 	</section>
