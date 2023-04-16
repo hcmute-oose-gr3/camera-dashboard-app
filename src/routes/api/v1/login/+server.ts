@@ -1,7 +1,7 @@
 import httpStatus from 'http-status';
 import apiResponder from '~/lib/server/services/api-responder';
-import mongodbCollections from '~/lib/server/services/mongodb-collections';
 import bcrypt from 'bcrypt';
+import { DbClient } from '~/lib/server/services/db-client.js';
 
 export const POST = async (e) => {
 	const formData = await e.request.formData();
@@ -15,7 +15,7 @@ export const POST = async (e) => {
 			}
 		});
 	}
-	const user = await mongodbCollections.users.findOne(
+	const user = await DbClient.instance.collections.users.findOne(
 		{ email },
 		{ projection: { email: 1, password: 1 }, limit: 1 }
 	);
@@ -39,7 +39,7 @@ export const POST = async (e) => {
 	}
 
 	const token = crypto.randomUUID();
-	await mongodbCollections.users.updateOne(
+	await DbClient.instance.collections.users.updateOne(
 		{
 			_id: user._id
 		},

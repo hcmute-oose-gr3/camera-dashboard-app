@@ -1,7 +1,7 @@
 import httpStatus from 'http-status';
 import { ObjectId } from 'mongodb';
 import apiResponder from '~/lib/server/services/api-responder';
-import mongodbCollections from '~/lib/server/services/mongodb-collections.js';
+import { DbClient } from '~/lib/server/services/db-client';
 
 export const GET = async (e) => {
 	if (!e.locals.userId) {
@@ -16,7 +16,7 @@ export const GET = async (e) => {
 		secure: process.env.NODE_ENV === 'production'
 	});
 	try {
-		await mongodbCollections.users.updateOne(
+		await DbClient.instance.collections.users.updateOne(
 			{ _id: new ObjectId(e.locals.userId) },
 			{ $unset: { sessionToken: true } }
 		);
