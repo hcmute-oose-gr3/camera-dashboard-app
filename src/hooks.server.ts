@@ -15,7 +15,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 			{ sessionToken },
 			{ limit: 1, projection: { _id: 1 } }
 		);
-		event.locals.userId = user?._id.toHexString();
+		if (user) {
+			event.locals.user = {
+				_id: user._id.toHexString()
+			};
+		}
 	}
 
 	event.locals.locale = locale;

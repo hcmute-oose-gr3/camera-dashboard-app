@@ -75,7 +75,7 @@
 	}
 </script>
 
-{#if data.userId}
+{#if data.user}
 	<section class="mx-auto w-fit mt-48 text-center">
 		<h1 class="uppercase text-h1 text-8xl text-primary-700">{$LL.login.oops()}</h1>
 		<h3 class="mt-4">{$LL.login.alreadyLoggedIn()}</h3>

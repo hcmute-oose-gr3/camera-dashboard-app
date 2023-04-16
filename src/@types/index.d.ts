@@ -6,7 +6,9 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			locale: Locales;
-			userId?: string;
+			user?: {
+				_id: string;
+			};
 		}
 		// interface PageData {}
 		// interface Platform {}

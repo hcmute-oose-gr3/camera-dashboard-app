@@ -4,7 +4,7 @@ import apiResponder from '~/lib/server/services/api-responder';
 import { DbClient } from '~/lib/server/services/db-client';
 
 export const GET = async (e) => {
-	if (!e.locals.userId) {
+	if (!e.locals.user) {
 		return apiResponder.error({
 			error: { code: httpStatus.UNAUTHORIZED, message: 'You are not logged in yet' }
 		});
@@ -17,7 +17,7 @@ export const GET = async (e) => {
 	});
 	try {
 		await DbClient.instance.collections.users.updateOne(
-			{ _id: new ObjectId(e.locals.userId) },
+			{ _id: new ObjectId(e.locals.user._id) },
 			{ $unset: { sessionToken: true } }
 		);
 	} catch (e) {
