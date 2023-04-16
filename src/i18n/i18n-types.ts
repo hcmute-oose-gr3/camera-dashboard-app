@@ -14,9 +14,15 @@ export type Translation = RootTranslation
 export type Translations = RootTranslation
 
 type RootTranslation = {
+	logo: {
+		/**
+		 * C​a​m​e​r​a​ ​D​a​s​h​b​o​a​r​d
+		 */
+		name: string
+	}
 	login: {
 		/**
-		 * S​i​g​n​ ​i​n​ ​t​o​ ​c​a​m​e​r​a​ ​d​a​s​h​b​o​a​r​d
+		 * S​i​g​n​ ​i​n​ ​t​o​ ​y​o​u​r​ ​d​a​s​h​b​o​a​r​d
 		 */
 		header: string
 		email: {
@@ -88,9 +94,15 @@ type RootTranslation = {
 }
 
 export type TranslationFunctions = {
+	logo: {
+		/**
+		 * Camera Dashboard
+		 */
+		name: () => LocalizedString
+	}
 	login: {
 		/**
-		 * Sign in to camera dashboard
+		 * Sign in to your dashboard
 		 */
 		header: () => LocalizedString
 		email: {

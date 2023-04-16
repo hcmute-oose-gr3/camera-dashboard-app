@@ -1,8 +1,11 @@
 import type { BaseTranslation } from '../i18n-types';
 
 const en = {
+	logo: {
+		name: 'Camera Dashboard'
+	},
 	login: {
-		header: 'Sign in to camera dashboard',
+		header: 'Sign in to your dashboard',
 		email: {
 			label: 'Email',
 			placeholder: 'Enter your email',

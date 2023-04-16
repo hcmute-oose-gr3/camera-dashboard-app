@@ -1,8 +1,11 @@
 import type { Translation } from '../i18n-types';
 
 const vi = {
+	logo: {
+		name: 'Camera Dashboard'
+	},
 	login: {
-		header: 'Đăng nhập vào camera dashboard',
+		header: 'Đăng nhập vào dashboard của bạn',
 		email: {
 			label: 'Email',
 			placeholder: 'Nhập email',
