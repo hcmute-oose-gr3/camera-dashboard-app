@@ -13,6 +13,8 @@
 	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
+	import Logo from '~/lib/components/Logo.svelte';
+	import LogoType from '~/lib/components/LogoType.svelte';
 
 	type FormFields = 'email' | 'password';
 
@@ -84,13 +86,12 @@
 		</div>
 	</section>
 {:else}
-	<div class="mx-auto">
-		<h1 class="text-center mx-auto mt-24">
-			{$LL.login.header()}
-		</h1>
-		<div class="mx-auto w-min mt-6">
+	<div class="w-max mx-auto">
+		<LogoType class="mt-16" />
+		<h3 class="text-center mt-6 text-fill-600">{$LL.login.header()}</h3>
+		<div class="mx-auto w-min mt-4">
 			<form
-				class="flex flex-col gap-y-6 min-w-[400px] bg-fill-100 border-fill-300 border-[1px] rounded-lg p-4 mt-8"
+				class="text-left flex flex-col gap-y-6 min-w-[400px] bg-fill-100 border-fill-300 border-[1px] rounded-lg p-4"
 				method="post"
 				action={APIRoutes.LOGIN}
 				on:submit|preventDefault={submit}
