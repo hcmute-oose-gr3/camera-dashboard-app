@@ -9,7 +9,7 @@
 	import Spinner from '~/lib/components/Spinner.svelte';
 	import { APIRoutes } from '~/lib/utils/api-routes';
 	import { onMount } from 'svelte';
-	import { string, object, ValidationError, type InferType } from 'yup';
+	import { z } from 'zod';
 	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
@@ -32,32 +32,27 @@
 		formResponse = undefined;
 
 		const data = new FormData(this);
-		const schema = object({
-			password: string().min(3, $LL.login.password.min({ length: 6 })),
-			email: string().trim().email($LL.login.email.regex())
+		const schema = z.object({
+			email: z.string().trim().email($LL.login.email.regex()),
+			password: z.string().min(6, $LL.login.password.min({ length: 6 }))
 		});
 
-		let result!: InferType<typeof schema>;
-		try {
-			result = await schema.validate(
-				{
-					email: data.get('email'),
-					password: data.get('password')
-				},
-				{ abortEarly: true }
-			);
-		} catch (e) {
-			logging = false;
+		const result = await schema.safeParseAsync({
+			email: data.get('email'),
+			password: data.get('password')
+		});
+		if (!result.success) {
 			fieldErrors = {};
-			if (e instanceof ValidationError) {
-				fieldErrors[e.path as FormFields] = e.message;
-				inputElements[e.path as FormFields].focus();
-			}
+			result.error.issues.forEach((iss) => {
+				fieldErrors[iss.path[0] as FormFields] = iss.message;
+				inputElements[iss.path[0] as FormFields].focus();
+			});
+			logging = false;
 			return;
 		}
 
 		fieldErrors = {};
-		data.set('email', result.email!);
+		data.set('email', result.data.email);
 		const json = await fetch(this.action, {
 			method: 'post',
 			body: data
