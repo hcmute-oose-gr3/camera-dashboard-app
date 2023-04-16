@@ -4,7 +4,6 @@ import { DbClient } from './lib/server/services/db-client';
 
 loadAllLocales();
 dotenv.config();
-console.log(process.env.NODE_ENV);
 const instance = new DbClient(process.env.MONGO_URI, 'camera-dashboard-app', {
 	monitorCommands: process.env.NODE_ENV === 'development'
 });
