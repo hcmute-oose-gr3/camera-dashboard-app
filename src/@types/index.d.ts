@@ -1,4 +1,4 @@
-import type { TranslationFunctions } from './i18n/i18n-types';
+import type { TranslationFunctions } from '~/i18n/i18n-types';
 
 // for information about these interfaces
 declare global {
