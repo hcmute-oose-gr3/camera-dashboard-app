@@ -1,11 +1,9 @@
 import { detectLocale, isLocale } from '~/i18n/i18n-util';
-import { loadAllLocales } from '~/i18n/i18n-util.sync';
 import type { Handle, RequestEvent } from '@sveltejs/kit';
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
 import type { Locales } from './i18n/i18n-types';
-import mongodbCollections from './lib/server/services/mongodb-collections';
-
-loadAllLocales();
+import { DbClient } from './lib/server/services/db-client';
+import './app';
 
 export const handle: Handle = async ({ event, resolve }) => {
 	const lang = event.url.searchParams.get('lang') ?? '';
@@ -13,7 +11,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	const sessionToken = event.cookies.get('session_token');
 	if (sessionToken) {
-		const user = await mongodbCollections.users.findOne(
+		const user = await DbClient.instance.collections.users.findOne(
 			{ sessionToken },
 			{ limit: 1, projection: { _id: 1 } }
 		);
