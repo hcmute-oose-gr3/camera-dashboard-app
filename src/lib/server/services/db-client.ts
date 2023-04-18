@@ -1,19 +1,36 @@
 import { Db, MongoClient, type MongoClientOptions } from 'mongodb';
 import type User from '~/lib/models/user';
 
+interface DbClientOptions {
+	url: string;
+	dbName: string;
+	mongoClientOptions?: MongoClientOptions;
+};
+
 export class DbClient {
-	private static _instance: DbClient;
+	private static _instance?: DbClient;
+	private static _options?: DbClientOptions;
+
 	private _client: MongoClient;
 	private _collections: Collections;
 
-	public static get instance() {
-		return DbClient._instance;
+	private constructor(options: DbClientOptions) {
+		this._client = new MongoClient(options.url, options.mongoClientOptions);
+		this._collections = new Collections(this._client.db(options.dbName));
 	}
 
-	constructor(url: string, dbName: string, options?: MongoClientOptions) {
-		this._client = new MongoClient(url, options);
-		this._collections = new Collections(this._client.db(dbName));
-		DbClient._instance = this;
+	public static useOptions(options: DbClientOptions) {
+		this._options = options;
+	}
+
+	public static get instance() {
+		if (!this._instance) {
+			if (!this._options) {
+				throw new Error('DbClient needs an options to construct its instance')
+			}
+			this._instance = new DbClient(this._options);
+		}
+		return this._instance;
 	}
 
 	public get collections() {
@@ -26,7 +43,7 @@ export class DbClient {
 }
 
 class Collections {
-	constructor(private db: Db) {}
+	constructor(private db: Db) { }
 	public get users() {
 		return this.db.collection<User>('users');
 	}
