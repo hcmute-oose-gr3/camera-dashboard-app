@@ -1,8 +1,5 @@
 import { Db, MongoClient, type MongoClientOptions } from 'mongodb';
-import dotenv from 'dotenv';
 import type User from '~/lib/models/user';
-
-dotenv.config();
 
 export class DbClient {
 	private static _instance: DbClient;
