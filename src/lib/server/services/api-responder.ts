@@ -1,17 +1,17 @@
 import { json } from '@sveltejs/kit';
 import httpStatus from 'http-status';
-import type { APIDataResponse, APIErrorResponse } from '~/lib/models/api-response';
+import type { ApiDataResponse, ApiErrorResponse } from '~/lib/models/api-response';
 
-type APIDataResponseWithoutVersion = Omit<APIDataResponse, 'apiVersion'>;
-type APIErrorResponseWithoutVersion = Omit<APIErrorResponse, 'apiVersion'>;
+type APIDataResponseWithoutVersion = Omit<ApiDataResponse, 'apiVersion'>;
+type APIErrorResponseWithoutVersion = Omit<ApiErrorResponse, 'apiVersion'>;
 
 interface ApiResponderOptions {
 	apiVersion: string;
 }
 
-export class APIResponder {
+export class ApiResponder {
 	private static _options: ApiResponderOptions;
-	private static _instance: APIResponder;
+	private static _instance: ApiResponder;
 
 	private _options: ApiResponderOptions;
 
@@ -28,7 +28,7 @@ export class APIResponder {
 			if (!this._options) {
 				throw new Error('ApiResponder needs an options to construct its instance');
 			}
-			this._instance = new APIResponder(this._options);
+			this._instance = new ApiResponder(this._options);
 		}
 		return this._instance;
 	}
@@ -52,4 +52,3 @@ export class APIResponder {
 	}
 }
 
-export default new APIResponder();

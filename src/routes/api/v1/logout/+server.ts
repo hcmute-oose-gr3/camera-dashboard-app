@@ -1,11 +1,12 @@
 import httpStatus from 'http-status';
 import { ObjectId } from 'mongodb';
-import apiResponder from '~/lib/server/services/api-responder';
+import { ApiResponder } from '~/lib/server/services/api-responder';
 import { DbClient } from '~/lib/server/services/db-client';
+import type { RequestHandler } from './$types';
 
-export const GET = async (e) => {
+export const GET = (async (e) => {
 	if (!e.locals.user) {
-		return apiResponder.error({
+		return ApiResponder.instance.error({
 			error: { code: httpStatus.UNAUTHORIZED, message: 'You are not logged in yet' }
 		});
 	}
@@ -23,5 +24,5 @@ export const GET = async (e) => {
 	} catch (e) {
 		throw e;
 	}
-	return apiResponder.data({ data: {} }, { status: httpStatus.OK });
-};
+	return ApiResponder.instance.data({ data: {} }, { status: httpStatus.OK });
+}) satisfies RequestHandler;

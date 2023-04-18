@@ -1,12 +1,12 @@
-export interface APIResponse {
+export interface ApiResponse {
 	apiVersion: string;
 }
 
-export interface APIDataResponse extends APIResponse {
+export interface ApiDataResponse extends ApiResponse {
 	data: Record<string, any>;
 }
 
-export interface APIErrorResponse extends APIResponse {
+export interface ApiErrorResponse extends ApiResponse {
 	error: Record<string, any> & {
 		code: number;
 		message: string;

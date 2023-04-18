@@ -5,7 +5,7 @@ import type { Locales } from './i18n/i18n-types';
 import { DbClient } from './lib/server/services/db-client';
 import './app';
 
-export const handle: Handle = async ({ event, resolve }) => {
+export const handle = (async ({ event, resolve }) => {
 	const lang = event.url.searchParams.get('lang') ?? '';
 	const locale = isLocale(lang) ? (lang as Locales) : getPreferredLocale(event);
 
@@ -24,7 +24,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	event.locals.locale = locale;
 	return resolve(event, { transformPageChunk: ({ html }) => html.replace('%lang%', locale) });
-};
+}) satisfies Handle;
 
 const getPreferredLocale = ({ request }: RequestEvent) => {
 	const acceptLanguageDetector = initAcceptLanguageHeaderDetector(request);

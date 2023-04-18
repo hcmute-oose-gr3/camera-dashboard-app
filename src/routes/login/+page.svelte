@@ -3,17 +3,16 @@
 	import LL from '~/i18n/i18n-svelte';
 	import Button from '~/lib/components/PrimaryButton.svelte';
 	import Input from '~/lib/components/Input.svelte';
-	import type { APIDataResponse, APIResponse } from '~/lib/models/api-response';
+	import type { ApiDataResponse, ApiResponse } from '~/lib/models/api-response';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import Spinner from '~/lib/components/Spinner.svelte';
-	import { APIRoutes } from '~/lib/utils/api-routes';
+	import { ApiRoutes } from '~/lib/utils/api-routes';
 	import { onMount } from 'svelte';
 	import { z } from 'zod';
 	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
-	import Logo from '~/lib/components/Logo.svelte';
 	import LogoType from '~/lib/components/LogoType.svelte';
 
 	type FormFields = 'email' | 'password';
@@ -22,7 +21,7 @@
 	let logging = false;
 	let canSubmit = false;
 	let fieldErrors: Partial<Record<FormFields, string>> = {};
-	let formResponse: APIResponse | undefined;
+	let formResponse: ApiResponse | undefined;
 	const inputElements: Record<FormFields, HTMLInputElement> = {} as any;
 
 	onMount(() => {
@@ -65,7 +64,7 @@
 			});
 
 		formResponse = json;
-		if (instanceOf<APIDataResponse>(json, 'data')) {
+		if (instanceOf<ApiDataResponse>(json, 'data')) {
 			canSubmit = false;
 			goto('/');
 		}
@@ -93,7 +92,7 @@
 			<form
 				class="text-left flex flex-col gap-y-6 min-w-[400px] bg-fill-100 border-fill-300 border-[1px] rounded-lg p-4"
 				method="post"
-				action={APIRoutes.LOGIN}
+				action={ApiRoutes.LOGIN}
 				on:submit|preventDefault={submit}
 			>
 				<div class="flex flex-col gap-y-1">

@@ -1,7 +1,7 @@
 import { loadAllLocales } from './i18n/i18n-util.sync';
 import dotenv from 'dotenv';
 import { DbClient } from './lib/server/services/db-client';
-import { APIResponder } from './lib/server/services/api-responder';
+import { ApiResponder } from './lib/server/services/api-responder';
 
 loadAllLocales();
 dotenv.config();
@@ -14,7 +14,7 @@ DbClient.useOptions({
 	}
 });
 
-APIResponder.useOptions({ apiVersion: '1.0' });
+ApiResponder.useOptions({ apiVersion: '1.0' });
 
 const instance = DbClient.instance;
 

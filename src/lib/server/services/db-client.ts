@@ -1,4 +1,4 @@
-import { Db, MongoClient, type MongoClientOptions } from 'mongodb';
+import { type Db, MongoClient, type MongoClientOptions } from 'mongodb';
 import type User from '~/lib/models/user';
 
 interface DbClientOptions {
