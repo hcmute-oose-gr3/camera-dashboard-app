@@ -46,8 +46,8 @@
 			fieldErrors = {};
 			result.error.issues.forEach((iss) => {
 				fieldErrors[iss.path[0] as FormFields] = iss.message;
-				inputElements[iss.path[0] as FormFields].focus();
 			});
+			inputElements[result.error.issues[0].path[0] as FormFields].focus();
 			logging = false;
 			return;
 		}
@@ -102,6 +102,7 @@
 						name="email"
 						type="email"
 						spellcheck={false}
+						novalidate
 						placeholder={$LL.login.email.placeholder()}
 						class="transition"
 						label={$LL.login.email.label()}
