@@ -18,8 +18,12 @@
 <input
 	bind:this={input}
 	{...$$restProps}
-	class={'active:scale-[0.99] active:ring-0 active:ring-offset-0 ease-in' +
-		(accent ? `input-${accent}` : '')}
+	class="px-2 py-2 rounded-md bg-fill-100 border-fill-300 border-[1px]
+	ease-in transition
+	placeholder:text-fill-300
+	active:scale-[0.99] active:ring-0 active:ring-offset-0
+	focus:outline-none focus:ring focus:ring-offset-1 focus:ring-primary-500
+	{accent ? `input-${accent}` : ''}"
 />
 <div
 	class="overflow-hidden transition-[max-height opacity transform] duration-300 ease-in-out
@@ -41,10 +45,10 @@
 	}
 
 	.input-negative {
-		@apply border-negative-700;
+		@apply border-negative-700 placeholder-negative-700/60;
 	}
 
 	.input-positive {
-		@apply border-positive-700;
+		@apply border-positive-700 placeholder-positive-700/60;
 	}
 </style>

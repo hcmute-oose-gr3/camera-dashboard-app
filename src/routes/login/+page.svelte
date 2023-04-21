@@ -14,6 +14,7 @@
 	import type { PageData } from './$types';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 	import LogoType from '~/lib/components/LogoType.svelte';
+	import Link from '~/lib/components/Link.svelte';
 
 	type FormFields = 'email' | 'password';
 
@@ -76,17 +77,17 @@
 		<h1 class="uppercase text-h1 text-8xl text-primary-700">{$LL.login.oops()}</h1>
 		<h3 class="mt-4">{$LL.login.alreadyLoggedIn()}</h3>
 		<div class="mt-4">
-			<a href="/">
+			<Link href="/">
 				<Button type="button">{$LL.login.back()}</Button>
-			</a>
-			<a href="/logout" class="ml-4">
+			</Link>
+			<Link href="/logout" class="ml-4">
 				<SecondaryButton type="button">{$LL.login.logout()}</SecondaryButton>
-			</a>
+			</Link>
 		</div>
 	</section>
 {:else}
 	<div class="w-max mx-auto">
-		<LogoType class="mt-16" />
+		<LogoType class="mt-16" fill="fill-primary-700" />
 		<h3 class="text-center mt-6 text-fill-600">{$LL.login.header()}</h3>
 		<div class="mx-auto w-min mt-4">
 			<form
@@ -111,9 +112,9 @@
 					/>
 				</div>
 				<div class="flex flex-col gap-y-1 relative">
-					<a href="/reset-password" class="absolute right-0 top-0">
+					<Link href="/reset-password" class="absolute right-0 top-0">
 						{$LL.login.forgotPassword()}
-					</a>
+					</Link>
 					<Input
 						bind:input={inputElements.password}
 						id="password"
@@ -150,7 +151,7 @@
 			</form>
 			<div class="bg-fill-200/20 border-fill-300 border-[1px] rounded-md p-4 mt-4">
 				<span>{$LL.login.noAccount()}</span>{' '}
-				<a href="/signup">{$LL.login.signUp()}</a>.
+				<Link href="/signup">{$LL.login.signUp()}</Link>.
 			</div>
 
 			{#if formResponse}
