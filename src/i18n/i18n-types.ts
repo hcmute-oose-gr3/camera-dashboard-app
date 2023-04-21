@@ -103,6 +103,70 @@ type RootTranslation = {
 			 */
 			updatedAt: RequiredParams<'date|shortDate'>
 		}
+	signup: {
+		/**
+		 * S​i​g​n​ ​u​p​ ​f​o​r​ ​a​ ​c​a​m​e​r​a​ ​d​a​s​h​b​o​a​r​d
+		 */
+		header: string
+		password: {
+			/**
+			 * P​a​s​s​w​o​r​d
+			 */
+			label: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+			 */
+			placeholder: string
+			/**
+			 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​b​e​ ​a​t​ ​l​e​a​s​t​ ​{​l​e​n​g​t​h​}​ ​c​h​a​r​a​c​t​e​r​s​ ​l​o​n​g
+			 * @param {number} length
+			 */
+			min: RequiredParams<'length'>
+		}
+		confirmpassword: {
+			/**
+			 * C​o​n​f​i​r​m​ ​p​a​s​s​w​o​r​d
+			 */
+			label: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​c​o​n​f​i​r​m​p​a​s​s​w​o​r​d
+			 */
+			placeholder: string
+			/**
+			 * P​a​s​s​w​o​r​d​ ​a​n​d​ ​c​o​n​f​i​r​m​ ​p​a​s​s​w​o​r​d​ ​d​o​ ​n​o​t​ ​m​a​t​c​h
+			 */
+			equals: string
+		}
+		email: {
+			/**
+			 * E​m​a​i​l
+			 */
+			label: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			placeholder: string
+			/**
+			 * E​m​a​i​l​ ​i​s​ ​i​n​v​a​l​i​d
+			 */
+			regex: string
+		}
+		/**
+		 * S​i​g​n​ ​u​p
+		 */
+		signup: string
+		/**
+		 * A​l​r​e​a​d​y​ ​h​a​v​e​ ​a​n​ ​a​c​c​o​u​n​t​?
+		 */
+		haveAccount: string
+		/**
+		 * L​o​g​ ​i​n
+		 */
+		login: string
+		/**
+		 * Y​o​u​ ​h​a​v​e​ ​s​i​g​n​e​d​ ​i​n​ ​s​u​c​c​e​s​s​f​u​l​l​y
+		 */
+		success: string
 	}
 }
 
@@ -194,6 +258,69 @@ export type TranslationFunctions = {
 			 */
 			updatedAt: (arg: { date: Date }) => LocalizedString
 		}
+	signup: {
+		/**
+		 * Sign up for a camera dashboard
+		 */
+		header: () => LocalizedString
+		password: {
+			/**
+			 * Password
+			 */
+			label: () => LocalizedString
+			/**
+			 * Enter your password
+			 */
+			placeholder: () => LocalizedString
+			/**
+			 * Password must be at least {length} characters long
+			 */
+			min: (arg: { length: number }) => LocalizedString
+		}
+		confirmpassword: {
+			/**
+			 * Confirm password
+			 */
+			label: () => LocalizedString
+			/**
+			 * Enter your confirmpassword
+			 */
+			placeholder: () => LocalizedString
+			/**
+			 * Password and confirm password do not match
+			 */
+			equals: () => LocalizedString
+		}
+		email: {
+			/**
+			 * Email
+			 */
+			label: () => LocalizedString
+			/**
+			 * Enter your email
+			 */
+			placeholder: () => LocalizedString
+			/**
+			 * Email is invalid
+			 */
+			regex: () => LocalizedString
+		}
+		/**
+		 * Sign up
+		 */
+		signup: () => LocalizedString
+		/**
+		 * Already have an account?
+		 */
+		haveAccount: () => LocalizedString
+		/**
+		 * Log in
+		 */
+		login: () => LocalizedString
+		/**
+		 * You have signed in successfully
+		 */
+		success: () => LocalizedString
 	}
 }
 

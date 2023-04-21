@@ -31,6 +31,28 @@ const vi = {
 			createdAt: 'Ngày tạo: {date|shortDate}',
 			updatedAt: 'Chỉnh sửa cuối: {date|shortDate}'
 		}
+	},
+	signup: {
+		header: 'Đăng ký tài khoản camera dashboard',
+		password: {
+			label: 'Mật Khẩu',
+			placeholder: 'Nhập mật khẩu',
+			min: 'Mật khẩu cần có ít nhất {length} ký tự'
+		},
+		confirmpassword: {
+			label: 'Xác nhật mật khẩu',
+			placeholder: 'Nhập lại mật khẩu',
+			equals: 'Mật khẩu xác nhận không trùng khớp'
+		},
+		email: {
+			label: 'Email',
+			placeholder: 'Nhập email',
+			regex: 'Email không hợp lệ'
+		},
+		signup: 'Đăng ký',
+		haveAccount: 'Đã có tài khoản',
+		login: 'Đăng nhập',
+		success: 'Bạn đã đăng ký thành công'
 	}
 } satisfies Translation;
 
