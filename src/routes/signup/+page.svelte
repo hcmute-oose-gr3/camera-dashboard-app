@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { quadOut, sineIn } from 'svelte/easing';
-	import { object, string, ValidationError, type InferType } from 'yup';
 	import LL from '~/i18n/i18n-svelte';
 	import Input from '~/lib/components/Input.svelte';
 	import PrimaryButton from '~/lib/components/PrimaryButton.svelte';
@@ -35,6 +34,9 @@
 			password: z.string().min(6, $LL.signup.password.min({ length: 6 })),
 			confirmpassword: z.string().min(6, $LL.signup.confirmpassword.equals()),
 			email: z.string().email()
+		}).refine(data => data.confirmpassword === data.password, {
+			path: ['confirmpassword'],
+			message: $LL.signup.confirmpassword.equals()
 		});
 		const result = await schema.safeParseAsync({
 			email: data.get('email'),
@@ -45,8 +47,8 @@
 			fieldErrors = {};
 			result.error.issues.forEach((iss) => {
 				fieldErrors[iss.path[0] as FormFields] = iss.message;
-				inputElements[iss.path[0] as FormFields].focus();
 			});
+			inputElements[result.error.issues[0].path[0] as FormFields].focus();
 			signing = false;
 			return;
 		}
