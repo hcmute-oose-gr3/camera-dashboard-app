@@ -103,9 +103,8 @@
 						name="email"
 						type="email"
 						spellcheck={false}
-						novalidate
+						novalidate="true"
 						placeholder={$LL.login.email.placeholder()}
-						class="transition"
 						label={$LL.login.email.label()}
 						caption={fieldErrors?.email}
 						accent={fieldErrors?.email ? 'negative' : undefined}
