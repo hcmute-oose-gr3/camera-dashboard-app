@@ -14,7 +14,7 @@ const vi = {
 		password: {
 			label: 'Mật khẩu',
 			placeholder: 'Nhập mật khẩu',
-			min: 'Mật khẩu cần có ít nhất {length} ký tự'
+			empty: 'Mật khẩu không được trống'
 		},
 		login: 'Đăng nhập',
 		forgotPassword: 'Quên mật khẩu?',

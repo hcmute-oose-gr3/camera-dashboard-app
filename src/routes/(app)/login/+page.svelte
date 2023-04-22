@@ -36,7 +36,7 @@
 		const data = new FormData(this);
 		const schema = z.object({
 			email: z.string().trim().email($LL.login.email.regex()),
-			password: z.string().min(6, $LL.login.password.min({ length: 6 }))
+			password: z.string().nonempty($LL.login.password.empty())
 		});
 
 		const result = await schema.safeParseAsync({
@@ -67,7 +67,7 @@
 		formResponse = json;
 		if (instanceOf<ApiDataResponse>(json, 'data')) {
 			canSubmit = false;
-			goto('/');
+			goto('/dashboard');
 		}
 	}
 </script>

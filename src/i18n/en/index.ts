@@ -14,7 +14,7 @@ const en = {
 		password: {
 			label: 'Password',
 			placeholder: 'Enter your password',
-			min: 'Password must be at least {length:number} characters long'
+			empty: 'Password must be not be empty'
 		},
 		login: 'Sign in',
 		forgotPassword: 'Forgot password?',
