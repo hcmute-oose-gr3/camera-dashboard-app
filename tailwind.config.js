@@ -1,10 +1,29 @@
+const sansSerifStack = [
+	'Frutiger',
+	"'Frutiger Linotype'",
+	'Univers',
+	'Calibri',
+	"'Gill Sans'",
+	"'Gill Sans MT'",
+	"'Myriad Pro'",
+	'Myriad',
+	"'DejaVu Sans Condensed'",
+	"'Liberation Sans'",
+	"'Nimbus Sans L'",
+	'Tahoma',
+	'Geneva',
+	"'Helvetica Neue'",
+	'Helvetica',
+	'Arial',
+	'sans-serif'
+];
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
 			fontSize: {
-				// 16px based
 				h1: ['1.8462rem', { fontWeight: 'bold' }],
 				h2: ['1.5385rem', { fontWeight: 'bold' }],
 				h3: ['1.2307rem', { fontWeight: 'bold' }],
@@ -16,19 +35,10 @@ export default {
 				'icon-base': ['1.5rem'],
 				'icon-small': ['1rem'],
 				'icon-large': ['2.5rem']
-	
-				// 13px based
-				// h1: ['1.5rem', { fontWeight: 'bold' }],
-				// h2: ['1.25rem', { fontWeight: 'bold' }],
-				// h3: ['1rem', { fontWeight: 'bold' }],
-				// h4: ['0.875rem', { fontWeight: 'bold' }],
-				// h5: ['0.8125rem', { fontWeight: 'bold' }],
-				// p: ['0.8125rem'],
-				// button: ['0.875rem', { fontWeight: 'bold' }],
-				// a: ['0.8125rem', { fontWeight: 'bold' }],
 			},
 			fontFamily: {
-				body: ["'IBM Plex Sans'", 'sans-serif']
+				display: ['Ysabeau', ...sansSerifStack],
+				body: ["'Work Sans'", ...sansSerifStack]
 			},
 			colors: {
 				primary: {
