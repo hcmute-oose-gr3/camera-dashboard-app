@@ -25,6 +25,12 @@ const en = {
 		alreadyLoggedIn: 'It seems like you have already logged in.',
 		back: 'Back',
 		logout: 'Log out'
+	},
+	dashboard: {
+		card: {
+			createdAt: 'Created date: {date:Date|shortDate}',
+			updatedAt: 'Last modified date: {date:Date|shortDate}'
+		}
 	}
 } satisfies BaseTranslation;
 
