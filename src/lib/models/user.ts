@@ -1,5 +1,11 @@
-export default interface User {
+import type { Document, ObjectId } from 'mongodb';
+
+export default interface User extends Document, Partial<UserData> {
 	email: string;
 	password: string;
-	sessionToken?: string;
+}
+
+interface UserData {
+	dashboards: ObjectId[];
+	sessionToken: string;
 }
