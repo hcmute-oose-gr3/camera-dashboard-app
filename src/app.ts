@@ -2,9 +2,12 @@ import { loadAllLocales } from './i18n/i18n-util.sync';
 import dotenv from 'dotenv';
 import { DbClient } from './lib/server/services/db-client';
 import { ApiResponder } from './lib/server/services/api-responder';
+import { UserRepository } from './lib/server/repositories/user-repository';
 
 loadAllLocales();
 dotenv.config();
+
+ApiResponder.useOptions({ apiVersion: '1.0' });
 
 DbClient.useOptions({
 	url: process.env.MONGO_URI,
@@ -13,8 +16,7 @@ DbClient.useOptions({
 		monitorCommands: process.env.NODE_ENV === 'development'
 	}
 });
-
-ApiResponder.useOptions({ apiVersion: '1.0' });
+UserRepository.useOptions({ dbClient: DbClient.instance });
 
 const instance = DbClient.instance;
 
