@@ -16,6 +16,7 @@
 	import LogoType from '~/lib/components/LogoType.svelte';
 	import Link from '~/lib/components/Link.svelte';
 	import type User from '~/lib/models/user';
+	import Icon from '~/lib/components/Icon.svelte';
 
 	type FormFields = 'email' | 'password';
 
@@ -137,13 +138,12 @@
 							>
 								<Spinner class="w-full h-full" />
 							</div>
-							<p
-								class="transition duration-200 material-symbols-rounded text-icon-base ease-in-out {logging
+							<Icon
+								name="ArrowRightOnRectangle"
+								class="transition duration-200 text-icon-base ease-in-out {logging
 									? 'scale-0 opacity-0'
 									: ''}"
-							>
-								login
-							</p>
+							/>
 						</div>
 						{$LL.login.login()}
 					</div>
