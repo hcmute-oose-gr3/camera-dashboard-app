@@ -8,6 +8,7 @@ declare global {
 			locale: Locales;
 			user?: {
 				_id: string;
+				email: string;
 			};
 		}
 		// interface PageData {}
@@ -18,6 +19,9 @@ declare global {
 		interface ProcessEnv {
 			MONGO_URI: string;
 			NODE_ENV: 'production' | 'development';
+			CLOUDINARY_NAME: string;
+			CLOUDINARY_API_KEY: string;
+			CLOUDINARY_API_SECRET: string;
 		}
 	}
 }
