@@ -1,11 +1,12 @@
 import { type Db, MongoClient, type MongoClientOptions } from 'mongodb';
+import type { Dashboard } from '~/lib/models/dashboard';
 import type User from '~/lib/models/user';
 
 interface DbClientOptions {
 	url: string;
 	dbName: string;
 	mongoClientOptions?: MongoClientOptions;
-};
+}
 
 export class DbClient {
 	private static _instance?: DbClient;
@@ -26,7 +27,7 @@ export class DbClient {
 	public static get instance() {
 		if (!this._instance) {
 			if (!this._options) {
-				throw new Error('DbClient needs an options to construct its instance')
+				throw new Error('DbClient needs an options to construct its instance');
 			}
 			this._instance = new DbClient(this._options);
 		}
@@ -43,8 +44,13 @@ export class DbClient {
 }
 
 class Collections {
-	constructor(private db: Db) { }
+	constructor(private db: Db) {}
+
 	public get users() {
 		return this.db.collection<User>('users');
+	}
+
+	public get dashboards() {
+		return this.db.collection<Dashboard>('dashboards');
 	}
 }
