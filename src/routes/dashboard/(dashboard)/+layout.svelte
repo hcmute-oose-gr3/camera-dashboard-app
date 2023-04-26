@@ -11,25 +11,25 @@
 
 	export let data: LayoutData;
 
-	let entries = [
+	let entries: NavigationEntryData[] = [
 		{
 			text: $LL.dashboard.entry.dashboard(),
 			href: `/dashboard/${$page.params.id}`,
-			symbol: 'dashboard'
+			icon: 'RectangleGroup'
 		},
 		{
 			text: $LL.dashboard.entry.camera(),
 			href: `/dashboard/${$page.params.id}/camera`,
-			symbol: 'videocam'
+			icon: 'VideoCamera'
 		}
 	];
 	let footerEntries = [
 		{
 			text: $LL.dashboard.entry.logout(),
 			href: `/logout`,
-			symbol: 'logout'
+			icon: 'ArrowLeftOnRectangle'
 		}
-	];
+	] satisfies NavigationEntryData[];
 	let currentEntry: NavigationEntryData | undefined;
 	let lastIndex: number = -1;
 	let delta = 1;

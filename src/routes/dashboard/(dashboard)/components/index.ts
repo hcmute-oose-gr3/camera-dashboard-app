@@ -1,7 +1,9 @@
+import type { IconName } from 'svelted-heroicons';
+
 export interface NavigationEntryData {
 	text: string;
 	href: string;
-	symbol: string;
+	icon: IconName;
 }
 
 export interface TopRightData {

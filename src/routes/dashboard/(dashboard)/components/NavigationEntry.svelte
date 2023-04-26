@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { Motion } from 'svelte-motion';
 	import { motionTransition, type NavigationEntryData } from '.';
+	import Icon from '~/lib/components/Icon.svelte';
 
 	export let data: NavigationEntryData;
 
@@ -28,7 +29,7 @@
 			class="py-1.5 px-2 flex items-center gap-x-2
 			{active ? 'cursor-default' : ''}"
 		>
-			<span class="peer z-50 material-symbols-rounded"> {data.symbol} </span>
+			<Icon class="peer z-50" name={data.icon} />
 			<div
 				class="hidden peer-hover:block lg:peer-hover:hidden bg-fill-1000 text-fill-100 px-2 py-1 rounded absolute top-1/2 text-xs left-full -translate-y-1/2 ml-1"
 			>
