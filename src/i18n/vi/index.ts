@@ -25,6 +25,12 @@ const vi = {
 		alreadyLoggedIn: 'Có vẻ như bạn đã đăng nhập trước đó.',
 		back: 'Quay lại',
 		logout: 'Đăng xuất'
+	},
+	dashboard: {
+		card: {
+			createdAt: 'Ngày tạo: {date|shortDate}',
+			updatedAt: 'Chỉnh sửa cuối: {date|shortDate}'
+		}
 	}
 } satisfies Translation;
 

@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit';
 import httpStatus from 'http-status';
 import type { ApiDataResponse, ApiErrorResponse } from '~/lib/models/api-response';
 
-type APIDataResponseWithoutVersion = Omit<ApiDataResponse, 'apiVersion'>;
+type APIDataResponseWithoutVersion<T> = Omit<ApiDataResponse<T>, 'apiVersion'>;
 type APIErrorResponseWithoutVersion = Omit<ApiErrorResponse, 'apiVersion'>;
 
 interface ApiResponderOptions {
@@ -41,8 +41,11 @@ export class ApiResponder {
 		}
 		return init;
 	}
-	public data(response: APIDataResponseWithoutVersion, init: number | ResponseInit = {}) {
-		return json(Object.assign({ apiVersion: this._options.apiVersion }, response), this.makeResponseInit(init));
+	public data<T>(response: APIDataResponseWithoutVersion<T>, init: number | ResponseInit = {}) {
+		return json(
+			Object.assign({ apiVersion: this._options.apiVersion }, response),
+			this.makeResponseInit(init)
+		);
 	}
 	public error(response: APIErrorResponseWithoutVersion, headers?: HeadersInit) {
 		return json(
@@ -51,4 +54,3 @@ export class ApiResponder {
 		);
 	}
 }
-
