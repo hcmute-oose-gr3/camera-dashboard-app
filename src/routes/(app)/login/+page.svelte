@@ -15,6 +15,7 @@
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 	import LogoType from '~/lib/components/LogoType.svelte';
 	import Link from '~/lib/components/Link.svelte';
+	import type User from '~/lib/models/user';
 
 	type FormFields = 'email' | 'password';
 
@@ -65,7 +66,7 @@
 			});
 
 		formResponse = json;
-		if (instanceOf<ApiDataResponse>(json, 'data')) {
+		if (instanceOf<ApiDataResponse<User>>(json, 'data')) {
 			canSubmit = false;
 			goto('/dashboard');
 		}
