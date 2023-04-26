@@ -32,6 +32,11 @@ const en = {
 		}
 	},
 	dashboard: {
+		entry: {
+			dashboard: 'Dashboard',
+			camera: 'Camera',
+			logout: 'Sign out'
+		},
 		card: {
 			createdAt: 'Created date: {date:Date|shortDate}',
 			updatedAt: 'Last modified date: {date:Date|shortDate}'

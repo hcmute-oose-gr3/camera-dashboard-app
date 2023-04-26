@@ -105,6 +105,20 @@ type RootTranslation = {
 		}
 	}
 	dashboard: {
+		entry: {
+			/**
+			 * D​a​s​h​b​o​a​r​d
+			 */
+			dashboard: string
+			/**
+			 * C​a​m​e​r​a
+			 */
+			camera: string
+			/**
+			 * S​i​g​n​ ​o​u​t
+			 */
+			logout: string
+		}
 		card: {
 			/**
 			 * C​r​e​a​t​e​d​ ​d​a​t​e​:​ ​{​d​a​t​e​|​s​h​o​r​t​D​a​t​e​}
@@ -277,6 +291,20 @@ export type TranslationFunctions = {
 		}
 	}
 	dashboard: {
+		entry: {
+			/**
+			 * Dashboard
+			 */
+			dashboard: () => LocalizedString
+			/**
+			 * Camera
+			 */
+			camera: () => LocalizedString
+			/**
+			 * Sign out
+			 */
+			logout: () => LocalizedString
+		}
 		card: {
 			/**
 			 * Created date: {date|shortDate}
