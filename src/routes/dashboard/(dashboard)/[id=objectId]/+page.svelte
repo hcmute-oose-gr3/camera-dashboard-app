@@ -1,12 +1,23 @@
 <script lang="ts">
-	import LL from '~/i18n/i18n-svelte';
+	import type { PageData } from './$types';
+	import Video from './components/Video.svelte';
+
+	export let data: PageData;
 </script>
 
-<div class="w-96 h-96 bg-yellow-500" />
-
-{$LL.loremIpsum()}
-
-<video autoplay preload="none" class="aspect-video rounded-2xl shadow-lg" loop>
-	<source src="http://localhost:5173/api/v1/camera" type="video/mp4" />
-	<track kind="captions" />
-</video>
+<div class="grid grid-cols-3 gap-6 w-full">
+	{#each data.cameras as camera, i (i)}
+		<a
+			href="{data.url.pathname}/camera/{camera._id}"
+			class="block hover:scale-[1.03] transition-transform ease-in-out"
+		>
+			<Video
+				src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4"
+				type="video/mp4"
+				autoplay
+				loop
+				muted
+			/>
+		</a>
+	{/each}
+</div>
