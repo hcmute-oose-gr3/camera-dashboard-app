@@ -45,6 +45,7 @@ export class UserRepository {
 					}
 				},
 				{ $unwind: '$dashboardsInfo' },
+				{ $project: { dashboardsInfo: { cameras: 0 } } },
 				{
 					$replaceRoot: {
 						newRoot: '$dashboardsInfo'
