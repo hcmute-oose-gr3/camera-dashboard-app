@@ -31,7 +31,8 @@
 		>
 			<Icon class="peer z-50" name={data.icon} />
 			<div
-				class="hidden peer-hover:block lg:peer-hover:hidden bg-fill-1000 text-fill-100 px-2 py-1 rounded absolute top-1/2 text-xs left-full -translate-y-1/2 ml-1"
+				class="hidden bg-primary-600 w-max rounded-l-none text-fill-100 px-2 py-1 rounded absolute text-xs left-full ml-3
+				peer-hover:block lg:peer-hover:hidden"
 			>
 				{data.text}
 			</div>
