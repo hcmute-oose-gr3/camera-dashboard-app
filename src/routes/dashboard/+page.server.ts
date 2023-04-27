@@ -8,7 +8,11 @@ export const load = (async ({ locals }) => {
 			.getDashboard(new ObjectId(locals.user!._id))
 			.then((v) =>
 				v.map((e) =>
-					Object.assign(e, { _id: e._id.toHexString(), owner: e.owner.toHexString() })
+					Object.assign(e, {
+						_id: e._id.toHexString(),
+						owner: e.owner.toHexString(),
+						createdAt: e._id.getTimestamp()
+					})
 				)
 			)
 	};
