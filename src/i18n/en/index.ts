@@ -41,7 +41,7 @@ const en = {
 		},
 		confirmpassword: {
 			label: 'Confirm password',
-			placeholder: 'Enter your confirmpassword',
+			placeholder: 'Enter your password again',
 			equals: 'Password and confirm password do not match'
 		},
 		email: {

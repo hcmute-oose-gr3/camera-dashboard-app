@@ -35,7 +35,7 @@ const vi = {
 	signup: {
 		header: 'Đăng ký tài khoản camera dashboard',
 		password: {
-			label: 'Mật Khẩu',
+			label: 'Mật khẩu',
 			placeholder: 'Nhập mật khẩu',
 			min: 'Mật khẩu cần có ít nhất {length} ký tự'
 		},
@@ -50,7 +50,7 @@ const vi = {
 			regex: 'Email không hợp lệ'
 		},
 		signup: 'Đăng ký',
-		haveAccount: 'Đã có tài khoản',
+		haveAccount: 'Đã có tài khoản?',
 		login: 'Đăng nhập',
 		success: 'Bạn đã đăng ký thành công'
 	}

@@ -103,6 +103,7 @@ type RootTranslation = {
 			 */
 			updatedAt: RequiredParams<'date|shortDate'>
 		}
+	}
 	signup: {
 		/**
 		 * S​i​g​n​ ​u​p​ ​f​o​r​ ​a​ ​c​a​m​e​r​a​ ​d​a​s​h​b​o​a​r​d
@@ -258,6 +259,7 @@ export type TranslationFunctions = {
 			 */
 			updatedAt: (arg: { date: Date }) => LocalizedString
 		}
+	}
 	signup: {
 		/**
 		 * Sign up for a camera dashboard
