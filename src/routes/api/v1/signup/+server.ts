@@ -1,7 +1,6 @@
 import httpStatus from 'http-status';
 import bcrypt from 'bcrypt';
 import { DbClient } from '~/lib/server/services/db-client.js';
-import type { RequestHandler } from './$types';
 import { ApiResponder } from '~/lib/server/services/api-responder';
 
 export const POST = async (e) => {
@@ -17,11 +16,19 @@ export const POST = async (e) => {
 			}
 		});
 	}
-	const existuser = await DbClient.instance.collections.users.findOne(
+	if(password != cfpassword) {
+		return ApiResponder.instance.error({
+			error: {
+				code: httpStatus.BAD_REQUEST,
+				message:'Password and confirm password do not match'
+			}
+		});
+	}
+	const count = await DbClient.instance.collections.users.countDocuments(
 		{ email:  email},
-		{ projection: { email: 1 }, limit: 1 }
+		{ limit: 1 }
 	);
-	if (existuser) {
+	if (count) {
 		return ApiResponder.instance.error({
 			error: {
 				code: httpStatus.UNAUTHORIZED,
@@ -29,23 +36,15 @@ export const POST = async (e) => {
 			}
 		});
 	}
-    if(password != cfpassword) {
-        return ApiResponder.instance.error({
-			error: {
-				code: httpStatus.BAD_REQUEST,
-				message:'Password and confirm password do not match'
-			}
-		});
-    }
 	
-    const hashPassword = await bcrypt.hash(password.toString(), 10);
+    const hashPassword = await bcrypt.hash(password.toString(), 12);
     
-    const user = await DbClient.instance.collections.users.insertOne({
+    const response = await DbClient.instance.collections.users.insertOne({
         email: email.valueOf().toString(),
         password: hashPassword,
     })
 	
-	if (!user) {
+	if (!response) {
 		return ApiResponder.instance.error({
 			error: {
 				code: httpStatus.UNAUTHORIZED,
@@ -54,5 +53,5 @@ export const POST = async (e) => {
 		});
 	}
 
-	return ApiResponder.instance.data({ data: user }, { status: httpStatus.OK });
+	return ApiResponder.instance.data({ data: response }, { status: httpStatus.OK });
 };
