@@ -1,8 +1,14 @@
-import type { Document, ObjectId } from 'mongodb';
+import type { Document, ObjectId, WithId } from 'mongodb';
 
 export interface Dashboard extends Document {
-	createdAt: Date;
 	updatedAt: Date;
 	owner: ObjectId;
 	name: string;
+	cameras?: WithId<Camera>[];
+}
+
+interface Camera {
+	updatedAt: Date;
+	name: string;
+	url: string;
 }
