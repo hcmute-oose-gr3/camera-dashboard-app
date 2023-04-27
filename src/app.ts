@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { DbClient } from './lib/server/services/db-client';
 import { ApiResponder } from './lib/server/services/api-responder';
 import { UserRepository } from './lib/server/repositories/user-repository';
+import { DashboardRepository } from './lib/server/repositories/dashboard-repository';
 
 loadAllLocales();
 dotenv.config();
@@ -17,6 +18,7 @@ DbClient.useOptions({
 	}
 });
 UserRepository.useOptions({ dbClient: DbClient.instance });
+DashboardRepository.useOptions({ dbClient: DbClient.instance });
 
 const instance = DbClient.instance;
 
