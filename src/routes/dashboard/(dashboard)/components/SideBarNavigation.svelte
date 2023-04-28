@@ -9,9 +9,9 @@
 </script>
 
 <section
-	class="fixed h-screen w-full max-w-[4rem] lg:max-w-[13rem] transition-[max-width] bg-primary-600 px-3 py-6 rounded-tr-xl rounded-br-xl flex flex-col justify-start"
+	class="fixed h-screen w-full max-w-[4rem] lg:max-w-[13rem] transition-[max-width] bg-fill-100 px-3 py-6 flex flex-col justify-start border-r-2 border-r-fill-200"
 >
-	<Logo class="w-6 h-6 mx-auto lg:mx-0 lg:w-12 lg:h-12 fill-primary-100" />
+	<Logo class="w-6 h-6 mx-auto lg:mx-0 lg:w-12 lg:h-12 fill-primary-700" />
 	<div class="mt-6 flex flex-col justify-between h-full">
 		<AnimateSharedLayout>
 			<nav>
