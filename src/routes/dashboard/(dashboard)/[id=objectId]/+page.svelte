@@ -17,6 +17,7 @@
 				autoplay
 				loop
 				muted
+				oncanplay="this.muted=true"
 			/>
 		</a>
 	{/each}
