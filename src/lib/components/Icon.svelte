@@ -5,9 +5,9 @@
 
 	let promise: Promise<typeof SvelteComponent>;
 	onMount(() => {
-		promise = import(`../../../node_modules/svelted-heroicons/dist/solid/${name}.svelte`).then(
-			(v) => v.default
-		);
+		promise = import(
+			`../../../node_modules/svelted-heroicons/dist/outline/${name}.svelte`
+		).then((v) => v.default);
 	});
 </script>
 
