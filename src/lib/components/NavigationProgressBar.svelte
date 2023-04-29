@@ -35,7 +35,11 @@
 	$: width = $progress * (globalThis?.innerWidth || 0);
 </script>
 
-<div class="w-screen absolute transition duration-200 {hidden ? 'opacity-0' : 'opacity-100'}">
+<div
+	class="w-screen absolute top-0 left-0 transition duration-200 {hidden
+		? 'opacity-0'
+		: 'opacity-100'}"
+>
 	<div class="w-full h-1 bg-primary-400" />
 	<div class="fixed inset-0 h-1 bg-primary-700" style="width: {width}px;" />
 </div>
