@@ -24,7 +24,12 @@ const en = {
 		oops: 'Oops!',
 		alreadyLoggedIn: 'It seems like you have already logged in.',
 		back: 'Back',
-		logout: 'Log out'
+		logout: 'Log out',
+		error: {
+			missingCredentials: 'Missing login credentials',
+			emailNotFound: 'Email or password is incorrect',
+			wrongPassword: 'Email or password is incorrect'
+		}
 	},
 	dashboard: {
 		card: {

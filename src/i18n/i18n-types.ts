@@ -89,6 +89,20 @@ type RootTranslation = {
 		 * L​o​g​ ​o​u​t
 		 */
 		logout: string
+		error: {
+			/**
+			 * M​i​s​s​i​n​g​ ​l​o​g​i​n​ ​c​r​e​d​e​n​t​i​a​l​s
+			 */
+			missingCredentials: string
+			/**
+			 * E​m​a​i​l​ ​o​r​ ​p​a​s​s​w​o​r​d​ ​i​s​ ​i​n​c​o​r​r​e​c​t
+			 */
+			emailNotFound: string
+			/**
+			 * E​m​a​i​l​ ​o​r​ ​p​a​s​s​w​o​r​d​ ​i​s​ ​i​n​c​o​r​r​e​c​t
+			 */
+			wrongPassword: string
+		}
 	}
 	dashboard: {
 		card: {
@@ -130,7 +144,7 @@ type RootTranslation = {
 			 */
 			label: string
 			/**
-			 * E​n​t​e​r​ ​y​o​u​r​ ​c​o​n​f​i​r​m​p​a​s​s​w​o​r​d
+			 * E​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​ ​a​g​a​i​n
 			 */
 			placeholder: string
 			/**
@@ -247,6 +261,20 @@ export type TranslationFunctions = {
 		 * Log out
 		 */
 		logout: () => LocalizedString
+		error: {
+			/**
+			 * Missing login credentials
+			 */
+			missingCredentials: () => LocalizedString
+			/**
+			 * Email or password is incorrect
+			 */
+			emailNotFound: () => LocalizedString
+			/**
+			 * Email or password is incorrect
+			 */
+			wrongPassword: () => LocalizedString
+		}
 	}
 	dashboard: {
 		card: {
@@ -285,7 +313,7 @@ export type TranslationFunctions = {
 			 */
 			label: () => LocalizedString
 			/**
-			 * Enter your confirmpassword
+			 * Enter your password again
 			 */
 			placeholder: () => LocalizedString
 			/**

@@ -24,7 +24,12 @@ const vi = {
 		oops: 'Oops!',
 		alreadyLoggedIn: 'Có vẻ như bạn đã đăng nhập trước đó.',
 		back: 'Quay lại',
-		logout: 'Đăng xuất'
+		logout: 'Đăng xuất',
+		error: {
+			missingCredentials: 'Thiếu thông tin đăng nhập',
+			emailNotFound: 'Email hoặc mật khẩu không chính xác',
+			wrongPassword: 'Email hoặc mật khẩu không chính xác'
+		}
 	},
 	dashboard: {
 		card: {
