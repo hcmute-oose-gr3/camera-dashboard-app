@@ -3,7 +3,7 @@
 	import LL from '~/i18n/i18n-svelte';
 	import Button from '~/lib/components/PrimaryButton.svelte';
 	import Input from '~/lib/components/Input.svelte';
-	import type { ApiDataResponse, ApiResponse } from '~/lib/models/api-response';
+	import type { ApiDataResponse, ApiErrorResponse, ApiResponse } from '~/lib/models/api-response';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import Spinner from '~/lib/components/Spinner.svelte';
@@ -21,14 +21,13 @@
 	type FormFields = 'email' | 'password';
 
 	export let data: PageData;
-	let logging = false;
-	let canSubmit = false;
+	let logging = true;
 	let fieldErrors: Partial<Record<FormFields, string>> = {};
 	let formResponse: ApiResponse | undefined;
 	const inputElements: Record<FormFields, HTMLInputElement> = {} as any;
 
 	onMount(() => {
-		canSubmit = true;
+		logging = false;
 	});
 
 	async function submit(this: HTMLFormElement) {
@@ -60,16 +59,21 @@
 		const json = await fetch(this.action, {
 			method: 'post',
 			body: data
-		})
-			.then((v) => v.json())
-			.finally(() => {
-				logging = false;
-			});
+		}).then((v) => v.json());
 
 		formResponse = json;
 		if (instanceOf<ApiDataResponse<User>>(json, 'data')) {
-			canSubmit = false;
 			goto('/dashboard');
+		} else if (instanceOf<ApiErrorResponse>(json, 'error')) {
+			logging = false;
+			json.error.message =
+				json.error.code === 'MISSING_CREDENTIALS_ERROR'
+					? $LL.login.error.missingCredentials()
+					: json.error.code === 'EMAIL_NOT_FOUND_ERROR'
+					? $LL.login.error.emailNotFound()
+					: json.error.code === 'WRONG_PASSWORD_ERROR'
+					? $LL.login.error.wrongPassword()
+					: '';
 		}
 	}
 </script>
@@ -128,7 +132,7 @@
 						accent={fieldErrors?.password ? 'negative' : undefined}
 					/>
 				</div>
-				<Button type="submit" class="w-max" disabled={!canSubmit || logging}>
+				<Button type="submit" class="w-max" disabled={logging}>
 					<div class="flex gap-x-3 items-center">
 						<div class="w-6 h-6 relative overflow-hidden">
 							<div
@@ -157,25 +161,17 @@
 			{#if formResponse}
 				<div transition:fly={{ y: 20, easing: quadOut, duration: 200 }}>
 					{#if instanceOf(formResponse, 'error')}
-						<div
+						<p
 							class={`border-[1px] rounded-md p-4 mt-4 bg-negative-200 border-negative-400`}
 						>
-							<p>
-								<span class="text-negative-700 text-h5">
-									{formResponse.error.code}
-								</span>{' '}
-								{formResponse.error.message}.
-							</p>
-						</div>
+							{formResponse.error.message}.
+						</p>
 					{:else}
-						<div
+						<p
 							class={`border-[1px] rounded-md p-4 mt-4 bg-positive-200 border-positive-400`}
 						>
-							<p>
-								<span class="text-positive-700 text-h5"> 200 </span>{' '}
-								{$LL.login.success()}.
-							</p>
-						</div>
+							{$LL.login.success()}.
+						</p>
 					{/if}
 				</div>
 			{/if}
