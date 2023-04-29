@@ -45,10 +45,10 @@
 	}
 
 	.input-negative {
-		@apply border-negative-700 placeholder-negative-700/60;
+		@apply border-negative-700 placeholder-negative-800/40;
 	}
 
 	.input-positive {
-		@apply border-positive-700 placeholder-positive-700/60;
+		@apply border-positive-700 placeholder-positive-800/40;
 	}
 </style>
