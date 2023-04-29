@@ -6,9 +6,12 @@ import type { RequestHandler } from './$types';
 
 export const GET = (async (e) => {
 	if (!e.locals.user) {
-		return ApiResponder.instance.error({
-			error: { code: httpStatus.UNAUTHORIZED, message: 'You are not logged in yet' }
-		});
+		return ApiResponder.instance.error(
+			{
+				error: { code: 'NOT_LOGGED_IN_ERROR', message: 'You are not logged in yet' }
+			},
+			httpStatus.UNAUTHORIZED
+		);
 	}
 	e.cookies.delete('session_token', {
 		path: '/',
@@ -24,5 +27,5 @@ export const GET = (async (e) => {
 	} catch (e) {
 		throw e;
 	}
-	return ApiResponder.instance.data({ data: {} }, { status: httpStatus.OK });
+	return ApiResponder.instance.data({ data: {} }, httpStatus.OK);
 }) satisfies RequestHandler;

@@ -41,16 +41,16 @@ export class ApiResponder {
 		}
 		return init;
 	}
-	public data<T>(response: APIDataResponseWithoutVersion<T>, init: number | ResponseInit = {}) {
+	public data<T>(response: APIDataResponseWithoutVersion<T>, init: number | ResponseInit) {
 		return json(
 			Object.assign({ apiVersion: this._options.apiVersion }, response),
 			this.makeResponseInit(init)
 		);
 	}
-	public error(response: APIErrorResponseWithoutVersion, headers?: HeadersInit) {
+	public error(response: APIErrorResponseWithoutVersion, init: number | ResponseInit) {
 		return json(
 			Object.assign({ apiVersion: this._options.apiVersion }, response),
-			this.makeResponseInit({ status: response.error.code, headers })
+			this.makeResponseInit(init)
 		);
 	}
 }

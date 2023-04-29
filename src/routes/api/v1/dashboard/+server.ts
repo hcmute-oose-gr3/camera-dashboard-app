@@ -3,6 +3,7 @@ import type { RequestHandler } from './$types';
 import { ObjectId } from 'mongodb';
 import type { Dashboard } from '~/lib/models/dashboard';
 import { ApiResponder } from '~/lib/server/services/api-responder';
+import httpStatus from 'http-status';
 
 export const GET = (async ({ locals }) => {
 	const cursor = DbClient.instance.collections.users.aggregate<Dashboard>([
@@ -24,5 +25,5 @@ export const GET = (async ({ locals }) => {
 			}
 		}
 	]);
-	return ApiResponder.instance.data({ data: await cursor.toArray() });
+	return ApiResponder.instance.data({ data: await cursor.toArray() }, httpStatus.OK);
 }) satisfies RequestHandler;

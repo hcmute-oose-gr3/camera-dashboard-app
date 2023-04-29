@@ -9,34 +9,43 @@ export const POST = (async (e) => {
 	const email = formData.get('email');
 	const password = formData.get('password');
 	if (!email || !password) {
-		return ApiResponder.instance.error({
-			error: {
-				code: httpStatus.UNAUTHORIZED,
-				message: 'Missing credentials'
-			}
-		});
+		return ApiResponder.instance.error(
+			{
+				error: {
+					code: 'MISSING_CREDENTIALS_ERROR',
+					message: 'Missing credentials'
+				}
+			},
+			httpStatus.UNAUTHORIZED
+		);
 	}
 	const user = await DbClient.instance.collections.users.findOne(
 		{ email },
 		{ projection: { email: 1, password: 1 }, limit: 1 }
 	);
 	if (!user) {
-		return ApiResponder.instance.error({
-			error: {
-				code: httpStatus.UNAUTHORIZED,
-				message: 'Email not found'
-			}
-		});
+		return ApiResponder.instance.error(
+			{
+				error: {
+					code: 'EMAIL_NOT_FOUND_ERROR',
+					message: 'Email not found'
+				}
+			},
+			httpStatus.UNAUTHORIZED
+		);
 	}
 
 	const matched = await bcrypt.compare(password.toString(), user.password);
 	if (!matched) {
-		return ApiResponder.instance.error({
-			error: {
-				code: httpStatus.UNAUTHORIZED,
-				message: 'Password does not match'
-			}
-		});
+		return ApiResponder.instance.error(
+			{
+				error: {
+					code: 'WRONG_PASSWORD_ERROR',
+					message: 'Password does not match'
+				}
+			},
+			httpStatus.UNAUTHORIZED
+		);
 	}
 
 	const token = crypto.randomUUID();
@@ -54,5 +63,5 @@ export const POST = (async (e) => {
 		sameSite: 'strict',
 		secure: process.env.NODE_ENV === 'production'
 	});
-	return ApiResponder.instance.data({ data: user }, { status: httpStatus.OK });
+	return ApiResponder.instance.data({ data: user }, httpStatus.OK);
 }) satisfies RequestHandler;

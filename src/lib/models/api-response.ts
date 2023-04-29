@@ -8,7 +8,7 @@ export interface ApiDataResponse<T> extends ApiResponse {
 
 export interface ApiErrorResponse extends ApiResponse {
 	error: Record<string, any> & {
-		code: number;
+		code: string;
 		message: string;
 	};
 }
