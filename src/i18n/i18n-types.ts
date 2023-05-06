@@ -193,9 +193,44 @@ type RootTranslation = {
 		 */
 		login: string
 		/**
-		 * Y​o​u​ ​h​a​v​e​ ​s​i​g​n​e​d​ ​i​n​ ​s​u​c​c​e​s​s​f​u​l​l​y
+		 * P​l​e​a​s​e​ ​c​h​e​c​k​ ​y​o​u​r​ ​m​a​i​l
 		 */
 		success: string
+		verifyMail: {
+			/**
+			 * Y​o​u​ ​h​a​v​e​ ​s​u​c​c​e​s​s​f​u​l​l​y​ ​c​o​n​f​i​r​m​e​d​ ​y​o​u​r​ ​a​c​c​o​u​n​t
+			 */
+			success: string
+			error: {
+				/**
+				 * Y​o​u​r​ ​e​m​a​i​l​ ​i​s​ ​n​o​t​ ​v​e​r​i​f​i​e​d
+				 */
+				userNotFound: string
+				/**
+				 * A​c​c​o​u​n​t​ ​a​l​d​r​e​a​d​y​ ​v​e​r​i​f​y
+				 */
+				alreadyAccount: string
+				/**
+				 * E​m​a​i​l​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​f​a​i​l​e​d
+				 */
+				updateFailure: string
+			}
+			/**
+			 * [​C​a​m​e​r​a​ ​D​a​s​h​b​o​a​r​d​]​ ​P​l​e​a​s​e​ ​v​e​r​i​f​y​ ​y​o​u​r​ ​e​m​a​i​l​ ​a​d​d​r​e​s​s​.
+			 */
+			subject: string
+			/**
+			 * <​p​>​I​t​'​s​ ​a​l​m​o​s​t​ ​d​o​n​e​!​ ​T​o​ ​c​o​m​p​l​e​t​e​ ​y​o​u​r​ ​c​a​m​e​r​a​ ​d​a​s​h​b​o​a​r​d​ ​s​i​g​n​u​p​,​ ​w​e​ ​j​u​s​t​ ​n​e​e​d​ ​t​o​ ​v​e​r​i​f​y​ ​y​o​u​r​ ​e​m​a​i​l​:​ ​
+		​	​	​	​	​	​<​a​ ​h​r​e​f​=​"​m​a​i​l​t​o​:​{​e​m​a​i​l​}​"​>​{​e​m​a​i​l​}​<​/​a​>​
+		​	​	​	​	​<​/​p​>​
+		​	​	​	​	​<​p​>​
+		​	​	​	​	​	​<​a​ ​h​r​e​f​=​"​{​u​r​l​}​"​>​V​e​r​i​f​y​ ​e​m​a​i​l​ ​a​d​d​r​e​s​s​<​/​a​>​.​
+		​	​	​	​	​<​/​p​>
+			 * @param {string} email
+			 * @param {string} url
+			 */
+			body: RequiredParams<'email' | 'email' | 'url'>
+		}
 	}
 	camera: {
 		/**
@@ -315,6 +350,10 @@ type RootTranslation = {
 			 * A​d​d​ ​c​a​m​e​r​a
 			 */
 			submit: string
+			/**
+			 * C​a​m​e​r​a​ ​h​a​s​ ​b​e​e​n​ ​a​d​d​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+			 */
+			success: string
 		}
 	}
 }
@@ -496,9 +535,42 @@ export type TranslationFunctions = {
 		 */
 		login: () => LocalizedString
 		/**
-		 * You have signed in successfully
+		 * Please check your mail
 		 */
 		success: () => LocalizedString
+		verifyMail: {
+			/**
+			 * You have successfully confirmed your account
+			 */
+			success: () => LocalizedString
+			error: {
+				/**
+				 * Your email is not verified
+				 */
+				userNotFound: () => LocalizedString
+				/**
+				 * Account aldready verify
+				 */
+				alreadyAccount: () => LocalizedString
+				/**
+				 * Email verification failed
+				 */
+				updateFailure: () => LocalizedString
+			}
+			/**
+			 * [Camera Dashboard] Please verify your email address.
+			 */
+			subject: () => LocalizedString
+			/**
+			 * <p>It's almost done! To complete your camera dashboard signup, we just need to verify your email: 
+							<a href="mailto:{email}">{email}</a>
+						</p>
+						<p>
+							<a href="{url}">Verify email address</a>.
+						</p>
+			 */
+			body: (arg: { email: string, url: string }) => LocalizedString
+		}
 	}
 	camera: {
 		/**
@@ -618,6 +690,10 @@ export type TranslationFunctions = {
 			 * Add camera
 			 */
 			submit: () => LocalizedString
+			/**
+			 * Camera has been added successfully.
+			 */
+			success: () => LocalizedString
 		}
 	}
 }
