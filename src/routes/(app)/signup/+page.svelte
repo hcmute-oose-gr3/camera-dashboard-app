@@ -63,6 +63,7 @@
 		}
 		fieldErrors = {};
 		data.set('email', result.data.email);
+		data.set('lang', localStorage.getItem('lang') || '');
 		const json = await fetch(this.action, {
 			method: 'post',
 			body: data
@@ -74,10 +75,10 @@
 
 		formResponse = json;
 		console.log(formResponse);
-		if (instanceOf<ApiDataResponse<InsertOneResult<User>>>(json, 'data')) {
-			canSubmit = false;
-			goto('/login');
-		}
+		// if (instanceOf<ApiDataResponse<InsertOneResult<User>>>(json, 'data')) {
+		// 	canSubmit = false;
+		// 	goto('/login');
+		// }
 	}
 </script>
 
