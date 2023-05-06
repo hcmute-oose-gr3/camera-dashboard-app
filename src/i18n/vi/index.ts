@@ -63,6 +63,7 @@ const vi = {
 		haveAccount: 'Đã có tài khoản?',
 		login: 'Đăng nhập',
 		success: 'Vui lòng kiểm tra email của bạn',
+		back: 'Quay lại',
 		verifyMail: {
 			success: 'Bạn đã xác nhận thành công tài khoản',
 			error: {

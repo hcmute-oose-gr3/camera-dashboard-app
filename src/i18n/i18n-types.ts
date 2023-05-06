@@ -196,6 +196,10 @@ type RootTranslation = {
 		 * P​l​e​a​s​e​ ​c​h​e​c​k​ ​y​o​u​r​ ​m​a​i​l
 		 */
 		success: string
+		/**
+		 * B​a​c​k
+		 */
+		back: string
 		verifyMail: {
 			/**
 			 * Y​o​u​ ​h​a​v​e​ ​s​u​c​c​e​s​s​f​u​l​l​y​ ​c​o​n​f​i​r​m​e​d​ ​y​o​u​r​ ​a​c​c​o​u​n​t
@@ -538,6 +542,10 @@ export type TranslationFunctions = {
 		 * Please check your mail
 		 */
 		success: () => LocalizedString
+		/**
+		 * Back
+		 */
+		back: () => LocalizedString
 		verifyMail: {
 			/**
 			 * You have successfully confirmed your account

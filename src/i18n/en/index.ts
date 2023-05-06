@@ -64,6 +64,7 @@ const en = {
 		haveAccount: 'Already have an account?',
 		login: 'Log in',
 		success: 'Please check your mail',
+		back: 'Back',
 		verifyMail: {
 			success: 'You have successfully confirmed your account',
 			error: {
