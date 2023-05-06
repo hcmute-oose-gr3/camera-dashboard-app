@@ -49,24 +49,12 @@
 	>
 		<SideBarNavigation {entries} {footerEntries} />
 		<div class="ml-16 transition-[margin] lg:ml-52 p-6 w-full">
-			<div class="flex flex-row md:justify-between md:items-center mb-3 relative gap-x-12">
-				{#key currentEntry}
-					<div
-						in:fade={{ delay: 300, duration: 300, easing: quadOut }}
-						out:fade={{ duration: 300, easing: quadIn }}
-					>
-						<div>
-							<Typewriter
-								delay={320}
-								interval={70}
-								keepCursorOnFinish={false}
-								mode="cascade"
-							>
-								<h1>{currentEntry?.text}</h1>
-							</Typewriter>
-						</div>
-					</div>
-				{/key}
+			<div class="flex justify-between items-center mb-3 relative gap-x-12">
+				<div>
+					<Typewriter delay={320} interval={70} keepCursorOnFinish={false} mode="cascade">
+						<h1>{currentEntry?.text}</h1>
+					</Typewriter>
+				</div>
 				<TopRight data={{ email: data.user?.email ?? '', imageUrl: '' }} />
 			</div>
 			{#key data.url.href}
