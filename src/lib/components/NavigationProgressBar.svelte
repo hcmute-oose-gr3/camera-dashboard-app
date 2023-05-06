@@ -12,7 +12,7 @@
 		if ($navigating) {
 			progress.set(0, { duration: 0 }).finally(() => {
 				if ($navigating) {
-					progress.set(0.7, { duration: 6000, easing: sineOut });
+					progress.set(0.4, { duration: 6000, easing: sineOut });
 				}
 			});
 		} else {
