@@ -26,15 +26,11 @@
 	{accent ? `input-${accent}` : ''}"
 />
 <div
-	class="grid transition-[grid-template-rows] ease-in-out duration-300 {caption
+	class="grid transition-[grid-template-rows opacity] ease-in-out duration-300 {caption
 		? 'grid-rows-[1fr]'
-		: 'grid-rows-[0fr]'}"
+		: 'grid-rows-[0fr] opacity-0'}"
 >
-	<p
-		class="overflow-hidden transition-opacity duration-500 ease-in-out
-			{accent ? `caption-${accent}` : undefined}
-			{caption ? '' : 'opacity-0'}"
-	>
+	<p class="overflow-hidden {accent ? `caption-${accent}` : undefined}">
 		{lastCaption}
 	</p>
 </div>
