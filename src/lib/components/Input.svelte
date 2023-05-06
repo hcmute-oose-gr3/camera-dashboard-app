@@ -26,11 +26,17 @@
 	{accent ? `input-${accent}` : ''}"
 />
 <div
-	class="overflow-hidden transition-[max-height opacity transform] duration-300 ease-in-out
-		{accent ? `caption-${accent}` : undefined}
-		{caption ? 'max-h-[300px] opacity-100' : 'scale-90 max-h-0 opacity-0'}"
+	class="grid transition-[grid-template-rows] ease-in-out duration-300 {caption
+		? 'grid-rows-[1fr]'
+		: 'grid-rows-[0fr]'}"
 >
-	{lastCaption}
+	<p
+		class="overflow-hidden transition-opacity duration-500 ease-in-out
+			{accent ? `caption-${accent}` : undefined}
+			{caption ? '' : 'opacity-0'}"
+	>
+		{lastCaption}
+	</p>
 </div>
 
 <style lang="postcss">
