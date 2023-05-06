@@ -13,11 +13,12 @@ export const handle = (async ({ event, resolve }) => {
 	if (sessionToken) {
 		const user = await DbClient.instance.collections.users.findOne(
 			{ sessionToken },
-			{ limit: 1, projection: { _id: 1 } }
+			{ limit: 1, projection: { _id: 1, email: 1 } }
 		);
 		if (user) {
 			event.locals.user = {
-				_id: user._id.toHexString()
+				_id: user._id.toHexString(),
+				email: user.email
 			};
 		}
 	}

@@ -32,6 +32,11 @@ const vi = {
 		}
 	},
 	dashboard: {
+		entry: {
+			dashboard: 'Bảng điều khiển',
+			camera: 'Camera',
+			logout: 'Đăng xuất'
+		},
 		card: {
 			createdAt: 'Ngày tạo: {date|shortDate}',
 			updatedAt: 'Chỉnh sửa cuối: {date|shortDate}'
