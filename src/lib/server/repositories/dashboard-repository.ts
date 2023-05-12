@@ -38,7 +38,7 @@ export class DashboardRepository {
 	public getAreas(_id: ObjectId) {
 		return this._dbClient.collections.dashboards.findOne(
 			{ _id },
-			{ limit: 1, projection: { areas: 1 } }
+			{ limit: 1, projection: { areas: { cameras: 0 } } }
 		);
 	}
 }

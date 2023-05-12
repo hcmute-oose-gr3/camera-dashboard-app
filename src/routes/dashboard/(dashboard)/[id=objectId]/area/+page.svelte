@@ -2,40 +2,26 @@
 	import Icon from '~/lib/components/Icon.svelte';
 	import Modal from './modal/Modal.svelte';
 	import type { PageData } from './$types';
-	import Video from '../components/Video.svelte';
-	import { onMount } from 'svelte';
 	import LL from '~/i18n/i18n-svelte';
-	import { paginate, LightPaginationNav } from 'svelte-paginate';
-	import { ApiRoutes } from '~/lib/utils/api-routes';
-	import { page } from '$app/stores';
 	import { invalidate } from '$app/navigation';
+	import Table from './components/Table.svelte';
 	let showModal = false;
 	export let data: PageData;
-	let currentPage = 1;
-	let pageSize = 5;
-	let items = data.areas;
-	$: paginatedItems = paginate({ items: data.areas, pageSize, currentPage });
-	async function handleActivate(arae: any) {
-		const form = new FormData();
-		form.set('activate', arae.activate);
-		form.set('id', data.id);
-		form.set('idA', arae._id);
-		const json = await fetch(ApiRoutes.AREA, {
-			method: 'put',
-			body: form
-		}).then((v) => {
-			data.areas.find((v) => v === arae).activate = !arae.activate;
-			paginatedItems = paginatedItems;
-		});
-	}
+	let checked = Array(data.areas.length).fill(false);
 
 	function submit() {
 		invalidate('abc');
 	}
 </script>
 
+<button on:click={() => (showModal = true)} class="flex">
+	<Icon name="FolderPlus" class="text-black text-opacity-30" />
+	<p class="text-black font-bold text-opacity-30">{$LL.dashboard.area.add()}</p>
+</button>
+<Table areas={data.areas} bind:checked />
+
 <Modal bind:showModal bind:data on:submit={submit} />
-<div class="w-[85%] mx-auto h-full shadow-lg rounded-lg relative flex flex-col">
+<!-- <div class="w-[85%] mx-auto h-full shadow-lg rounded-lg relative flex flex-col">
 	<div class="py-[32px] px-[32px] cursor-pointer">
 		<div class="mb-12 flex justify-between">
 			<p class="text-xl font-bold">{$LL.dashboard.area.home()}</p>
@@ -66,12 +52,12 @@
 							<input type="checkbox" name="check" id="check" />
 						</td>
 						<td class="text-center">{i}</td>
-						<td class="text-center">
-						<td class="text-center">{area.name}</td>
-							<a href={`/dashboard/${$page.params.id}/area/${area id}/camera`}>
+						<td class="text-center" /><td class="text-center"
+							>{area.name}
+							<a href={`/dashboard/${$page.params.id}/area/${area._id}/camera`}>
 								{area.name}
 							</a>
-							</td>
+						</td>
 						<td class="text-center">
 							{#if area.activate}
 								<button on:click={() => handleActivate(area)}>
@@ -102,4 +88,4 @@
 			class="mt-auto"
 		/>
 	</div>
-</div>
+</div> -->

@@ -34,7 +34,7 @@
 			<Icon class="peer z-50" name={data.icon} />
 			<div
 				class="transition ease-in-out -translate-x-1 opacity-0 border-2 bg-fill-100 border-fill-200 n w-max rounded-l-none text-fill-1000 px-2 py-1 rounded absolute text-xs left-full ml-3
-				lg:peer-hover:opacity-0 peer-hover:translate-x-0 peer-hover:opacity-100"
+				lg:peer-hover:opacity-0 peer-hover:translate-x-0 peer-hover:opacity-100 lg:pointer-events-none"
 			>
 				{data.text}
 			</div>

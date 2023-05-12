@@ -1,5 +1,4 @@
 import httpStatus from 'http-status';
-import bcrypt from 'bcrypt';
 import { DbClient } from '~/lib/server/services/db-client.js';
 import { ApiResponder } from '~/lib/server/services/api-responder';
 import { ObjectId } from 'mongodb';
@@ -70,7 +69,6 @@ export const PUT = async (e: any) => {
 	const activate = formData.get('activate');
 	const id = formData.get('id');
 	const idA = formData.get('idA');
-	console.log(activate);
 	const update = await DbClient.instance.collections.dashboards.updateOne(
 		{
 			_id: new ObjectId(id),
@@ -78,7 +76,7 @@ export const PUT = async (e: any) => {
 		},
 		{
 			$set: {
-				'areas.$.activate': !activate
+				'areas.$.activate': activate !== 'true'
 			}
 		}
 	);
