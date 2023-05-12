@@ -21,6 +21,11 @@
 			text: $LL.dashboard.entry.camera(),
 			href: `/dashboard/${$page.params.id}/camera`,
 			icon: 'VideoCamera'
+		},
+		{
+			text: $LL.dashboard.entry.setting(),
+			href: `/dashboard/${$page.params.id}/setting`,
+			icon: 'Cog8Tooth'
 		}
 	];
 	let footerEntries = [
