@@ -15,8 +15,8 @@
 	export let areas: WithId<Area>[];
 	export let checked: boolean[];
 	let deletePendings: boolean[] = [];
-	let text: TranslationFunctions['camera']['table'];
-	$: text = $LL.camera.table;
+	let text: TranslationFunctions['dashboard']['area']['table'];
+	$: text = $LL.dashboard.area.table;
 	function toggleCheckAll(e: Event) {
 		checked = checked.map(() => (e.target as HTMLInputElement).checked);
 	}
@@ -70,7 +70,7 @@
 			>
 			<th class="p-4 bg-primary-100">{text.serial.header()}</th>
 			<th class="p-4 bg-primary-100">{text.name.header()}</th>
-			<th class="p-4 bg-primary-100">{text.connection.header()}</th>
+			<th class="p-4 bg-primary-100">{text.activate.header()}</th>
 			<th class="p-4 bg-primary-100 rounded-tr-2xl">{text.actions.header()}</th>
 		</tr>
 	</thead>
@@ -106,7 +106,7 @@
 				>
 				<td class="block lg:table-cell p-4"
 					><span class="lg:hidden inline-block w-36 font-display text-h4"
-						>{text.connection.header()}:</span
+						>{text.activate.header()}:</span
 					>{#if area.activate}
 						<button
 							on:click={(e) => {
@@ -127,7 +127,7 @@
 						</button>
 					{/if}</td
 				>
-				<td class="lg:hidden pr-4 w-0">
+				<td class="lg:hidden p-4">
 					<div class="flex flex-col gap-y-4 items-center justify-between">
 						<CheckBox
 							bind:checked={checked[i]}
@@ -148,7 +148,7 @@
 						</SecondaryButton>
 					</div>
 				</td>
-				<td class="hidden lg:table-cell pr-4 w-0">
+				<td class="hidden lg:table-cell p-4">
 					<div class="flex gap-x-4 items-center">
 						<SecondaryButton
 							class="text-negative-700 border-negative-700 p-1"

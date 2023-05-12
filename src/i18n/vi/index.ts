@@ -64,6 +64,20 @@ const vi = {
 					check: 'Vui lòng chọn activate'
 				}
 			},
+			table: {
+				serial: {
+					header: 'Mã khu vực'
+				},
+				name: {
+					header: 'Tên khu vực'
+				},
+				activate: {
+					header: 'Trạng thái'
+				},
+				actions: {
+					header: 'Hành động'
+				}
+			},
 			home: 'Nhà',
 			add: 'thêm',
 			serial: 'Mã khu vực',

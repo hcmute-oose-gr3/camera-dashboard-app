@@ -65,6 +65,20 @@ const en = {
 					check: 'Please check box'
 				}
 			},
+			table: {
+				serial: {
+					header: 'Serial'
+				},
+				name: {
+					header: 'Name'
+				},
+				activate: {
+					header: 'Activate'
+				},
+				actions: {
+					header: 'Actions'
+				}
+			},
 			home: 'Home',
 			add: 'add',
 			serial: 'Serial',

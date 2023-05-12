@@ -190,6 +190,32 @@ type RootTranslation = {
 					check: string
 				}
 			}
+			table: {
+				serial: {
+					/**
+					 * S​e​r​i​a​l
+					 */
+					header: string
+				}
+				name: {
+					/**
+					 * N​a​m​e
+					 */
+					header: string
+				}
+				activate: {
+					/**
+					 * A​c​t​i​v​a​t​e
+					 */
+					header: string
+				}
+				actions: {
+					/**
+					 * A​c​t​i​o​n​s
+					 */
+					header: string
+				}
+			}
 			/**
 			 * H​o​m​e
 			 */
@@ -615,6 +641,32 @@ export type TranslationFunctions = {
 					 * Please check box
 					 */
 					check: () => LocalizedString
+				}
+			}
+			table: {
+				serial: {
+					/**
+					 * Serial
+					 */
+					header: () => LocalizedString
+				}
+				name: {
+					/**
+					 * Name
+					 */
+					header: () => LocalizedString
+				}
+				activate: {
+					/**
+					 * Activate
+					 */
+					header: () => LocalizedString
+				}
+				actions: {
+					/**
+					 * Actions
+					 */
+					header: () => LocalizedString
 				}
 			}
 			/**
