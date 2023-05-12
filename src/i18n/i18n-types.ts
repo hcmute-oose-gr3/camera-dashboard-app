@@ -209,9 +209,9 @@ type RootTranslation = {
 				 */
 				header: string
 			}
-			homeId: {
+			name: {
 				/**
-				 * H​o​m​e​ ​I​D
+				 * N​a​m​e
 				 */
 				header: string
 			}
@@ -512,9 +512,9 @@ export type TranslationFunctions = {
 				 */
 				header: () => LocalizedString
 			}
-			homeId: {
+			name: {
 				/**
-				 * Home ID
+				 * Name
 				 */
 				header: () => LocalizedString
 			}

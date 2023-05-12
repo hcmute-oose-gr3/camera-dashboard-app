@@ -70,8 +70,8 @@ const en = {
 			serial: {
 				header: 'Serial'
 			},
-			homeId: {
-				header: 'Home ID'
+			name: {
+				header: 'Name'
 			},
 			connection: {
 				header: 'Connection',

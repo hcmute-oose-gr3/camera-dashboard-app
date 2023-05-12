@@ -65,13 +65,13 @@ const vi = {
 		success: 'Bạn đã đăng ký thành công'
 	},
 	camera: {
-		addCamera: 'Thêm camera',
+		addCamera: 'Thêm máy quay',
 		table: {
 			serial: {
-				header: 'Mã số camera'
+				header: 'Mã số máy quay'
 			},
-			homeId: {
-				header: 'Mã số nhà'
+			name: {
+				header: 'Tên máy quay'
 			},
 			connection: {
 				header: 'Trạng thái',

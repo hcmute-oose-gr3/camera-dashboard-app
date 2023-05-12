@@ -9,6 +9,22 @@ export const GET = (async (e) => {
 	try {
 		// await DbClient.instance.collections.dashboards.updateOne(
 		// 	{
+		// 		_id: new ObjectId(e.params.id)
+		// 	},
+		// 	{
+		// 		$set: {
+		// 			areas: Array(10)
+		// 				.fill(0)
+		// 				.map((_, i) => {
+		// 					const id = new ObjectId();
+		// 					console.log(id);
+		// 					return { _id: id, name: `Area ${i}`, activate: true };
+		// 				})
+		// 		}
+		// 	}
+		// );
+		// await DbClient.instance.collections.dashboards.updateOne(
+		// 	{
 		// 		_id: new ObjectId(e.params.id),
 		// 		'areas._id': new ObjectId(e.params.areaId)
 		// 	},

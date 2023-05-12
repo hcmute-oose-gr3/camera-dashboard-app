@@ -23,8 +23,8 @@ DashboardRepository.useOptions({ dbClient: DbClient.instance });
 const instance = DbClient.instance;
 
 if (process.env.NODE_ENV === 'development') {
-	instance.client.on('commandStarted', (event) => console.debug(event));
-	instance.client.on('commandSucceeded', (event) => console.debug(event));
+	// instance.client.on('commandStarted', (event) => console.debug(event));
+	// instance.client.on('commandSucceeded', (event) => console.debug(event));
 	instance.client.on('commandFailed', (event) => console.debug(event));
 }
 
