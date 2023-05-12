@@ -83,6 +83,9 @@ const vi = {
 				low: 'Thấp',
 				medium: 'Trung bình',
 				high: 'Cao'
+			},
+			actions: {
+				header: 'Hành động'
 			}
 		},
 		addForm: {

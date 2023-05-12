@@ -247,6 +247,12 @@ type RootTranslation = {
 				 */
 				high: string
 			}
+			actions: {
+				/**
+				 * A​c​t​i​o​n​s
+				 */
+				header: string
+			}
 		}
 		addForm: {
 			name: {
@@ -543,6 +549,12 @@ export type TranslationFunctions = {
 				 * High
 				 */
 				high: () => LocalizedString
+			}
+			actions: {
+				/**
+				 * Actions
+				 */
+				header: () => LocalizedString
 			}
 		}
 		addForm: {

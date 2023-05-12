@@ -83,6 +83,9 @@ const en = {
 				low: 'Low',
 				medium: 'Medium',
 				high: 'High'
+			},
+			actions: {
+				header: 'Actions'
 			}
 		},
 		addForm: {
