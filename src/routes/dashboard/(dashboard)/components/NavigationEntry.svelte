@@ -14,8 +14,7 @@
 
 	let active = false;
 	let open = false;
-
-	$: active = $page.url.pathname.endsWith(data.href);
+	$: active = $page.url.pathname.split('/', 4).join('/').endsWith(data.href);
 </script>
 
 <div>
