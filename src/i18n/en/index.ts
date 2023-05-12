@@ -29,7 +29,8 @@ const en = {
 		error: {
 			missingCredentials: 'Missing login credentials',
 			emailNotFound: 'Email or password is incorrect',
-			wrongPassword: 'Email or password is incorrect'
+			wrongPassword: 'Email or password is incorrect',
+			unverified: 'Your account is not verified yet'
 		}
 	},
 	dashboard: {

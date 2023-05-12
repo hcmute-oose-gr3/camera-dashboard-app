@@ -21,7 +21,7 @@ export const POST = (async (e) => {
 	}
 	const user = await DbClient.instance.collections.users.findOne(
 		{ email },
-		{ projection: { email: 1, password: 1 }, limit: 1 }
+		{ projection: { email: 1, password: 1, unverified: 1 }, limit: 1 }
 	);
 	if (!user) {
 		return ApiResponder.instance.error(
@@ -29,6 +29,18 @@ export const POST = (async (e) => {
 				error: {
 					code: 'EMAIL_NOT_FOUND_ERROR',
 					message: 'Email not found'
+				}
+			},
+			httpStatus.UNAUTHORIZED
+		);
+	}
+
+	if (user.unverified) {
+		return ApiResponder.instance.error(
+			{
+				error: {
+					code: 'UNVERIFIED_ERROR',
+					message: 'Account needs verification'
 				}
 			},
 			httpStatus.UNAUTHORIZED

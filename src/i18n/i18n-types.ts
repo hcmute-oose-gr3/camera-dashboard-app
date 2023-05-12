@@ -102,6 +102,10 @@ type RootTranslation = {
 			 * E​m​a​i​l​ ​o​r​ ​p​a​s​s​w​o​r​d​ ​i​s​ ​i​n​c​o​r​r​e​c​t
 			 */
 			wrongPassword: string
+			/**
+			 * Y​o​u​r​ ​a​c​c​o​u​n​t​ ​i​s​ ​n​o​t​ ​v​e​r​i​f​i​e​d​ ​y​e​t
+			 */
+			unverified: string
 		}
 	}
 	dashboard: {
@@ -557,6 +561,10 @@ export type TranslationFunctions = {
 			 * Email or password is incorrect
 			 */
 			wrongPassword: () => LocalizedString
+			/**
+			 * Your account is not verified yet
+			 */
+			unverified: () => LocalizedString
 		}
 	}
 	dashboard: {

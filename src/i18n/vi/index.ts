@@ -28,7 +28,8 @@ const vi = {
 		error: {
 			missingCredentials: 'Thiếu thông tin đăng nhập',
 			emailNotFound: 'Email hoặc mật khẩu không chính xác',
-			wrongPassword: 'Email hoặc mật khẩu không chính xác'
+			wrongPassword: 'Email hoặc mật khẩu không chính xác',
+			unverified: 'Tài khoản chưa được xác thực'
 		}
 	},
 	dashboard: {

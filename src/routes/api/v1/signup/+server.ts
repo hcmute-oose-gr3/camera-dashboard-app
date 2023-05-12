@@ -57,7 +57,8 @@ export const POST = async (e) => {
 	try {
 		response = await DbClient.instance.collections.users.insertOne({
 			email: email.valueOf().toString(),
-			password: hashPassword
+			password: hashPassword,
+			unverified: true
 		});
 	} catch (e) {
 		return ApiResponder.instance.error(

@@ -73,6 +73,8 @@
 					? $LL.login.error.emailNotFound()
 					: json.error.code === 'WRONG_PASSWORD_ERROR'
 					? $LL.login.error.wrongPassword()
+					: json.error.code === 'UNVERIFIED_ERROR'
+					? $LL.login.error.unverified()
 					: '';
 		}
 	}
