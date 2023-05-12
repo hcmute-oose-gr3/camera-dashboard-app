@@ -21,6 +21,11 @@
 			text: $LL.dashboard.entry.camera(),
 			href: `/dashboard/${$page.params.id}/camera`,
 			icon: 'VideoCamera'
+		},
+		{
+			text: $LL.dashboard.entry.contact(),
+			href: `/dashboard/${$page.params.id}/contact`,
+			icon: 'Phone'
 		}
 	];
 	let footerEntries = [
