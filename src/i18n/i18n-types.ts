@@ -118,6 +118,10 @@ type RootTranslation = {
 			 * S​i​g​n​ ​o​u​t
 			 */
 			logout: string
+			/**
+			 * C​o​n​t​a​c​t
+			 */
+			contact: string
 		}
 		card: {
 			/**
@@ -130,6 +134,92 @@ type RootTranslation = {
 			 * @param {Date} date
 			 */
 			updatedAt: RequiredParams<'date|shortDate'>
+		}
+		contact: {
+			/**
+			 * G​e​t​ ​i​n​ ​t​o​u​c​h
+			 */
+			title: string
+			/**
+			 * C​o​n​t​a​c​t​ ​t​o​ ​b​e​ ​i​n​f​o​r​m​e​d
+			 */
+			subtitle: string
+			form: {
+				/**
+				 * C​o​n​t​a​c​t​ ​f​o​r​m
+				 */
+				title: string
+				name: {
+					/**
+					 * Y​o​u​r​ ​n​a​m​e
+					 */
+					title: string
+					/**
+					 * E​n​t​e​r​ ​y​o​u​r​ ​n​a​m​e
+					 */
+					placehodler: string
+				}
+				mail: {
+					/**
+					 * M​a​i​l
+					 */
+					title: string
+					/**
+					 * E​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
+					 */
+					placehodler: string
+				}
+				phone: {
+					/**
+					 * Y​o​u​r​ ​p​h​n​e
+					 */
+					title: string
+					/**
+					 * E​n​t​e​r​ ​y​o​u​r​ ​p​h​o​n​e
+					 */
+					placehodler: string
+				}
+				message: {
+					/**
+					 * M​e​s​s​a​g​e
+					 */
+					title: string
+					/**
+					 * Y​o​u​r​ ​n​a​m​e
+					 */
+					placeholder: string
+				}
+			}
+			service: {
+				/**
+				 * S​e​r​v​i​c​e
+				 */
+				title: string
+				feature: {
+					/**
+					 * C​a​m​e​r​a
+					 */
+					camera: string
+					/**
+					 * A​r​e​a
+					 */
+					area: string
+					/**
+					 * C​o​n​t​a​c​t
+					 */
+					contact: string
+					/**
+					 * O​t​h​e​r
+					 */
+					other: string
+				}
+			}
+			button: {
+				/**
+				 * S​e​n​d​ ​m​e​s​s​a​g​e
+				 */
+				title: string
+			}
 		}
 	}
 	signup: {
@@ -304,6 +394,10 @@ export type TranslationFunctions = {
 			 * Sign out
 			 */
 			logout: () => LocalizedString
+			/**
+			 * Contact
+			 */
+			contact: () => LocalizedString
 		}
 		card: {
 			/**
@@ -314,6 +408,92 @@ export type TranslationFunctions = {
 			 * Last modified date: {date|shortDate}
 			 */
 			updatedAt: (arg: { date: Date }) => LocalizedString
+		}
+		contact: {
+			/**
+			 * Get in touch
+			 */
+			title: () => LocalizedString
+			/**
+			 * Contact to be informed
+			 */
+			subtitle: () => LocalizedString
+			form: {
+				/**
+				 * Contact form
+				 */
+				title: () => LocalizedString
+				name: {
+					/**
+					 * Your name
+					 */
+					title: () => LocalizedString
+					/**
+					 * Enter your name
+					 */
+					placehodler: () => LocalizedString
+				}
+				mail: {
+					/**
+					 * Mail
+					 */
+					title: () => LocalizedString
+					/**
+					 * Enter your email
+					 */
+					placehodler: () => LocalizedString
+				}
+				phone: {
+					/**
+					 * Your phne
+					 */
+					title: () => LocalizedString
+					/**
+					 * Enter your phone
+					 */
+					placehodler: () => LocalizedString
+				}
+				message: {
+					/**
+					 * Message
+					 */
+					title: () => LocalizedString
+					/**
+					 * Your name
+					 */
+					placeholder: () => LocalizedString
+				}
+			}
+			service: {
+				/**
+				 * Service
+				 */
+				title: () => LocalizedString
+				feature: {
+					/**
+					 * Camera
+					 */
+					camera: () => LocalizedString
+					/**
+					 * Area
+					 */
+					area: () => LocalizedString
+					/**
+					 * Contact
+					 */
+					contact: () => LocalizedString
+					/**
+					 * Other
+					 */
+					other: () => LocalizedString
+				}
+			}
+			button: {
+				/**
+				 * Send message
+				 */
+				title: () => LocalizedString
+			}
 		}
 	}
 	signup: {

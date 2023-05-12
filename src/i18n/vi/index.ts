@@ -35,11 +35,47 @@ const vi = {
 		entry: {
 			dashboard: 'Bảng điều khiển',
 			camera: 'Camera',
-			logout: 'Đăng xuất'
+			logout: 'Đăng xuất',
+			contact: 'Liên hệ'
 		},
 		card: {
 			createdAt: 'Ngày tạo: {date|shortDate}',
 			updatedAt: 'Chỉnh sửa cuối: {date|shortDate}'
+		},
+		contact: {
+			title: 'Liên lạc',
+			subtitle: 'Kết nối với chúng tôi',
+			form: {
+				title: 'Mẫu liên lạc',
+				name: {
+					title: 'Tên của ban',
+					placehodler: 'Nhập tên của bạn'
+				},
+				mail: {
+					title: 'Mail',
+					placehodler: 'Nhập email của bạn'
+				},
+				phone: {
+					title: 'Your phne',
+					placehodler: 'Nhập số điện của bạn'
+				},
+				message: {
+					title: 'Lời nhắn',
+					placeholder: 'Lời nhắn của bạn'
+				}
+			},
+			service: {
+				title: 'Dịch vụ',
+				feature: {
+					camera: 'Camera',
+					area: 'Khu vực',
+					contact: 'Liên lạc',
+					other: 'Khác'
+				}
+			},
+			button: {
+				title: 'Gửi lời nhắn'
+			}
 		}
 	},
 	signup: {

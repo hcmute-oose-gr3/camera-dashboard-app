@@ -35,11 +35,47 @@ const en = {
 		entry: {
 			dashboard: 'Dashboard',
 			camera: 'Camera',
-			logout: 'Sign out'
+			logout: 'Sign out',
+			contact: 'Contact'
 		},
 		card: {
 			createdAt: 'Created date: {date:Date|shortDate}',
 			updatedAt: 'Last modified date: {date:Date|shortDate}'
+		},
+		contact: {
+			title: 'Get in touch',
+			subtitle: 'Contact to be informed',
+			form: {
+				title: 'Contact form',
+				name: {
+					title: 'Your name',
+					placehodler: 'Enter your name'
+				},
+				mail: {
+					title: 'Mail',
+					placehodler: 'Enter your email'
+				},
+				phone: {
+					title: 'Your phone',
+					placehodler: 'Enter your phone'
+				},
+				message: {
+					title: 'Message',
+					placeholder: 'Your name'
+				}
+			},
+			service: {
+				title: 'Service',
+				feature: {
+					camera: 'Camera',
+					area: 'Area',
+					contact: 'Contact',
+					other: 'Other'
+				}
+			},
+			button: {
+				title: 'Send message'
+			}
 		}
 	},
 	signup: {
