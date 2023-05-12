@@ -32,7 +32,7 @@ export class DashboardRepository {
 	public getCameras(_id: ObjectId) {
 		return this._dbClient.collections.dashboards.findOne(
 			{ _id },
-			{ limit: 1, projection: { cameras: 1 } }
+			{ limit: 1, projection: { areas: { _id: 1, cameras: 1 } } }
 		);
 	}
 	public getAreas(_id: ObjectId) {

@@ -7,7 +7,16 @@ export const load = (async ({ params }) => {
 		cameras: await DashboardRepository.instance
 			.getCameras(new ObjectId(params.id))
 			.then(
-				(v) => v?.cameras?.map((c) => Object.assign(c, { _id: c._id.toHexString() })) || []
+				(v) =>
+					v?.areas?.flatMap(
+						(v) =>
+							v.cameras?.map((c) =>
+								Object.assign(c, {
+									_id: c._id.toHexString(),
+									areaId: v._id.toHexString()
+								})
+							) || []
+					) || []
 			)
 	};
 }) satisfies PageServerLoad;

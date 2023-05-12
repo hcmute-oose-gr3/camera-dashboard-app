@@ -8,11 +8,11 @@
 <div class="grid grid-cols-3 gap-6 w-full">
 	{#each data.cameras as camera, i (i)}
 		<a
-			href="{data.url.pathname}/camera/{camera._id}"
+			href="{data.url.pathname}/area/{camera.areaId}/camera"
 			class="block hover:scale-[1.03] transition-transform ease-in-out"
 		>
 			<Video
-				src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4"
+				src={camera.url}
 				type="video/mp4"
 				autoplay
 				loop
