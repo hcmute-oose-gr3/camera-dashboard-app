@@ -1,3 +1,4 @@
+import { object } from 'zod';
 import type { BaseTranslation } from '../i18n-types';
 
 const en = {
@@ -62,7 +63,23 @@ const en = {
 		signup: 'Sign up',
 		haveAccount: 'Already have an account?',
 		login: 'Log in',
-		success: 'You have signed in successfully'
+		success: 'Please check your mail',
+		back: 'Back',
+		verifyMail: {
+			success: 'You have successfully confirmed your account',
+			error: {
+				userNotFound: 'Your email is not verified',
+				alreadyAccount: 'Account aldready verify',
+				updateFailure: 'Email verification failed'
+			},
+			subject: '[Camera Dashboard] Please verify your email address.',
+			body: `<p>It's almost done! To complete your camera dashboard signup, we just need to verify your email: 
+					<a href="mailto:{email:string}">{email:string}</a>
+				</p>
+				<p>
+					<a href="{url:string}">Verify email address</a>.
+				</p>`
+		}
 	},
 	camera: {
 		addCamera: 'Add camera',

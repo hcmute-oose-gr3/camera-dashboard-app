@@ -62,7 +62,23 @@ const vi = {
 		signup: 'Đăng ký',
 		haveAccount: 'Đã có tài khoản?',
 		login: 'Đăng nhập',
-		success: 'Bạn đã đăng ký thành công'
+		success: 'Vui lòng kiểm tra email của bạn',
+		back: 'Quay lại',
+		verifyMail: {
+			success: 'Bạn đã xác nhận thành công tài khoản',
+			error: {
+				userNotFound: 'Email của bạn không được xác thực',
+				alreadyAccount: 'Tài khoản đã được xác thực',
+				updateFailure: 'Xác thực email thất bại'
+			},
+			subject: '[Camera Dashboard] Vui lòng xác nhận email.',
+			body: `<p>Gần xong rồi! Để hoàn tất đăng ký camera dashboard của bạn, chúng tôi chỉ cần xác minh email của bạn:
+					<a href="mailto:{email}">{email}</a>.
+				</p>
+				<p>
+					<a href="{url}">Xác nhận địa chỉ email</a>.
+				</p>`
+		}
 	},
 	camera: {
 		addCamera: 'Thêm máy quay',
