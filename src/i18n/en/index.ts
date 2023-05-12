@@ -63,6 +63,58 @@ const en = {
 		haveAccount: 'Already have an account?',
 		login: 'Log in',
 		success: 'You have signed in successfully'
+	},
+	camera: {
+		addCamera: 'Add camera',
+		table: {
+			serial: {
+				header: 'Serial'
+			},
+			name: {
+				header: 'Name'
+			},
+			connection: {
+				header: 'Connection',
+				disconnected: 'Disconnected',
+				connected: 'Connected'
+			},
+			securityLevel: {
+				header: 'Security Level',
+				low: 'Low',
+				medium: 'Medium',
+				high: 'High'
+			},
+			actions: {
+				header: 'Actions'
+			}
+		},
+		addForm: {
+			name: {
+				label: 'Camera name',
+				placeholder: 'Enter camera name',
+				nonempty: 'Camera name must not be empty'
+			},
+			url: {
+				label: 'URL',
+				placeholder: 'Enter camera stream URL',
+				url: 'URL is not valid'
+			},
+			securityLevel: {
+				legend: 'Choose a security level:',
+				low: {
+					label: 'Low'
+				},
+				medium: {
+					label: 'Medium'
+				},
+				high: {
+					label: 'High'
+				},
+				required: 'Please choose exactly one of security levels.'
+			},
+			submit: 'Add camera',
+			success: 'Camera has been added successfully.'
+		}
 	}
 } satisfies BaseTranslation;
 

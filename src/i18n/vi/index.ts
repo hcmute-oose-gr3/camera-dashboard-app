@@ -63,6 +63,58 @@ const vi = {
 		haveAccount: 'Đã có tài khoản?',
 		login: 'Đăng nhập',
 		success: 'Bạn đã đăng ký thành công'
+	},
+	camera: {
+		addCamera: 'Thêm máy quay',
+		table: {
+			serial: {
+				header: 'Mã số máy quay'
+			},
+			name: {
+				header: 'Tên máy quay'
+			},
+			connection: {
+				header: 'Trạng thái',
+				disconnected: 'Mất kết nối',
+				connected: 'Đã kết nối'
+			},
+			securityLevel: {
+				header: 'Mức bảo mật',
+				low: 'Thấp',
+				medium: 'Trung bình',
+				high: 'Cao'
+			},
+			actions: {
+				header: 'Hành động'
+			}
+		},
+		addForm: {
+			name: {
+				label: 'Tên máy quay',
+				placeholder: 'Nhập tên máy quay',
+				nonempty: 'Tên máy quay không được trống.'
+			},
+			url: {
+				label: 'Đường dẫn',
+				placeholder: 'Nhập đường dẫn đến luồng máy quay',
+				url: 'Đường dẫn không hợp lệ.'
+			},
+			securityLevel: {
+				legend: 'Chọn một mức độ bảo mật:',
+				low: {
+					label: 'Thấp'
+				},
+				medium: {
+					label: 'Trung bình'
+				},
+				high: {
+					label: 'Cao'
+				},
+				required: 'Hãy chọn một mức độ bảo mật cho máy quay.'
+			},
+			submit: 'Thêm máy quay',
+			success: 'Máy quay đã được thêm thành công.'
+		}
 	}
 } satisfies Translation;
 

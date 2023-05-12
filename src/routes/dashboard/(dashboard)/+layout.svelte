@@ -16,11 +16,6 @@
 			text: $LL.dashboard.entry.dashboard(),
 			href: `/dashboard/${$page.params.id}`,
 			icon: 'RectangleGroup'
-		},
-		{
-			text: $LL.dashboard.entry.camera(),
-			href: `/dashboard/${$page.params.id}/camera`,
-			icon: 'VideoCamera'
 		}
 	];
 	let footerEntries = [
@@ -42,34 +37,29 @@
 	}
 </script>
 
-<div class="overflow-hidden">
-	<div
-		in:scale={{ start: 1.04, duration: 700, easing: quadOut }}
-		class="flex min-h-screen h-full"
-	>
-		<SideBarNavigation {entries} {footerEntries} />
-		<div class="ml-16 transition-[margin] lg:ml-52 p-6 w-full">
-			<div class="flex justify-between items-center mb-3 relative gap-x-12">
-				<div>
-					<Typewriter delay={320} interval={70} keepCursorOnFinish={false} mode="cascade">
-						<h1>{currentEntry?.text}</h1>
-					</Typewriter>
-				</div>
-				<TopRight data={{ email: data.user?.email ?? '', imageUrl: '' }} />
+<div in:scale={{ start: 1.04, duration: 700, easing: quadOut }} class="flex min-h-screen h-full">
+	<SideBarNavigation {entries} {footerEntries} />
+	<div class="ml-16 transition-[margin] lg:ml-52 p-6 w-full">
+		<div class="flex justify-between items-center mb-3 relative gap-x-12">
+			<div>
+				<Typewriter delay={320} interval={70} keepCursorOnFinish={false} mode="cascade">
+					<h1>{currentEntry?.text}</h1>
+				</Typewriter>
 			</div>
-			{#key data.url.href}
-				<section
-					in:fly={{
-						y: 5 * delta,
-						duration: 300,
-						delay: 400,
-						easing: quadOut
-					}}
-					out:fly={{ y: -15 * delta, opacity: 1, duration: 400, easing: quadIn }}
-				>
-					<slot />
-				</section>
-			{/key}
+			<TopRight data={{ email: data.user?.email ?? '', imageUrl: '' }} />
 		</div>
+		{#key data.url.pathname.split('/', 4).join('/')}
+			<section
+				in:fly|local={{
+					y: 5 * delta,
+					duration: 300,
+					delay: 400,
+					easing: quadOut
+				}}
+				out:fly|local={{ y: -15 * delta, opacity: 1, duration: 400, easing: quadIn }}
+			>
+				<slot />
+			</section>
+		{/key}
 	</div>
 </div>
