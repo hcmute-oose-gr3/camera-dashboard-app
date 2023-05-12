@@ -68,7 +68,7 @@
 						<td class="text-center">{i}</td>
 						<td class="text-center">
 						<td class="text-center">{area.name}</td>
-							<a href=`/dashboard/${$page.params.id}/area/${area id}/camera`>
+							<a href={`/dashboard/${$page.params.id}/area/${area id}/camera`}>
 								{area.name}
 							</a>
 							</td>
