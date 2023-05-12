@@ -2,7 +2,7 @@
 	export let accent: 'positive' | 'negative' | undefined = undefined;
 	export let label: string | undefined = undefined;
 	export let caption: string | undefined = undefined;
-	export let input: HTMLInputElement;
+	export let input: HTMLInputElement | undefined = undefined;
 
 	let lastCaption: string | undefined = caption;
 	$: if (caption) {
