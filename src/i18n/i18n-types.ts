@@ -118,6 +118,10 @@ type RootTranslation = {
 			 * S​i​g​n​ ​o​u​t
 			 */
 			logout: string
+			/**
+			 * s​e​t​t​i​n​g
+			 */
+			setting: string
 		}
 		card: {
 			/**
@@ -304,6 +308,10 @@ export type TranslationFunctions = {
 			 * Sign out
 			 */
 			logout: () => LocalizedString
+			/**
+			 * setting
+			 */
+			setting: () => LocalizedString
 		}
 		card: {
 			/**

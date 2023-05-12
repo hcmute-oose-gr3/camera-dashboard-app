@@ -35,7 +35,8 @@ const vi = {
 		entry: {
 			dashboard: 'Bảng điều khiển',
 			camera: 'Camera',
-			logout: 'Đăng xuất'
+			logout: 'Đăng xuất',
+			setting: 'cài đặt'
 		},
 		card: {
 			createdAt: 'Ngày tạo: {date|shortDate}',
