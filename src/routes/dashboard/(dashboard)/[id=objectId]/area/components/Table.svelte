@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import type { DeleteResult, WithId } from 'mongodb';
 	import { flip } from 'svelte/animate';
@@ -38,12 +39,11 @@
 		});
 	}
 	async function deleteThis(index: number) {
-		const camera = areas[index];
+		const area = areas[index];
 		deletePendings[index] = true;
-		const json = await fetch(
-			`/api/v1/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera/${camera._id}`,
-			{ method: 'delete' }
-		)
+		const json = await fetch(`/api/v1/dashboard/${$page.params.id}/area/${area._id}`, {
+			method: 'delete'
+		})
 			.then((v) => v.json())
 			.finally(() => {
 				deletePendings[index] = false;
@@ -51,10 +51,11 @@
 		if (instanceOf<ApiErrorResponse>(json, 'error')) {
 			alert(json.error.message);
 		} else if (instanceOf<ApiDataResponse<DeleteResult>>(json, 'data')) {
-			checked.splice(index, 1);
-			areas.splice(index, 1);
-			areas = areas;
-			checked = checked;
+			invalidate('abc');
+			// checked.splice(index, 1);
+			// areas.splice(index, 1);
+			// areas = areas;
+			// checked = checked;
 		}
 	}
 </script>
