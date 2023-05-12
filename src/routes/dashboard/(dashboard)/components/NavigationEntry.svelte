@@ -29,11 +29,7 @@
 			data-sveltekit-preload-data="tap"
 			on:click={onClick}
 			href={data.href}
-<<<<<<< Updated upstream
-			class="py-1.5 px-2 flex items-center gap-x-2
-=======
 			class="relative peer py-1.5 px-2 flex items-center gap-x-2
->>>>>>> Stashed changes
 			{active ? 'cursor-default' : ''}"
 		>
 			<Icon class="peer z-50" name={data.icon} />
@@ -47,8 +43,6 @@
 				{data.text}
 			</span>
 		</a>
-<<<<<<< Updated upstream
-=======
 		{#if active}
 			<Motion let:motion layoutId="outline" initial={false} transition={motionTransition}>
 				<div use:motion class="absolute inset-0 rounded-lg bg-fill-200" />
@@ -75,7 +69,6 @@
 		>
 			{data.text}
 		</div>
->>>>>>> Stashed changes
 	</li>
 	{#if data.children}
 		<div
