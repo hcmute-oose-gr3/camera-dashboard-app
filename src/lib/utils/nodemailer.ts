@@ -1,12 +1,10 @@
-import {createTransport} from "nodemailer"
-import {EMAIL_SERVER_USER} from "$env/static/private"
-import {EMAIL_SERVER_PASSWORD} from "$env/static/private"
+import { createTransport } from 'nodemailer';
 
 export const transporter = createTransport({
-    host: 'smtp.gmail.com',
+	host: 'smtp.gmail.com',
 	port: 587,
-    auth: {
-        user: EMAIL_SERVER_USER,
-        pass: EMAIL_SERVER_PASSWORD,
-    }
-})
+	auth: {
+		user: process.env.EMAIL_SERVER_USER,
+		pass: process.env.EMAIL_SERVER_PASSWORD
+	}
+});
