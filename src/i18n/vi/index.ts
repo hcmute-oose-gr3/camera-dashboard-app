@@ -35,11 +35,54 @@ const vi = {
 		entry: {
 			dashboard: 'Bảng điều khiển',
 			camera: 'Camera',
+			area: 'Khu vực',
 			logout: 'Đăng xuất'
 		},
 		card: {
 			createdAt: 'Ngày tạo: {date|shortDate}',
 			updatedAt: 'Chỉnh sửa cuối: {date|shortDate}'
+		},
+		area: {
+			modal: {
+				title: 'Thêm khu vực',
+				select: {
+					title: 'Chọn camera: ',
+					option: 'Tên camera'
+				},
+				name: {
+					titel: 'Nhập tên khu vực: ',
+					min: 'Tên phải có ít nhất 6 ký tự'
+				},
+				serial: {
+					titel: 'Nhập tên mã khu vực: ',
+					min: 'Mã phải có ít nhất 6 ký tự'
+				},
+				activate: {
+					title: 'Hoạt động',
+					true: 'Bật',
+					false: 'Tắt',
+					check: 'Vui lòng chọn activate'
+				}
+			},
+			table: {
+				serial: {
+					header: 'Mã khu vực'
+				},
+				name: {
+					header: 'Tên khu vực'
+				},
+				activate: {
+					header: 'Trạng thái'
+				},
+				actions: {
+					header: 'Hành động'
+				}
+			},
+			home: 'Nhà',
+			add: 'thêm',
+			serial: 'Mã khu vực',
+			name: 'Tên',
+			activate: 'Hoạt Động'
 		}
 	},
 	signup: {

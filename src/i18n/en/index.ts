@@ -36,11 +36,54 @@ const en = {
 		entry: {
 			dashboard: 'Dashboard',
 			camera: 'Camera',
+			area: 'Area',
 			logout: 'Sign out'
 		},
 		card: {
 			createdAt: 'Created date: {date:Date|shortDate}',
 			updatedAt: 'Last modified date: {date:Date|shortDate}'
+		},
+		area: {
+			modal: {
+				title: 'Add area',
+				select: {
+					title: 'Select an name:',
+					option: 'Choose name camera'
+				},
+				name: {
+					titel: 'Enter name area code: ',
+					min: 'Code name with at least 6 characters'
+				},
+				serial: {
+					titel: 'Enter name area: ',
+					min: 'Name with at least 6 characters'
+				},
+				activate: {
+					title: 'Activate',
+					true: 'true',
+					false: 'false',
+					check: 'Please check box'
+				}
+			},
+			table: {
+				serial: {
+					header: 'Serial'
+				},
+				name: {
+					header: 'Name'
+				},
+				activate: {
+					header: 'Activate'
+				},
+				actions: {
+					header: 'Actions'
+				}
+			},
+			home: 'Home',
+			add: 'add',
+			serial: 'Serial',
+			name: 'Name',
+			activate: 'Activate'
 		}
 	},
 	signup: {

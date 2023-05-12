@@ -115,6 +115,10 @@ type RootTranslation = {
 			 */
 			camera: string
 			/**
+			 * A​r​e​a
+			 */
+			area: string
+			/**
 			 * S​i​g​n​ ​o​u​t
 			 */
 			logout: string
@@ -130,6 +134,108 @@ type RootTranslation = {
 			 * @param {Date} date
 			 */
 			updatedAt: RequiredParams<'date|shortDate'>
+		}
+		area: {
+			modal: {
+				/**
+				 * A​d​d​ ​a​r​e​a
+				 */
+				title: string
+				select: {
+					/**
+					 * S​e​l​e​c​t​ ​a​n​ ​n​a​m​e​:
+					 */
+					title: string
+					/**
+					 * C​h​o​o​s​e​ ​n​a​m​e​ ​c​a​m​e​r​a
+					 */
+					option: string
+				}
+				name: {
+					/**
+					 * E​n​t​e​r​ ​n​a​m​e​ ​a​r​e​a​ ​c​o​d​e​:​ 
+					 */
+					titel: string
+					/**
+					 * C​o​d​e​ ​n​a​m​e​ ​w​i​t​h​ ​a​t​ ​l​e​a​s​t​ ​6​ ​c​h​a​r​a​c​t​e​r​s
+					 */
+					min: string
+				}
+				serial: {
+					/**
+					 * E​n​t​e​r​ ​n​a​m​e​ ​a​r​e​a​:​ 
+					 */
+					titel: string
+					/**
+					 * N​a​m​e​ ​w​i​t​h​ ​a​t​ ​l​e​a​s​t​ ​6​ ​c​h​a​r​a​c​t​e​r​s
+					 */
+					min: string
+				}
+				activate: {
+					/**
+					 * A​c​t​i​v​a​t​e
+					 */
+					title: string
+					/**
+					 * t​r​u​e
+					 */
+					'true': string
+					/**
+					 * f​a​l​s​e
+					 */
+					'false': string
+					/**
+					 * P​l​e​a​s​e​ ​c​h​e​c​k​ ​b​o​x
+					 */
+					check: string
+				}
+			}
+			table: {
+				serial: {
+					/**
+					 * S​e​r​i​a​l
+					 */
+					header: string
+				}
+				name: {
+					/**
+					 * N​a​m​e
+					 */
+					header: string
+				}
+				activate: {
+					/**
+					 * A​c​t​i​v​a​t​e
+					 */
+					header: string
+				}
+				actions: {
+					/**
+					 * A​c​t​i​o​n​s
+					 */
+					header: string
+				}
+			}
+			/**
+			 * H​o​m​e
+			 */
+			home: string
+			/**
+			 * a​d​d
+			 */
+			add: string
+			/**
+			 * S​e​r​i​a​l
+			 */
+			serial: string
+			/**
+			 * N​a​m​e
+			 */
+			name: string
+			/**
+			 * A​c​t​i​v​a​t​e
+			 */
+			activate: string
 		}
 	}
 	signup: {
@@ -464,6 +570,10 @@ export type TranslationFunctions = {
 			 */
 			camera: () => LocalizedString
 			/**
+			 * Area
+			 */
+			area: () => LocalizedString
+			/**
 			 * Sign out
 			 */
 			logout: () => LocalizedString
@@ -477,6 +587,108 @@ export type TranslationFunctions = {
 			 * Last modified date: {date|shortDate}
 			 */
 			updatedAt: (arg: { date: Date }) => LocalizedString
+		}
+		area: {
+			modal: {
+				/**
+				 * Add area
+				 */
+				title: () => LocalizedString
+				select: {
+					/**
+					 * Select an name:
+					 */
+					title: () => LocalizedString
+					/**
+					 * Choose name camera
+					 */
+					option: () => LocalizedString
+				}
+				name: {
+					/**
+					 * Enter name area code: 
+					 */
+					titel: () => LocalizedString
+					/**
+					 * Code name with at least 6 characters
+					 */
+					min: () => LocalizedString
+				}
+				serial: {
+					/**
+					 * Enter name area: 
+					 */
+					titel: () => LocalizedString
+					/**
+					 * Name with at least 6 characters
+					 */
+					min: () => LocalizedString
+				}
+				activate: {
+					/**
+					 * Activate
+					 */
+					title: () => LocalizedString
+					/**
+					 * true
+					 */
+					'true': () => LocalizedString
+					/**
+					 * false
+					 */
+					'false': () => LocalizedString
+					/**
+					 * Please check box
+					 */
+					check: () => LocalizedString
+				}
+			}
+			table: {
+				serial: {
+					/**
+					 * Serial
+					 */
+					header: () => LocalizedString
+				}
+				name: {
+					/**
+					 * Name
+					 */
+					header: () => LocalizedString
+				}
+				activate: {
+					/**
+					 * Activate
+					 */
+					header: () => LocalizedString
+				}
+				actions: {
+					/**
+					 * Actions
+					 */
+					header: () => LocalizedString
+				}
+			}
+			/**
+			 * Home
+			 */
+			home: () => LocalizedString
+			/**
+			 * add
+			 */
+			add: () => LocalizedString
+			/**
+			 * Serial
+			 */
+			serial: () => LocalizedString
+			/**
+			 * Name
+			 */
+			name: () => LocalizedString
+			/**
+			 * Activate
+			 */
+			activate: () => LocalizedString
 		}
 	}
 	signup: {

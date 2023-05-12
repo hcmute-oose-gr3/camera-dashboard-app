@@ -16,6 +16,11 @@
 			text: $LL.dashboard.entry.dashboard(),
 			href: `/dashboard/${$page.params.id}`,
 			icon: 'RectangleGroup'
+		},
+		{
+			text: $LL.dashboard.entry.area(),
+			href: `/dashboard/${$page.params.id}/area`,
+			icon: 'Square2Stack'
 		}
 	];
 	let footerEntries = [
