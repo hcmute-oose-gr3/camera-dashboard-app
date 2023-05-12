@@ -17,6 +17,8 @@
 	import Radio from '~/lib/components/Radio.svelte';
 	import RowVisibilityAnimate from '~/lib/components/RowVisibilityAnimate.svelte';
 	import Spinner from '~/lib/components/Spinner.svelte';
+	import type { ApiErrorResponse } from '~/lib/models/api-response';
+	import { instanceOf } from '~/lib/utils';
 
 	type FormFields = 'name' | 'url' | 'securityLevel';
 
@@ -25,6 +27,7 @@
 	let inputElements: { [key in Exclude<FormFields, 'securityLevel'>]?: HTMLInputElement } = {};
 	let text = $LL.camera.addForm;
 	$: text = $LL.camera.addForm;
+	let formResponse: ApiResponse;
 
 	onMount(() => {
 		pending = false;
@@ -72,11 +75,7 @@
 			'securityLevel',
 			securityLevelString === 'low' ? '0' : securityLevelString === 'medium' ? '1' : '2'
 		);
-		console.log(
-			securityLevelString,
-			securityLevelString === 'low' ? '0' : securityLevelString === 'medium' ? '1' : '2'
-		);
-		const json = fetch(this.action, { method: 'post', body: formData })
+		formResponse = await fetch(this.action, { method: 'post', body: formData })
 			.then((v) => v.json())
 			.catch(() => {
 				// TODO: handle form error
@@ -85,9 +84,6 @@
 			.finally(() => {
 				pending = false;
 			});
-		if (!json) {
-			return;
-		}
 	}
 </script>
 
@@ -177,4 +173,11 @@
 			{text.submit()}
 		</div>
 	</PrimaryButton>
+	{#if formResponse}
+		{#if instanceOf(formResponse, 'error')}
+			{formResponse.error.message}
+		{:else}
+			{text.success()}
+		{/if}
+	{/if}
 </form>

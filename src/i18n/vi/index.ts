@@ -112,7 +112,8 @@ const vi = {
 				},
 				required: 'Hãy chọn một mức độ bảo mật cho máy quay.'
 			},
-			submit: 'Thêm máy quay'
+			submit: 'Thêm máy quay',
+			success: 'Máy quay đã được thêm thành công.'
 		}
 	}
 } satisfies Translation;

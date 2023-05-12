@@ -112,7 +112,8 @@ const en = {
 				},
 				required: 'Please choose exactly one of security levels.'
 			},
-			submit: 'Add camera'
+			submit: 'Add camera',
+			success: 'Camera has been added successfully.'
 		}
 	}
 } satisfies BaseTranslation;
