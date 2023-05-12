@@ -4,6 +4,7 @@ export interface NavigationEntryData {
 	text: string;
 	href: string;
 	icon: IconName;
+	children?: NavigationEntryData[];
 }
 
 export interface TopRightData {
