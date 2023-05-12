@@ -20,7 +20,7 @@
 
 <div>
 	<li
-		class="rounded-md transition-colors duration-[50ms] w-full font-medium
+		class="relative rounded-md transition-colors duration-[50ms] w-full font-medium
 		{active
 			? 'text-primary-700'
 			: 'hover:bg-fill-200 text-fill-1000 hover:text-primary-700 bg-transparent'}"
@@ -29,7 +29,7 @@
 			data-sveltekit-preload-data="tap"
 			on:click={onClick}
 			href={data.href}
-			class="relative peer py-1.5 px-2 flex items-center gap-x-2
+			class="peer py-1.5 px-2 flex items-center gap-x-2
 			{active ? 'cursor-default' : ''}"
 		>
 			<Icon class="peer z-50" name={data.icon} />
