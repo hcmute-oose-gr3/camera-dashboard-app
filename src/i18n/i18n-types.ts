@@ -197,6 +197,120 @@ type RootTranslation = {
 		 */
 		success: string
 	}
+	camera: {
+		/**
+		 * A​d​d​ ​c​a​m​e​r​a
+		 */
+		addCamera: string
+		table: {
+			serial: {
+				/**
+				 * S​e​r​i​a​l
+				 */
+				header: string
+			}
+			homeId: {
+				/**
+				 * H​o​m​e​ ​I​D
+				 */
+				header: string
+			}
+			connection: {
+				/**
+				 * C​o​n​n​e​c​t​i​o​n
+				 */
+				header: string
+				/**
+				 * D​i​s​c​o​n​n​e​c​t​e​d
+				 */
+				disconnected: string
+				/**
+				 * C​o​n​n​e​c​t​e​d
+				 */
+				connected: string
+			}
+			securityLevel: {
+				/**
+				 * S​e​c​u​r​i​t​y​ ​L​e​v​e​l
+				 */
+				header: string
+				/**
+				 * L​o​w
+				 */
+				low: string
+				/**
+				 * M​e​d​i​u​m
+				 */
+				medium: string
+				/**
+				 * H​i​g​h
+				 */
+				high: string
+			}
+		}
+		addForm: {
+			name: {
+				/**
+				 * C​a​m​e​r​a​ ​n​a​m​e
+				 */
+				label: string
+				/**
+				 * E​n​t​e​r​ ​c​a​m​e​r​a​ ​n​a​m​e
+				 */
+				placeholder: string
+				/**
+				 * C​a​m​e​r​a​ ​n​a​m​e​ ​m​u​s​t​ ​n​o​t​ ​b​e​ ​e​m​p​t​y
+				 */
+				nonempty: string
+			}
+			url: {
+				/**
+				 * U​R​L
+				 */
+				label: string
+				/**
+				 * E​n​t​e​r​ ​c​a​m​e​r​a​ ​s​t​r​e​a​m​ ​U​R​L
+				 */
+				placeholder: string
+				/**
+				 * U​R​L​ ​i​s​ ​n​o​t​ ​v​a​l​i​d
+				 */
+				url: string
+			}
+			securityLevel: {
+				/**
+				 * C​h​o​o​s​e​ ​a​ ​s​e​c​u​r​i​t​y​ ​l​e​v​e​l​:
+				 */
+				legend: string
+				low: {
+					/**
+					 * L​o​w
+					 */
+					label: string
+				}
+				medium: {
+					/**
+					 * M​e​d​i​u​m
+					 */
+					label: string
+				}
+				high: {
+					/**
+					 * H​i​g​h
+					 */
+					label: string
+				}
+				/**
+				 * P​l​e​a​s​e​ ​c​h​o​o​s​e​ ​e​x​a​c​t​l​y​ ​o​n​e​ ​o​f​ ​s​e​c​u​r​i​t​y​ ​l​e​v​e​l​s​.
+				 */
+				required: string
+			}
+			/**
+			 * A​d​d​ ​c​a​m​e​r​a
+			 */
+			submit: string
+		}
+	}
 }
 
 export type TranslationFunctions = {
@@ -379,6 +493,120 @@ export type TranslationFunctions = {
 		 * You have signed in successfully
 		 */
 		success: () => LocalizedString
+	}
+	camera: {
+		/**
+		 * Add camera
+		 */
+		addCamera: () => LocalizedString
+		table: {
+			serial: {
+				/**
+				 * Serial
+				 */
+				header: () => LocalizedString
+			}
+			homeId: {
+				/**
+				 * Home ID
+				 */
+				header: () => LocalizedString
+			}
+			connection: {
+				/**
+				 * Connection
+				 */
+				header: () => LocalizedString
+				/**
+				 * Disconnected
+				 */
+				disconnected: () => LocalizedString
+				/**
+				 * Connected
+				 */
+				connected: () => LocalizedString
+			}
+			securityLevel: {
+				/**
+				 * Security Level
+				 */
+				header: () => LocalizedString
+				/**
+				 * Low
+				 */
+				low: () => LocalizedString
+				/**
+				 * Medium
+				 */
+				medium: () => LocalizedString
+				/**
+				 * High
+				 */
+				high: () => LocalizedString
+			}
+		}
+		addForm: {
+			name: {
+				/**
+				 * Camera name
+				 */
+				label: () => LocalizedString
+				/**
+				 * Enter camera name
+				 */
+				placeholder: () => LocalizedString
+				/**
+				 * Camera name must not be empty
+				 */
+				nonempty: () => LocalizedString
+			}
+			url: {
+				/**
+				 * URL
+				 */
+				label: () => LocalizedString
+				/**
+				 * Enter camera stream URL
+				 */
+				placeholder: () => LocalizedString
+				/**
+				 * URL is not valid
+				 */
+				url: () => LocalizedString
+			}
+			securityLevel: {
+				/**
+				 * Choose a security level:
+				 */
+				legend: () => LocalizedString
+				low: {
+					/**
+					 * Low
+					 */
+					label: () => LocalizedString
+				}
+				medium: {
+					/**
+					 * Medium
+					 */
+					label: () => LocalizedString
+				}
+				high: {
+					/**
+					 * High
+					 */
+					label: () => LocalizedString
+				}
+				/**
+				 * Please choose exactly one of security levels.
+				 */
+				required: () => LocalizedString
+			}
+			/**
+			 * Add camera
+			 */
+			submit: () => LocalizedString
+		}
 	}
 }
 
