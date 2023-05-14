@@ -28,6 +28,11 @@
 	];
 	let footerEntries = [
 		{
+			text: $LL.dashboard.entry.setting(),
+			href: `/dashboard/${$page.params.id}/setting`,
+			icon: 'Cog8Tooth'
+		},
+		{
 			text: $LL.dashboard.entry.logout(),
 			href: `/logout`,
 			icon: 'ArrowLeftOnRectangle',
