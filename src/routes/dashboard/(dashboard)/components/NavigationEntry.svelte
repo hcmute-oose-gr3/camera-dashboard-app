@@ -6,12 +6,6 @@
 
 	export let data: NavigationEntryData;
 
-	const onClick = (e: MouseEvent) => {
-		if (active) {
-			e.preventDefault();
-		}
-	};
-
 	let active = false;
 	let open = false;
 	$: active = $page.url.pathname.split('/', 4).join('/').endsWith(data.href);
@@ -26,10 +20,8 @@
 	>
 		<a
 			data-sveltekit-preload-data="tap"
-			on:click={onClick}
 			href={data.href}
-			class="peer py-1.5 px-2 flex items-center gap-x-2
-			{active ? 'cursor-default' : ''}"
+			class="peer py-1.5 px-2 flex items-center gap-x-2"
 		>
 			<Icon class="peer z-50" name={data.icon} />
 			<div
