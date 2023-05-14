@@ -12,13 +12,13 @@ export const POST = (async (e) => {
 		const schema = z.object({
 			name: z.string().min(1),
 			url: z.string().url(),
-			securityLevel: z.number().min(0).max(2)
+			securityLevel: z.number().min(0).max(2),
 		});
 
 		const parse = await schema.safeParseAsync({
 			name: formData.get('name'),
 			url: formData.get('url'),
-			securityLevel: Number(formData.get('securityLevel'))
+			securityLevel: Number(formData.get('securityLevel')),
 		});
 
 		if (!parse.success) {
@@ -27,8 +27,8 @@ export const POST = (async (e) => {
 					error: {
 						code: 'FIELD_ERROR',
 						path: parse.error.issues[0].path,
-						message: parse.error.issues[0].message
-					}
+						message: parse.error.issues[0].message,
+					},
 				},
 				httpStatus.BAD_REQUEST
 			);
@@ -37,7 +37,7 @@ export const POST = (async (e) => {
 		DbClient.instance.collections.dashboards.updateOne(
 			{
 				_id: new ObjectId(e.params.id),
-				'areas._id': new ObjectId(e.params.areaId)
+				'areas._id': new ObjectId(e.params.areaId),
 			},
 			{
 				$push: {
@@ -47,22 +47,24 @@ export const POST = (async (e) => {
 						name: formData.get('name')!.toString(),
 						url: formData.get('url')!.toString(),
 						connection: CameraConnection.Connected,
-						securityLevel: formData.get('securityLevel') as any as CameraSecurityLevel
-					}
-				}
+						securityLevel: Number(
+							formData.get('securityLevel')
+						) as any as CameraSecurityLevel,
+					},
+				},
 			}
 		);
 
 		return ApiResponder.instance.data(
 			{
-				data: []
+				data: [],
 			},
 			httpStatus.OK
 		);
 	} catch (e: any) {
 		return ApiResponder.instance.error(
 			{
-				error: { code: 'EXCEPTION_ERROR', message: e.message || 'Exception' }
+				error: { code: 'EXCEPTION_ERROR', message: e.message || 'Exception' },
 			},
 			httpStatus.INTERNAL_SERVER_ERROR
 		);
