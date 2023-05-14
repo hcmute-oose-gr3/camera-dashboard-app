@@ -30,7 +30,7 @@
 {#key data.url}
 	<div
 		class="mt-4"
-		in:fly|local={{ x: -5 * delta, duration: 200, delay: 200, easing: quadOut }}
+		in:fly|local={{ x: -5 * delta, duration: 100, delay: 200, easing: quadOut }}
 		out:fly|local={{ x: 5 * delta, duration: 200, easing: quadIn }}
 	>
 		<slot />

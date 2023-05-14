@@ -7,8 +7,8 @@
 
 {#key data.url.href}
 	<section
-		in:blur={{ amount: 2, duration: 200, delay: 200, easing: quadIn }}
-		out:blur|local={{ amount: 1, duration: 400, easing: quadOut }}
+		in:blur={{ amount: 2, duration: 100, delay: 200, easing: quadIn }}
+		out:blur|local={{ amount: 1, duration: 200, easing: quadOut }}
 		class="absolute w-full h-full"
 	>
 		<slot />

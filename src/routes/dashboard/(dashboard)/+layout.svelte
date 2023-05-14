@@ -57,11 +57,11 @@
 			<section
 				in:fly|local={{
 					y: 5 * delta,
-					duration: 300,
-					delay: 400,
+					duration: 100,
+					delay: 200,
 					easing: quadOut
 				}}
-				out:fly|local={{ y: -15 * delta, opacity: 1, duration: 400, easing: quadIn }}
+				out:fly|local={{ y: -15 * delta, opacity: 1, duration: 200, easing: quadIn }}
 			>
 				<slot />
 			</section>
