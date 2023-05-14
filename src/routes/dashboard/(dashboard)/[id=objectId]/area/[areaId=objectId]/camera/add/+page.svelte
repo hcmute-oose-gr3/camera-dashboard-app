@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { quadIn, quadOut } from 'svelte/easing';
+	import { fly, scale, slide } from 'svelte/transition';
 	import { z } from 'zod';
 	import LL from '~/i18n/i18n-svelte';
 	import Icon from '~/lib/components/Icon.svelte';
@@ -17,6 +19,7 @@
 	import Radio from '~/lib/components/Radio.svelte';
 	import RowVisibilityAnimate from '~/lib/components/RowVisibilityAnimate.svelte';
 	import Spinner from '~/lib/components/Spinner.svelte';
+	import Toast from '~/lib/components/Toast.svelte';
 	import type { ApiErrorResponse } from '~/lib/models/api-response';
 	import { instanceOf } from '~/lib/utils';
 
@@ -44,7 +47,7 @@
 				.refine(
 					(v) => v === 'low' || v === 'medium' || v === 'high',
 					text.securityLevel.required()
-				)
+				),
 		});
 
 		const formData = new FormData(this);
@@ -52,7 +55,7 @@
 		const parse = await schema.safeParseAsync({
 			name: formData.get('name') ?? '',
 			url: formData.get('url') ?? '',
-			securityLevel: securityLevelString
+			securityLevel: securityLevelString,
 		});
 
 		fieldErrors = {};
@@ -174,10 +177,22 @@
 		</div>
 	</PrimaryButton>
 	{#if formResponse}
-		{#if instanceOf(formResponse, 'error')}
-			{formResponse.error.message}
-		{:else}
-			{text.success()}
-		{/if}
+		{#key formResponse}
+			<div
+				in:fly={{ y: -10, delay: 200, duration: 100, easing: quadOut }}
+				out:fly={{ y: 10, duration: 200, easing: quadIn }}
+			>
+				{#if instanceOf(formResponse, 'error')}
+					<Toast
+						icon="ExclamationCircle"
+						iconClass="bg-negative-500"
+						text="TODO: Error"
+						textClass="bg-negative-200"
+					/>
+				{:else}
+					<Toast icon="Check" text={text.success()} />
+				{/if}
+			</div>
+		{/key}
 	{/if}
 </form>
