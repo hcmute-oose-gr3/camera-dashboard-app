@@ -37,7 +37,7 @@ export default {
 				'icon-large': ['2.5rem']
 			},
 			fontFamily: {
-				display: ['Ysabeau', ...sansSerifStack],
+				display: ["'Josefin Sans'", ...sansSerifStack],
 				body: ["'Work Sans'", ...sansSerifStack]
 			},
 			colors: {
