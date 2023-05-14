@@ -177,19 +177,9 @@ type RootTranslation = {
 					/**
 					 * E​n​t​e​r​ ​n​a​m​e​ ​a​r​e​a​ ​c​o​d​e​:​ 
 					 */
-					titel: string
+					title: string
 					/**
 					 * C​o​d​e​ ​n​a​m​e​ ​w​i​t​h​ ​a​t​ ​l​e​a​s​t​ ​6​ ​c​h​a​r​a​c​t​e​r​s
-					 */
-					min: string
-				}
-				serial: {
-					/**
-					 * E​n​t​e​r​ ​n​a​m​e​ ​a​r​e​a​:​ 
-					 */
-					titel: string
-					/**
-					 * N​a​m​e​ ​w​i​t​h​ ​a​t​ ​l​e​a​s​t​ ​6​ ​c​h​a​r​a​c​t​e​r​s
 					 */
 					min: string
 				}
@@ -243,10 +233,6 @@ type RootTranslation = {
 			 */
 			home: string
 			/**
-			 * a​d​d
-			 */
-			add: string
-			/**
 			 * S​e​r​i​a​l
 			 */
 			serial: string
@@ -258,6 +244,26 @@ type RootTranslation = {
 			 * A​c​t​i​v​a​t​e
 			 */
 			activate: string
+			add: {
+				/**
+				 * A​d​d​ ​a​r​e​a​ ​s​u​c​c​e​s​s
+				 */
+				success: string
+				/**
+				 * A​d​d​ ​a​r​e​a​ ​f​a​l​s​e
+				 */
+				failure: string
+			}
+			layout: {
+				/**
+				 * H​o​m​e
+				 */
+				home: string
+				/**
+				 * A​d​d​ ​a​r​e​a
+				 */
+				add: string
+			}
 		}
 	}
 	signup: {
@@ -722,19 +728,9 @@ export type TranslationFunctions = {
 					/**
 					 * Enter name area code: 
 					 */
-					titel: () => LocalizedString
+					title: () => LocalizedString
 					/**
 					 * Code name with at least 6 characters
-					 */
-					min: () => LocalizedString
-				}
-				serial: {
-					/**
-					 * Enter name area: 
-					 */
-					titel: () => LocalizedString
-					/**
-					 * Name with at least 6 characters
 					 */
 					min: () => LocalizedString
 				}
@@ -788,10 +784,6 @@ export type TranslationFunctions = {
 			 */
 			home: () => LocalizedString
 			/**
-			 * add
-			 */
-			add: () => LocalizedString
-			/**
 			 * Serial
 			 */
 			serial: () => LocalizedString
@@ -803,6 +795,26 @@ export type TranslationFunctions = {
 			 * Activate
 			 */
 			activate: () => LocalizedString
+			add: {
+				/**
+				 * Add area success
+				 */
+				success: () => LocalizedString
+				/**
+				 * Add area false
+				 */
+				failure: () => LocalizedString
+			}
+			layout: {
+				/**
+				 * Home
+				 */
+				home: () => LocalizedString
+				/**
+				 * Add area
+				 */
+				add: () => LocalizedString
+			}
 		}
 	}
 	signup: {
