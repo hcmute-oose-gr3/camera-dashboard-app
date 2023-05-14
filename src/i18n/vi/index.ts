@@ -55,6 +55,7 @@ const vi = {
 			dashboard: 'Bảng điều khiển',
 			camera: 'Camera',
 			area: 'Khu vực',
+			setting: 'Cài đặt',
 			logout: 'Đăng xuất',
 		},
 		card: {
@@ -114,6 +115,19 @@ const vi = {
 			layout: {
 				home: 'Nhà',
 				add: 'Thêm khu vực',
+			},
+		},
+		setting: {
+			meta: {
+				title: 'Cài đặt',
+			},
+			theme: {
+				title: 'Màu sắc',
+				color: 'Màu của trang',
+			},
+			language: {
+				title: 'Ngôn ngữ',
+				language: 'Chọn ngôn ngữ',
 			},
 		},
 	},

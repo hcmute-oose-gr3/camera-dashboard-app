@@ -56,6 +56,7 @@ const en = {
 			dashboard: 'Dashboard',
 			camera: 'Camera',
 			area: 'Area',
+			setting: 'Setting',
 			logout: 'Sign out',
 		},
 		card: {
@@ -115,6 +116,19 @@ const en = {
 			layout: {
 				home: 'Home',
 				add: 'Add area',
+			},
+		},
+		setting: {
+			meta: {
+				title: 'Setting',
+			},
+			theme: {
+				title: 'Theme',
+				color: 'Page color',
+			},
+			language: {
+				title: 'Language',
+				language: 'Choose language',
 			},
 		},
 	},

@@ -172,6 +172,10 @@ type RootTranslation = {
 			 */
 			area: string
 			/**
+			 * S​e​t​t​i​n​g
+			 */
+			setting: string
+			/**
 			 * S​i​g​n​ ​o​u​t
 			 */
 			logout: string
@@ -324,6 +328,34 @@ type RootTranslation = {
 				 * A​d​d​ ​a​r​e​a
 				 */
 				add: string
+			}
+		}
+		setting: {
+			meta: {
+				/**
+				 * S​e​t​t​i​n​g
+				 */
+				title: string
+			}
+			theme: {
+				/**
+				 * T​h​e​m​e
+				 */
+				title: string
+				/**
+				 * P​a​g​e​ ​c​o​l​o​r
+				 */
+				color: string
+			}
+			language: {
+				/**
+				 * L​a​n​g​u​a​g​e
+				 */
+				title: string
+				/**
+				 * C​h​o​o​s​e​ ​l​a​n​g​u​a​g​e
+				 */
+				language: string
 			}
 		}
 	}
@@ -787,6 +819,10 @@ export type TranslationFunctions = {
 			 */
 			area: () => LocalizedString
 			/**
+			 * Setting
+			 */
+			setting: () => LocalizedString
+			/**
 			 * Sign out
 			 */
 			logout: () => LocalizedString
@@ -935,6 +971,34 @@ export type TranslationFunctions = {
 				 * Add area
 				 */
 				add: () => LocalizedString
+			}
+		}
+		setting: {
+			meta: {
+				/**
+				 * Setting
+				 */
+				title: () => LocalizedString
+			}
+			theme: {
+				/**
+				 * Theme
+				 */
+				title: () => LocalizedString
+				/**
+				 * Page color
+				 */
+				color: () => LocalizedString
+			}
+			language: {
+				/**
+				 * Language
+				 */
+				title: () => LocalizedString
+				/**
+				 * Choose language
+				 */
+				language: () => LocalizedString
 			}
 		}
 	}
