@@ -15,7 +15,7 @@ const sansSerifStack = [
 	"'Helvetica Neue'",
 	'Helvetica',
 	'Arial',
-	'sans-serif'
+	'sans-serif',
 ];
 
 /** @type {import('tailwindcss').Config} */
@@ -30,15 +30,15 @@ export default {
 				h4: ['1.0769rem', { fontWeight: 'bold' }],
 				h5: ['1rem', { fontWeight: 'bold' }],
 				p: ['1rem'],
-				button: ['1.0769rem', { fontWeight: 'bold' }],
+				button: ['1rem', { fontWeight: 'medium' }],
 				a: ['1rem', { fontWeight: 'bold' }],
 				'icon-base': ['1.5rem'],
 				'icon-small': ['1rem'],
-				'icon-large': ['2.5rem']
+				'icon-large': ['2.5rem'],
 			},
 			fontFamily: {
 				display: ["'Josefin Sans'", ...sansSerifStack],
-				body: ["'Work Sans'", ...sansSerifStack]
+				body: ["'Work Sans'", ...sansSerifStack],
 			},
 			colors: {
 				primary: {
@@ -51,7 +51,7 @@ export default {
 					700: '#3c57d6',
 					800: '#3249b3',
 					900: '#283a8f',
-					1000: '#213075'
+					1000: '#213075',
 				},
 				// primary: {
 				// 	100: '#ffffff',
@@ -75,7 +75,7 @@ export default {
 					700: '#696979',
 					800: '#515162',
 					900: '#3a3a47',
-					1000: '#24252E'
+					1000: '#24252E',
 				},
 				positive: {
 					100: '#ffffff',
@@ -87,7 +87,7 @@ export default {
 					700: '#217b00',
 					800: '#166000',
 					900: '#0e4700',
-					1000: '#052d00'
+					1000: '#052d00',
 				},
 				negative: {
 					100: '#ffffff',
@@ -99,14 +99,14 @@ export default {
 					700: '#d01e29',
 					800: '#a4151e',
 					900: '#790c14',
-					1000: '#510609'
-				}
-			}
-		}
+					1000: '#510609',
+				},
+			},
+		},
 	},
 	plugins: [
 		require('@tailwindcss/forms')({
-			strategy: 'class'
-		})
-	]
+			strategy: 'class',
+		}),
+	],
 };
