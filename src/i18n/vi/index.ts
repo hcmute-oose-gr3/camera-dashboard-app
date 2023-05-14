@@ -33,6 +33,9 @@ const vi = {
 		}
 	},
 	dashboard: {
+		meta: {
+			title: 'Bảng điều khiển - {dashboardName}'
+		},
 		entry: {
 			dashboard: 'Bảng điều khiển',
 			camera: 'Camera',
@@ -44,6 +47,9 @@ const vi = {
 			updatedAt: 'Chỉnh sửa cuối: {date|shortDate}'
 		},
 		area: {
+			meta: {
+				title: 'Khu vực - {areaName}'
+			},
 			modal: {
 				title: 'Thêm khu vực',
 				select: {

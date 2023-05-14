@@ -5,14 +5,27 @@
 	import LL from '~/i18n/i18n-svelte';
 	import { invalidate } from '$app/navigation';
 	import Table from './components/Table.svelte';
-	let showModal = false;
+	import { getContext } from 'svelte';
+	import type { WritablePageMeta } from '../..';
+
 	export let data: PageData;
+
+	const meta = getContext('meta') as WritablePageMeta;
+	let showModal = false;
 	let checked = Array(data.areas.length).fill(false);
 
 	function submit() {
 		invalidate('abc');
 	}
+
+	$: $meta.title = $LL.dashboard.area.meta.title({ areaName: 'test' });
 </script>
+
+<svelte:head>
+	<title>
+		{$LL.login.alreadyLoggedIn()}
+	</title>
+</svelte:head>
 
 <button on:click={() => (showModal = true)} class="flex">
 	<Icon name="FolderPlus" class="text-black text-opacity-30" />

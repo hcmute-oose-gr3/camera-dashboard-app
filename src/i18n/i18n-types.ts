@@ -109,6 +109,13 @@ type RootTranslation = {
 		}
 	}
 	dashboard: {
+		meta: {
+			/**
+			 * D​a​s​h​b​o​a​r​d​ ​-​ ​{​d​a​s​h​b​o​a​r​d​N​a​m​e​}
+			 * @param {string} dashboardName
+			 */
+			title: RequiredParams<'dashboardName'>
+		}
 		entry: {
 			/**
 			 * D​a​s​h​b​o​a​r​d
@@ -140,6 +147,13 @@ type RootTranslation = {
 			updatedAt: RequiredParams<'date|shortDate'>
 		}
 		area: {
+			meta: {
+				/**
+				 * A​r​e​a​ ​-​ ​{​a​r​e​a​N​a​m​e​}
+				 * @param {string} areaName
+				 */
+				title: RequiredParams<'areaName'>
+			}
 			modal: {
 				/**
 				 * A​d​d​ ​a​r​e​a
@@ -568,6 +582,12 @@ export type TranslationFunctions = {
 		}
 	}
 	dashboard: {
+		meta: {
+			/**
+			 * Dashboard - {dashboardName}
+			 */
+			title: (arg: { dashboardName: string }) => LocalizedString
+		}
 		entry: {
 			/**
 			 * Dashboard
@@ -597,6 +617,12 @@ export type TranslationFunctions = {
 			updatedAt: (arg: { date: Date }) => LocalizedString
 		}
 		area: {
+			meta: {
+				/**
+				 * Area - {areaName}
+				 */
+				title: (arg: { areaName: string }) => LocalizedString
+			}
 			modal: {
 				/**
 				 * Add area

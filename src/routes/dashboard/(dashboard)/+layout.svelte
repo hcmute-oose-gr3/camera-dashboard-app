@@ -8,6 +8,9 @@
 	import Typewriter from 'svelte-typewriter';
 	import LL from '~/i18n/i18n-svelte';
 	import { page } from '$app/stores';
+	import type { PageMeta } from '.';
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
 
 	export let data: LayoutData;
 
@@ -33,6 +36,8 @@
 	let currentEntry: NavigationEntryData | undefined;
 	let lastIndex: number = -1;
 	let delta = 1;
+	const meta = writable<PageMeta>({ title: '' });
+	setContext('meta', meta);
 
 	$: {
 		const index = entries.findIndex((e) => e.href === data.url.pathname);
@@ -42,13 +47,19 @@
 	}
 </script>
 
+<svelte:head>
+	<title>{$meta.title}</title>
+</svelte:head>
+
 <div in:scale={{ start: 1.04, duration: 700, easing: quadOut }} class="flex min-h-screen h-full">
 	<SideBarNavigation {entries} {footerEntries} />
 	<div class="ml-16 transition-[margin] lg:ml-52 p-6 w-full">
 		<div class="flex justify-between items-center mb-3 relative gap-x-12">
 			<div>
 				<Typewriter delay={320} interval={70} keepCursorOnFinish={false} mode="cascade">
-					<h1>{$page.data.meta.title || currentEntry?.text || ''}</h1>
+					<h1>
+						{$meta.title}
+					</h1>
 				</Typewriter>
 			</div>
 			<TopRight data={{ email: data.user?.email ?? '', imageUrl: '' }} />

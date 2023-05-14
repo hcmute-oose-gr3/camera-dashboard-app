@@ -34,6 +34,9 @@ const en = {
 		}
 	},
 	dashboard: {
+		meta: {
+			title: 'Dashboard - {dashboardName:string}'
+		},
 		entry: {
 			dashboard: 'Dashboard',
 			camera: 'Camera',
@@ -45,6 +48,9 @@ const en = {
 			updatedAt: 'Last modified date: {date:Date|shortDate}'
 		},
 		area: {
+			meta: {
+				title: 'Area - {areaName:string}'
+			},
 			modal: {
 				title: 'Add area',
 				select: {
