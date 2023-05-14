@@ -13,8 +13,6 @@
 	import { quadOut } from 'svelte/easing';
 	import Pending from '~/lib/components/Pending.svelte';
 	type FormFields = 'name' | 'serial' | 'activate';
-	export let showModal: boolean;
-	export let data: any;
 	let dialog: HTMLDialogElement;
 	let fieldErrors: Partial<Record<FormFields, string>> = {};
 	const inputElements: Record<FormFields, HTMLInputElement> = {} as any;
@@ -22,10 +20,10 @@
 	let canSubmit = false;
 	let formResponse: ApiResponse | undefined;
 	const dispatcher = createEventDispatcher<{ submit: () => void }>();
+	export let data: PageData;
 	onMount(() => {
 		canSubmit = true;
 	});
-	$: if (dialog && showModal) dialog.showModal();
 	async function submit(this: HTMLFormElement) {
 		const form = new FormData(this);
 		submitting = true;
@@ -46,13 +44,13 @@
 			return;
 		}
 		form.set('name', result.data.name);
+		form.set('id', data.id);
 		if (form.get('activate') === null) {
 			console.log('asds');
 			form.set('activate', 'false');
 		} else {
 			form.set('activate', 'true');
 		}
-		form.set('id', data.id);
 		const json = await fetch(this.action, {
 			method: 'post',
 			body: form,
@@ -66,12 +64,8 @@
 	}
 </script>
 
-<dialog bind:this={dialog} on:close={() => (showModal = false)} class="w-[40%] rounded-lg h-fit">
+<div class="w-[40%] rounded-lg h-fit">
 	<form class=" px-[32px]" on:submit|preventDefault={submit} action={ApiRoutes.AREA}>
-		<div class="flex justify-between items-center pb-2 border-b-[1px]">
-			<p class="font-bold">{$LL.dashboard.area.modal.title()}</p>
-			<button on:click={() => dialog.close()}>X</button>
-		</div>
 		<div class="mt-12 justify-between flex">
 			<div class="flex flex-col gap-y-1">
 				<Input
@@ -81,7 +75,7 @@
 					type="text"
 					spellcheck={false}
 					class="transition"
-					label={$LL.dashboard.area.modal.name.titel()}
+					label={$LL.dashboard.area.modal.name.title()}
 					caption={fieldErrors?.name}
 					accent={fieldErrors?.name ? 'negative' : undefined}
 				/>
@@ -110,7 +104,6 @@
 			</div>
 		</div>
 		{#if formResponse}
-			<!-- svelte-ignore missing-declaration -->
 			<div transition:fly={{ y: 20, easing: quadOut, duration: 200 }}>
 				{#if instanceOf(formResponse, 'error')}
 					<div
@@ -129,11 +122,11 @@
 					>
 						<p>
 							<span class="text-positive-700 text-h5"> 200 </span>{' '}
-							{$LL.signup.success()}.
+							{$LL.dashboard.area.add.success()}.
 						</p>
 					</div>
 				{/if}
 			</div>
 		{/if}
 	</form>
-</dialog>
+</div>

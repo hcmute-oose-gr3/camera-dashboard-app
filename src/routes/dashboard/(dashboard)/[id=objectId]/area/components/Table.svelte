@@ -29,7 +29,7 @@
 		const area = areas[index];
 		form.set('activate', area.activate.toString());
 		form.set('id', $page.params.id);
-		form.set('idA', area._id);
+		form.set('idA', area._id as any as string);
 		const json = await fetch(ApiRoutes.AREA, {
 			method: 'put',
 			body: form,
@@ -104,7 +104,10 @@
 					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.name.header()}:</span
 					>
-					<a href={`/dashboard/${$page.params.id}/area/${area._id}/camera`}>
+					<a
+						href={`/dashboard/${$page.params.id}/area/${area._id}/camera`}
+						class="text-blue-400"
+					>
 						{area.name}
 					</a></td
 				>
