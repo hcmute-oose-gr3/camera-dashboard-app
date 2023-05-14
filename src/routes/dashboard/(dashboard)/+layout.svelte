@@ -48,7 +48,7 @@
 		<div class="flex justify-between items-center mb-3 relative gap-x-12">
 			<div>
 				<Typewriter delay={320} interval={70} keepCursorOnFinish={false} mode="cascade">
-					<h1>{currentEntry?.text ?? ''}</h1>
+					<h1>{$page.data.meta.title || currentEntry?.text || ''}</h1>
 				</Typewriter>
 			</div>
 			<TopRight data={{ email: data.user?.email ?? '', imageUrl: '' }} />
