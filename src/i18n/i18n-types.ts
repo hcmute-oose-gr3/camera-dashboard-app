@@ -487,6 +487,78 @@ type RootTranslation = {
 			 */
 			success: string
 		}
+		editForm: {
+			serial: {
+				/**
+				 * C​a​m​e​r​a​ ​s​e​r​i​a​l
+				 */
+				label: string
+			}
+			name: {
+				/**
+				 * C​a​m​e​r​a​ ​n​a​m​e
+				 */
+				label: string
+				/**
+				 * E​n​t​e​r​ ​c​a​m​e​r​a​ ​n​a​m​e
+				 */
+				placeholder: string
+				/**
+				 * C​a​m​e​r​a​ ​n​a​m​e​ ​m​u​s​t​ ​n​o​t​ ​b​e​ ​e​m​p​t​y
+				 */
+				nonempty: string
+			}
+			url: {
+				/**
+				 * U​R​L
+				 */
+				label: string
+				/**
+				 * E​n​t​e​r​ ​c​a​m​e​r​a​ ​s​t​r​e​a​m​ ​U​R​L
+				 */
+				placeholder: string
+				/**
+				 * U​R​L​ ​i​s​ ​n​o​t​ ​v​a​l​i​d
+				 */
+				url: string
+			}
+			securityLevel: {
+				/**
+				 * C​h​o​o​s​e​ ​a​ ​s​e​c​u​r​i​t​y​ ​l​e​v​e​l​:
+				 */
+				legend: string
+				low: {
+					/**
+					 * L​o​w
+					 */
+					label: string
+				}
+				medium: {
+					/**
+					 * M​e​d​i​u​m
+					 */
+					label: string
+				}
+				high: {
+					/**
+					 * H​i​g​h
+					 */
+					label: string
+				}
+				/**
+				 * P​l​e​a​s​e​ ​c​h​o​o​s​e​ ​e​x​a​c​t​l​y​ ​o​n​e​ ​o​f​ ​s​e​c​u​r​i​t​y​ ​l​e​v​e​l​s​.
+				 */
+				required: string
+			}
+			/**
+			 * E​d​i​t​ ​c​a​m​e​r​a
+			 */
+			submit: string
+			/**
+			 * C​a​m​e​r​a​ ​h​a​s​ ​b​e​e​n​ ​e​d​i​t​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+			 */
+			success: string
+		}
 	}
 }
 
@@ -954,6 +1026,78 @@ export type TranslationFunctions = {
 			submit: () => LocalizedString
 			/**
 			 * Camera has been added successfully.
+			 */
+			success: () => LocalizedString
+		}
+		editForm: {
+			serial: {
+				/**
+				 * Camera serial
+				 */
+				label: () => LocalizedString
+			}
+			name: {
+				/**
+				 * Camera name
+				 */
+				label: () => LocalizedString
+				/**
+				 * Enter camera name
+				 */
+				placeholder: () => LocalizedString
+				/**
+				 * Camera name must not be empty
+				 */
+				nonempty: () => LocalizedString
+			}
+			url: {
+				/**
+				 * URL
+				 */
+				label: () => LocalizedString
+				/**
+				 * Enter camera stream URL
+				 */
+				placeholder: () => LocalizedString
+				/**
+				 * URL is not valid
+				 */
+				url: () => LocalizedString
+			}
+			securityLevel: {
+				/**
+				 * Choose a security level:
+				 */
+				legend: () => LocalizedString
+				low: {
+					/**
+					 * Low
+					 */
+					label: () => LocalizedString
+				}
+				medium: {
+					/**
+					 * Medium
+					 */
+					label: () => LocalizedString
+				}
+				high: {
+					/**
+					 * High
+					 */
+					label: () => LocalizedString
+				}
+				/**
+				 * Please choose exactly one of security levels.
+				 */
+				required: () => LocalizedString
+			}
+			/**
+			 * Edit camera
+			 */
+			submit: () => LocalizedString
+			/**
+			 * Camera has been edited successfully.
 			 */
 			success: () => LocalizedString
 		}

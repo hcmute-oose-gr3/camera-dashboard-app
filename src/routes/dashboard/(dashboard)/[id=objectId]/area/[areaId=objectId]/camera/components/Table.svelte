@@ -116,14 +116,19 @@
 							}}
 							class="lg:hidden w-8 h-8 rounded-md"
 						/>
-						<SecondaryButton
-							class="text-yellow-600 border-yellow-600 p-0.5"
-							on:click={(e) => {
-								e.stopImmediatePropagation();
-							}}
+						<a
+							href="/dashboard/{$page.params.id}/area/{$page.params
+								.areaId}/camera/{camera._id}/edit"
 						>
-							<Icon name="Pencil" class="w-7 h-7" />
-						</SecondaryButton>
+							<SecondaryButton
+								class="text-yellow-600 border-yellow-600 p-0.5"
+								on:click={(e) => {
+									e.stopPropagation();
+								}}
+							>
+								<Icon name="Pencil" class="w-7 h-7" />
+							</SecondaryButton>
+						</a>
 						<SecondaryButton
 							class="text-negative-700 border-negative-700 p-0.5"
 							on:click={(e) => {
@@ -138,14 +143,19 @@
 				</td>
 				<td class="hidden lg:table-cell px-4 py-6">
 					<div class="flex gap-x-4 items-center">
-						<SecondaryButton
-							class="text-yellow-600 border-yellow-600 p-0.5"
-							on:click={(e) => {
-								e.stopPropagation();
-							}}
+						<a
+							href="/dashboard/{$page.params.id}/area/{$page.params
+								.areaId}/camera/{camera._id}/edit"
 						>
-							<Icon name="Pencil" class="w-7 h-7" />
-						</SecondaryButton>
+							<SecondaryButton
+								class="text-yellow-600 border-yellow-600 p-0.5"
+								on:click={(e) => {
+									e.stopPropagation();
+								}}
+							>
+								<Icon name="Pencil" class="w-7 h-7" />
+							</SecondaryButton>
+						</a>
 						<SecondaryButton
 							class="text-negative-700 border-negative-700 p-0.5"
 							on:click={(e) => {
