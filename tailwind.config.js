@@ -22,6 +22,7 @@ const sansSerifStack = [
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		darkMode: 'class',
 		extend: {
 			fontSize: {
 				h1: ['1.8462rem', { fontWeight: 'bold' }],
