@@ -48,7 +48,8 @@ const vi = {
 		},
 		area: {
 			meta: {
-				title: 'Khu vực - {areaName}'
+				title: 'Khu vực',
+				namedTitle: 'Khu vực - {areaName}'
 			},
 			modal: {
 				title: 'Thêm khu vực',

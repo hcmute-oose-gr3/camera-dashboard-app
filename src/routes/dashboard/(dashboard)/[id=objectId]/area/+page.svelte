@@ -18,7 +18,7 @@
 		invalidate('abc');
 	}
 
-	$: $meta.title = $LL.dashboard.area.meta.title({ areaName: 'test' });
+	$: $meta.title = $LL.dashboard.area.meta.title();
 </script>
 
 <svelte:head>

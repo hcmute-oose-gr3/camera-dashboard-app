@@ -149,10 +149,14 @@ type RootTranslation = {
 		area: {
 			meta: {
 				/**
+				 * A​r​e​a
+				 */
+				title: string
+				/**
 				 * A​r​e​a​ ​-​ ​{​a​r​e​a​N​a​m​e​}
 				 * @param {string} areaName
 				 */
-				title: RequiredParams<'areaName'>
+				namedTitle: RequiredParams<'areaName'>
 			}
 			modal: {
 				/**
@@ -619,9 +623,13 @@ export type TranslationFunctions = {
 		area: {
 			meta: {
 				/**
+				 * Area
+				 */
+				title: () => LocalizedString
+				/**
 				 * Area - {areaName}
 				 */
-				title: (arg: { areaName: string }) => LocalizedString
+				namedTitle: (arg: { areaName: string }) => LocalizedString
 			}
 			modal: {
 				/**

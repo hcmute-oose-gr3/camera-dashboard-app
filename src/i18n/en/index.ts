@@ -49,7 +49,8 @@ const en = {
 		},
 		area: {
 			meta: {
-				title: 'Area - {areaName:string}'
+				title: 'Area',
+				namedTitle: 'Area - {areaName:string}'
 			},
 			modal: {
 				title: 'Add area',
