@@ -23,6 +23,7 @@
 	placeholder:text-fill-300
 	active:scale-[0.99] active:ring-0 active:ring-offset-0
 	focus:outline-none focus:ring focus:ring-offset-1 focus:ring-primary-500
+	disabled:text-fill-800 disabled:bg-fill-200 disabled:border-fill-300
 	{accent ? `input-${accent}` : ''}"
 />
 <div
