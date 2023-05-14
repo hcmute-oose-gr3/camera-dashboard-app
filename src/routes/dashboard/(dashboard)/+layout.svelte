@@ -36,6 +36,7 @@
 	let currentEntry: NavigationEntryData | undefined;
 	let lastIndex: number = -1;
 	let delta = 1;
+
 	const meta = writable<PageMeta>({ title: '' });
 	setContext('meta', meta);
 
@@ -45,6 +46,9 @@
 		lastIndex = index;
 		currentEntry = entries[index];
 	}
+
+	let title = $meta.title;
+	$: ({ title } = $meta);
 </script>
 
 <svelte:head>
@@ -58,7 +62,7 @@
 			<div>
 				<Typewriter delay={320} interval={70} keepCursorOnFinish={false} mode="cascade">
 					<h1>
-						{$meta.title}
+						{title}
 					</h1>
 				</Typewriter>
 			</div>
