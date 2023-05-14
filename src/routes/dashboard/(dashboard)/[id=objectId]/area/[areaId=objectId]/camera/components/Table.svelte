@@ -45,20 +45,22 @@
 	}
 </script>
 
-<table class="table-auto text-left w-full transition-all rounded-2xl">
-	<thead class="font-display text-h4">
-		<tr class="hidden lg:table-row border-b border-primary-200">
-			<th class="p-4 w-0 bg-primary-100 rounded-tl-2xl"
+<table class="table-auto text-left w-full transition-all">
+	<thead class="text-fill-700 font-bold">
+		<tr class="hidden lg:table-row">
+			<th class="px-4 py-6 w-0 text-fill-700"
 				><CheckBox
 					on:input={toggleCheckAll}
-					checked={!!checked.length && checked.every((v) => v)}
+					indeterminate={checked.some((v) => v) && !checked.every((v) => v)}
+					checked={checked.every((v) => v)}
+					class="w-5 h-5"
 				/></th
 			>
-			<th class="p-4 bg-primary-100">{text.serial.header()}</th>
-			<th class="p-4 bg-primary-100">{text.name.header()}</th>
-			<th class="p-4 bg-primary-100">{text.connection.header()}</th>
-			<th class="p-4 bg-primary-100">{text.securityLevel.header()}</th>
-			<th class="p-4 bg-primary-100 rounded-tr-2xl">{text.actions.header()}</th>
+			<th class="px-4 py-6 text-fill-700">{text.serial.header()}</th>
+			<th class="px-4 py-6 text-fill-700">{text.name.header()}</th>
+			<th class="px-4 py-6 text-fill-700">{text.connection.header()}</th>
+			<th class="px-4 py-6 text-fill-700">{text.securityLevel.header()}</th>
+			<th class="px-4 py-6 text-fill-700">{text.actions.header()}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -70,33 +72,34 @@
 					toggleCheck(i);
 				}}
 			>
-				<td class="hidden lg:table-cell p-4 w-0"
+				<td class="hidden lg:table-cell px-4 py-6 w-0"
 					><CheckBox
 						bind:checked={checked[i]}
 						on:click={(e) => {
 							e.stopPropagation();
 						}}
+						class="w-5 h-5"
 					/></td
 				>
-				<td class="block lg:table-cell p-4"
-					><span class="lg:hidden inline-block w-36 font-display text-h4"
+				<td class="block lg:table-cell px-4 py-6"
+					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.serial.header()}:</span
 					>{parseInt(camera._id.substring(camera._id.length - 6), 16)}</td
 				>
-				<td class="block lg:table-cell p-4"
-					><span class="lg:hidden inline-block w-36 font-display text-h4"
+				<td class="block lg:table-cell px-4 py-6"
+					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.name.header()}:</span
 					>{camera.name}</td
 				>
-				<td class="block lg:table-cell p-4"
-					><span class="lg:hidden inline-block w-36 font-display text-h4"
+				<td class="block lg:table-cell px-4 py-6"
+					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.connection.header()}:</span
 					>{camera.connection === CameraConnection.Disconnected
 						? text.connection.disconnected()
 						: text.connection.connected()}</td
 				>
-				<td class="block lg:table-cell p-4"
-					><span class="lg:hidden inline-block w-36 font-display text-h4"
+				<td class="block lg:table-cell px-4 py-6"
+					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.securityLevel.header()}:</span
 					>{camera.securityLevel === CameraSecurityLevel.Low
 						? text.securityLevel.low()
@@ -114,44 +117,44 @@
 							class="lg:hidden w-8 h-8 rounded-md"
 						/>
 						<SecondaryButton
-							class="text-yellow-600 border-yellow-600 p-1"
+							class="text-yellow-600 border-yellow-600 p-0.5"
 							on:click={(e) => {
 								e.stopImmediatePropagation();
 							}}
 						>
-							<Icon name="Pencil" class="w-6 h-6" />
+							<Icon name="Pencil" class="w-7 h-7" />
 						</SecondaryButton>
 						<SecondaryButton
-							class="text-negative-700 border-negative-700 p-1"
+							class="text-negative-700 border-negative-700 p-0.5"
 							on:click={(e) => {
 								e.stopPropagation();
 								deleteThis(i);
 							}}
 							disabled={deletePendings[i]}
 						>
-							<Icon name="Trash" class="w-6 h-6" />
+							<Icon name="Trash" class="w-7 h-7" />
 						</SecondaryButton>
 					</div>
 				</td>
-				<td class="hidden lg:table-cell pr-4 w-0">
+				<td class="hidden lg:table-cell px-4 py-6">
 					<div class="flex gap-x-4 items-center">
 						<SecondaryButton
-							class="text-yellow-600 border-yellow-600 p-1"
+							class="text-yellow-600 border-yellow-600 p-0.5"
 							on:click={(e) => {
 								e.stopPropagation();
 							}}
 						>
-							<Icon name="Pencil" class="w-6 h-6" />
+							<Icon name="Pencil" class="w-7 h-7" />
 						</SecondaryButton>
 						<SecondaryButton
-							class="text-negative-700 border-negative-700 p-1"
+							class="text-negative-700 border-negative-700 p-0.5"
 							on:click={(e) => {
 								e.stopPropagation();
 								deleteThis(i);
 							}}
 							disabled={deletePendings[i]}
 						>
-							<Icon name="Trash" class="w-6 h-6" />
+							<Icon name="Trash" class="w-7 h-7" />
 						</SecondaryButton>
 					</div>
 				</td>

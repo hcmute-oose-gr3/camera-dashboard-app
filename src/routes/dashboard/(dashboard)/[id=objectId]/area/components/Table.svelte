@@ -61,18 +61,20 @@
 </script>
 
 <table class="table-auto text-left w-full transition-all rounded-2xl">
-	<thead class="font-display text-h4">
-		<tr class="hidden lg:table-row border-b border-primary-200">
-			<th class="p-4 w-0 bg-primary-100 rounded-tl-2xl"
+	<thead class="text-fill-700">
+		<tr class="hidden lg:table-row">
+			<th class="px-4 py-6 w-0 rounded-tl-2xl"
 				><CheckBox
+					indeterminate={checked.some((v) => v) && !checked.every((v) => v)}
 					on:input={toggleCheckAll}
-					checked={!!checked.length && checked.every((v) => v)}
+					checked={checked.every((v) => v)}
+					class="w-5 h-5"
 				/></th
 			>
-			<th class="p-4 bg-primary-100">{text.serial.header()}</th>
-			<th class="p-4 bg-primary-100">{text.name.header()}</th>
-			<th class="p-4 bg-primary-100">{text.activate.header()}</th>
-			<th class="p-4 bg-primary-100 rounded-tr-2xl">{text.actions.header()}</th>
+			<th class="px-4 py-6">{text.serial.header()}</th>
+			<th class="px-4 py-6">{text.name.header()}</th>
+			<th class="px-4 py-6">{text.activate.header()}</th>
+			<th class="px-4 py-6 rounded-tr-2xl">{text.actions.header()}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -84,29 +86,30 @@
 					toggleCheck(i);
 				}}
 			>
-				<td class="hidden lg:table-cell p-4 w-0"
+				<td class="hidden lg:table-cell px-4 py-6 w-0"
 					><CheckBox
 						bind:checked={checked[i]}
 						on:click={(e) => {
 							e.stopPropagation();
 						}}
+						class="w-5 h-5"
 					/></td
 				>
-				<td class="block lg:table-cell p-4"
-					><span class="lg:hidden inline-block w-36 font-display text-h4"
+				<td class="block lg:table-cell px-4 py-6"
+					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.serial.header()}:</span
 					>{parseInt(area?._id?.substring(area?._id?.length - 6), 16)}</td
 				>
-				<td class="block lg:table-cell p-4"
-					><span class="lg:hidden inline-block w-36 font-display text-h4"
+				<td class="block lg:table-cell px-4 py-6"
+					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.name.header()}:</span
 					>
 					<a href={`/dashboard/${$page.params.id}/area/${area._id}/camera`}>
 						{area.name}
 					</a></td
 				>
-				<td class="block lg:table-cell p-4"
-					><span class="lg:hidden inline-block w-36 font-display text-h4"
+				<td class="block lg:table-cell px-4 py-6"
+					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.activate.header()}:</span
 					>{#if area.activate}
 						<button
@@ -128,7 +131,7 @@
 						</button>
 					{/if}</td
 				>
-				<td class="lg:hidden p-4">
+				<td class="lg:hidden px-4 py-6">
 					<div class="flex flex-col gap-y-4 items-center justify-between">
 						<CheckBox
 							bind:checked={checked[i]}
@@ -138,28 +141,28 @@
 							class="lg:hidden w-8 h-8 rounded-md"
 						/>
 						<SecondaryButton
-							class="text-negative-700 border-negative-700 p-1"
+							class="text-negative-700 border-negative-700 p-0.5"
 							on:click={(e) => {
 								e.stopPropagation();
 								deleteThis(i);
 							}}
 							disabled={deletePendings[i]}
 						>
-							<Icon name="Trash" class="w-6 h-6" />
+							<Icon name="Trash" class="w-7 h-7" />
 						</SecondaryButton>
 					</div>
 				</td>
-				<td class="hidden lg:table-cell p-4">
+				<td class="hidden lg:table-cell px-4 py-6">
 					<div class="flex gap-x-4 items-center">
 						<SecondaryButton
-							class="text-negative-700 border-negative-700 p-1"
+							class="text-negative-700 border-negative-700 p-0.5"
 							on:click={(e) => {
 								e.stopPropagation();
 								deleteThis(i);
 							}}
 							disabled={deletePendings[i]}
 						>
-							<Icon name="Trash" class="w-6 h-6" />
+							<Icon name="Trash" class="w-7 h-7" />
 						</SecondaryButton>
 					</div>
 				</td>
