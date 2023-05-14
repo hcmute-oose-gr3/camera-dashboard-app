@@ -47,7 +47,6 @@
 		currentEntry = entries[index];
 	}
 
-	let title = $meta.title;
 	$: ({ title } = $meta);
 </script>
 
