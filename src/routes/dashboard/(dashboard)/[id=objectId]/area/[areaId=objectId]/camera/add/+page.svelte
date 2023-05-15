@@ -20,7 +20,7 @@
 	import RowVisibilityAnimate from '~/lib/components/RowVisibilityAnimate.svelte';
 	import Spinner from '~/lib/components/Spinner.svelte';
 	import Toast from '~/lib/components/Toast.svelte';
-	import type { ApiErrorResponse } from '~/lib/models/api-response';
+	import type { ApiResponse } from '~/lib/models/api-response';
 	import { instanceOf } from '~/lib/utils';
 
 	type FormFields = 'name' | 'url' | 'securityLevel';
