@@ -9,7 +9,7 @@
 	import Radio from '~/lib/components/Radio.svelte';
 	import RowVisibilityAnimate from '~/lib/components/RowVisibilityAnimate.svelte';
 	import Spinner from '~/lib/components/Spinner.svelte';
-	import type { ApiErrorResponse, ApiResponse } from '~/lib/models/api-response';
+	import type { ApiResponse } from '~/lib/models/api-response';
 	import { instanceOf } from '~/lib/utils';
 	import type { PageData } from './$types';
 	import { CameraSecurityLevel } from '~/lib/models/dashboard';
@@ -98,7 +98,7 @@
 			id="serial"
 			type="text"
 			label={text.serial.label()}
-			value={parseInt($page.params.cameraId.substring($page.params.cameraId.length - 6), 16)}
+			value={parseInt(data.camera._id.substring(data.camera._id.length - 6), 16)}
 		/>
 	</div>
 	<div class="flex flex-col gap-y-1">
