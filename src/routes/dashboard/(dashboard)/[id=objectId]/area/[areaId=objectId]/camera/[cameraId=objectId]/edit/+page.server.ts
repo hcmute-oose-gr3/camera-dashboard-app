@@ -2,6 +2,8 @@ import { DbClient } from '~/lib/server/services/db-client';
 import type { PageServerLoad } from './$types';
 import { ObjectId, type WithId } from 'mongodb';
 import type { Camera } from '~/lib/models/dashboard';
+import { error } from '@sveltejs/kit';
+import httpStatus from 'http-status';
 
 export const load = (async ({ params }) => {
 	const camera = await DbClient.instance.collections.dashboards
@@ -16,7 +18,7 @@ export const load = (async ({ params }) => {
 		])
 		.next();
 	if (!camera) {
-		return {};
+		throw error(httpStatus.NOT_FOUND, { message: 'Camera not found' });
 	}
 	return { camera: Object.assign(camera, { _id: camera._id.toHexString() }) };
 }) satisfies PageServerLoad;
