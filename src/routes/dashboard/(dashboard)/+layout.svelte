@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { fade, fly, scale } from 'svelte/transition';
-	import SideBarNavigation from './components/SideBarNavigation.svelte';
-	import { quadIn, quadOut } from 'svelte/easing';
-	import TopRight from './components/TopRight.svelte';
+	import { page } from '$app/stores';
+	import { setContext } from 'svelte';
+	import Typewriter from 'svelte-typewriter';
+	import { backIn, backOut, quadOut } from 'svelte/easing';
+	import { writable } from 'svelte/store';
+	import { fly, scale } from 'svelte/transition';
+	import LL from '~/i18n/i18n-svelte';
+	import type { PageMeta } from '.';
 	import type { LayoutData } from './$types';
 	import type { NavigationEntryData } from './components';
-	import Typewriter from 'svelte-typewriter';
-	import LL from '~/i18n/i18n-svelte';
-	import { page } from '$app/stores';
-	import type { PageMeta } from '.';
-	import { setContext } from 'svelte';
-	import { writable } from 'svelte/store';
+	import SideBarNavigation from './components/SideBarNavigation.svelte';
+	import TopRight from './components/TopRight.svelte';
 
 	export let data: LayoutData;
 
@@ -18,20 +18,20 @@
 		{
 			text: $LL.dashboard.entry.dashboard(),
 			href: `/dashboard/${$page.params.id}`,
-			icon: 'RectangleGroup'
+			icon: 'RectangleGroup',
 		},
 		{
 			text: $LL.dashboard.entry.area(),
 			href: `/dashboard/${$page.params.id}/area`,
-			icon: 'Square2Stack'
-		}
+			icon: 'Square2Stack',
+		},
 	];
 	let footerEntries = [
 		{
 			text: $LL.dashboard.entry.logout(),
 			href: `/logout`,
-			icon: 'ArrowLeftOnRectangle'
-		}
+			icon: 'ArrowLeftOnRectangle',
+		},
 	] satisfies NavigationEntryData[];
 	let currentEntry: NavigationEntryData | undefined;
 	let lastIndex: number = -1;
@@ -58,24 +58,26 @@
 	<SideBarNavigation {entries} {footerEntries} />
 	<div class="ml-16 transition-[margin] lg:ml-52 p-6 w-full">
 		<div class="flex justify-between items-center mb-3 relative gap-x-12">
-			<div>
-				<Typewriter delay={320} interval={70} keepCursorOnFinish={false} mode="cascade">
-					<h1>
-						{title}
-					</h1>
-				</Typewriter>
-			</div>
+			{#key title}
+				<div>
+					<Typewriter delay={150} interval={55} mode="cascade">
+						<h1>
+							{title}
+						</h1>
+					</Typewriter>
+				</div>
+			{/key}
 			<TopRight data={{ email: data.user?.email ?? '', imageUrl: '' }} />
 		</div>
 		{#key data.url.pathname.split('/', 4).join('/')}
 			<section
 				in:fly|local={{
-					y: 5 * delta,
-					duration: 100,
-					delay: 200,
-					easing: quadOut
+					y: 6 * delta,
+					duration: 400,
+					delay: 100,
+					easing: backOut,
 				}}
-				out:fly|local={{ y: -15 * delta, opacity: 1, duration: 200, easing: quadIn }}
+				out:fly|local={{ y: -4 * delta, opacity: 1, duration: 100, easing: backIn }}
 			>
 				<slot />
 			</section>
