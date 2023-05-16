@@ -21,12 +21,6 @@
 	$: $meta.title = $LL.dashboard.area.meta.title();
 </script>
 
-<svelte:head>
-	<title>
-		{$LL.login.alreadyLoggedIn()}
-	</title>
-</svelte:head>
-
 <button on:click={() => (showModal = true)} class="flex">
 	<Icon name="FolderPlus" class="text-black text-opacity-30" />
 	<p class="text-black font-bold text-opacity-30">{$LL.dashboard.area.add()}</p>
