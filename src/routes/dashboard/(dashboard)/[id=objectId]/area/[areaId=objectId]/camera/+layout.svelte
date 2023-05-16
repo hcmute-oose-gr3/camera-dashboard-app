@@ -36,8 +36,8 @@
 {#key data.url}
 	<div
 		class="mt-4"
-		in:fly|local={{ x: -6 * delta, duration: 400, delay: 100, easing: backOut }}
-		out:fly|local={{ opacity: 1, x: 4 * delta, duration: 100, easing: backIn }}
+		in:fly={{ x: -6 * delta, duration: 400, delay: 100, easing: backOut }}
+		out:fly={{ opacity: 1, x: 4 * delta, duration: 100, easing: backIn }}
 	>
 		<slot />
 	</div>

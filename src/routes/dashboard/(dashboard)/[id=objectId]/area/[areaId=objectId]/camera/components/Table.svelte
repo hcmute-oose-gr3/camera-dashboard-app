@@ -120,12 +120,7 @@
 							href="/dashboard/{$page.params.id}/area/{$page.params
 								.areaId}/camera/{camera._id}/edit"
 						>
-							<SecondaryButton
-								class="text-yellow-600 border-yellow-600 p-0.5"
-								on:click={(e) => {
-									e.stopPropagation();
-								}}
-							>
+							<SecondaryButton class="text-yellow-600 border-yellow-600 p-0.5">
 								<Icon name="Pencil" class="w-7 h-7" />
 							</SecondaryButton>
 						</a>
@@ -147,12 +142,7 @@
 							href="/dashboard/{$page.params.id}/area/{$page.params
 								.areaId}/camera/{camera._id}/edit"
 						>
-							<SecondaryButton
-								class="text-yellow-600 border-yellow-600 p-0.5"
-								on:click={(e) => {
-									e.stopPropagation();
-								}}
-							>
+							<SecondaryButton class="text-yellow-600 border-yellow-600 p-0.5">
 								<Icon name="Pencil" class="w-7 h-7" />
 							</SecondaryButton>
 						</a>
