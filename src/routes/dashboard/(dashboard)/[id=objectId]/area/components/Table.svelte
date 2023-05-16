@@ -13,7 +13,7 @@
 	import type { Area } from '~/lib/models/dashboard';
 	import { instanceOf } from '~/lib/utils';
 	import { ApiRoutes } from '~/lib/utils/api-routes';
-	export let areas: WithId<Area>[];
+	export let areas: (Area & { _id: string })[];
 	export let checked: boolean[];
 	let deletePendings: boolean[] = [];
 	let text: TranslationFunctions['dashboard']['area']['table'];
@@ -27,12 +27,12 @@
 	async function handleActivate(index: number) {
 		const form = new FormData();
 		const area = areas[index];
-		form.set('activate', area.activate);
+		form.set('activate', area.activate.toString());
 		form.set('id', $page.params.id);
 		form.set('idA', area._id);
 		const json = await fetch(ApiRoutes.AREA, {
 			method: 'put',
-			body: form
+			body: form,
 		}).then((v) => {
 			area.activate = !area.activate;
 			areas = areas;
@@ -42,7 +42,7 @@
 		const area = areas[index];
 		deletePendings[index] = true;
 		const json = await fetch(`/api/v1/dashboard/${$page.params.id}/area/${area._id}`, {
-			method: 'delete'
+			method: 'delete',
 		})
 			.then((v) => v.json())
 			.finally(() => {
