@@ -4,7 +4,7 @@
 	import type { LayoutData } from './$types';
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
-	import { quadIn, quadOut } from 'svelte/easing';
+	import { backIn, backOut } from 'svelte/easing';
 	import { getContext } from 'svelte';
 	import type { WritablePageMeta } from '~/routes/dashboard/(dashboard)';
 	import LL from '~/i18n/i18n-svelte';
@@ -12,12 +12,12 @@
 	const items = [
 		{
 			text: 'All cameras',
-			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`
+			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`,
 		},
 		{
 			text: 'Add camera',
-			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera/add`
-		}
+			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera/add`,
+		},
 	] satisfies NavigationItemData[];
 
 	let delta = 1;
@@ -36,8 +36,8 @@
 {#key data.url}
 	<div
 		class="mt-4"
-		in:fly|local={{ x: -5 * delta, duration: 100, delay: 200, easing: quadOut }}
-		out:fly|local={{ x: 5 * delta, duration: 200, easing: quadIn }}
+		in:fly|local={{ x: -6 * delta, duration: 400, delay: 100, easing: backOut }}
+		out:fly|local={{ opacity: 1, x: 4 * delta, duration: 100, easing: backIn }}
 	>
 		<slot />
 	</div>
