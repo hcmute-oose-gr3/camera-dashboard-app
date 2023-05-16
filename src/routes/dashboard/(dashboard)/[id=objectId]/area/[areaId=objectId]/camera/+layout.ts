@@ -1,5 +1,5 @@
 import type { LayoutLoad } from './$types';
 
-export const load = (async ({ data }) => {
+export const load = (({ data }) => {
 	return data;
 }) satisfies LayoutLoad;
