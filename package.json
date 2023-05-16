@@ -43,14 +43,11 @@
 	"type": "module",
 	"dependencies": {
 		"@types/nodemailer": "^6.4.7",
-		"@popperjs/core": "^2.11.7",
 		"bcrypt": "^5.1.0",
-		"classnames": "^2.3.2",
-		"flowbite": "^1.6.5",
 		"http-status": "^1.6.2",
 		"mongodb": "^5.2.0",
-		"svelted-heroicons": "^1.0.7",
 		"nodemailer": "^6.9.1",
+		"svelted-heroicons": "^1.0.7",
 		"tailwind-merge": "^1.12.0",
 		"typesafe-i18n": "^5.24.3",
 		"zod": "^3.21.4"
