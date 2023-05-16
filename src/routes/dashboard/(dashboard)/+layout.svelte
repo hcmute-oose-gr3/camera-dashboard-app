@@ -58,15 +58,13 @@
 	<SideBarNavigation {entries} {footerEntries} />
 	<div class="ml-16 transition-[margin] lg:ml-52 p-6 w-full">
 		<div class="flex justify-between items-center mb-3 relative gap-x-12">
-			{#key title}
-				<div>
-					<Typewriter delay={150} interval={55} mode="cascade">
-						<h1>
-							{title}
-						</h1>
-					</Typewriter>
-				</div>
-			{/key}
+			<div>
+				<Typewriter delay={150} interval={55} mode="cascade">
+					<h1>
+						{title}
+					</h1>
+				</Typewriter>
+			</div>
 			<TopRight data={{ email: data.user?.email ?? '', imageUrl: '' }} />
 		</div>
 		{#key data.url.pathname.split('/', 4).join('/')}
