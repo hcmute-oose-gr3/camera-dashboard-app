@@ -3,6 +3,7 @@ import type { PageServerLoad } from './$types';
 import type { Camera } from '~/lib/models/dashboard';
 
 export const load = (async (e) => {
+	e.depends('camera');
 	return {
 		cameras: await GET(e as any)
 			.then((v) => v.json())

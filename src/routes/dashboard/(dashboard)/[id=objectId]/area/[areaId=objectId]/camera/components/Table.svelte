@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import type { DeleteResult, WithId } from 'mongodb';
 	import { flip } from 'svelte/animate';
@@ -42,6 +43,27 @@
 			checked = checked;
 		}
 	}
+	let deletingSome = false;
+	async function deleteSome() {
+		const deleting = cameras.filter((_, i) => checked[i]).map((c) => c._id);
+		deletingSome = true;
+		const json = await fetch(
+			`/api/v1/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`,
+			{ method: 'delete', body: JSON.stringify(deleting) }
+		)
+			.then((v) => v.json())
+			.finally(() => {
+				deletingSome = false;
+			});
+		if (instanceOf<ApiErrorResponse>(json, 'error')) {
+			alert(json.error.message);
+		} else if (instanceOf<ApiDataResponse<DeleteResult>>(json, 'data')) {
+			invalidate('camera');
+			checked = checked.filter((v) => !v);
+		}
+	}
+	$: someChecked = checked.some((v) => v);
+	$: allChecked = checked.every((v) => v);
 </script>
 
 <table class="table-auto text-left w-full transition-all">
@@ -50,12 +72,38 @@
 			<th class="px-4 py-6 w-0 text-fill-700"
 				><CheckBox
 					on:input={toggleCheckAll}
-					indeterminate={checked.some((v) => v) && !checked.every((v) => v)}
-					checked={checked.every((v) => v)}
+					indeterminate={someChecked && !allChecked}
+					checked={allChecked}
 					class="w-5 h-5"
 				/></th
 			>
-			<th class="px-4 py-6 text-fill-700">{text.serial.header()}</th>
+			<th class="relative px-4 py-6 text-fill-700">
+				<div
+					class="absolute top-1/2 -translate-y-1/2 grid transition-[grid-template-rows] duration-200 ease-in-out {someChecked
+						? 'grid-rows-[1fr]'
+						: 'grid-rows-[0fr]'}"
+				>
+					<div class="overflow-hidden">
+						<div class="p-1 flex">
+							<SecondaryButton
+								class="text-negative-700 border-negative-700 p-0.5"
+								on:click={deleteSome}
+							>
+								<Icon name="Trash" class="w-7 h-7" />
+							</SecondaryButton>
+						</div>
+					</div>
+				</div>
+				<div
+					class="grid transition-[grid-template-rows opacity] duration-200 ease-in-out {!someChecked
+						? 'grid-rows-[1fr]'
+						: 'grid-rows-[0fr]'}"
+				>
+					<span class="overflow-hidden">
+						{text.serial.header()}
+					</span>
+				</div>
+			</th>
 			<th class="px-4 py-6 text-fill-700">{text.name.header()}</th>
 			<th class="px-4 py-6 text-fill-700">{text.connection.header()}</th>
 			<th class="px-4 py-6 text-fill-700">{text.securityLevel.header()}</th>
@@ -108,13 +156,6 @@
 				>
 				<td class="lg:hidden pr-4 w-0">
 					<div class="flex flex-col gap-y-4 items-center justify-between">
-						<CheckBox
-							bind:checked={checked[i]}
-							on:click={(e) => {
-								e.stopPropagation();
-							}}
-							class="lg:hidden w-8 h-8 rounded-md"
-						/>
 						<a
 							href="/dashboard/{$page.params.id}/area/{$page.params
 								.areaId}/camera/{camera._id}/edit"
@@ -138,6 +179,7 @@
 				<td class="hidden lg:table-cell px-4 py-6">
 					<div class="flex gap-x-4 items-center">
 						<a
+							class="flex"
 							href="/dashboard/{$page.params.id}/area/{$page.params
 								.areaId}/camera/{camera._id}/edit"
 						>
