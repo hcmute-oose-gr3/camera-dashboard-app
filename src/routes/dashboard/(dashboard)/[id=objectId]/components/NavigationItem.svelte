@@ -16,7 +16,7 @@
 	</a>
 	{#if active}
 		<Motion let:motion layoutId="navigation-item" initial={false} transition={motionTransition}>
-			<div use:motion class="absolute inset-0 border-b border-b-primary-700 -z-50" />
+			<div use:motion class="absolute inset-0 border-b-2 border-b-primary-700 z-50" />
 		</Motion>
 	{/if}
 </li>
