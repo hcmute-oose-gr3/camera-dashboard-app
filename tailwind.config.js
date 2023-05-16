@@ -37,7 +37,7 @@ export default {
 				'icon-large': ['2.5rem'],
 			},
 			fontFamily: {
-				display: ["'Josefin Sans'", ...sansSerifStack],
+				display: ["'Alegreya Sans'", ...sansSerifStack],
 				body: ["'Work Sans'", ...sansSerifStack],
 			},
 			colors: {
