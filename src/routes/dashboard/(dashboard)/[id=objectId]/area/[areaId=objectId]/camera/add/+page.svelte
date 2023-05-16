@@ -15,6 +15,7 @@
 	// securityLevel: CameraSecurityLevel;
 
 	import Input from '~/lib/components/Input.svelte';
+	import Pending from '~/lib/components/Pending.svelte';
 	import PrimaryButton from '~/lib/components/PrimaryButton.svelte';
 	import Radio from '~/lib/components/Radio.svelte';
 	import RowVisibilityAnimate from '~/lib/components/RowVisibilityAnimate.svelte';
@@ -74,6 +75,8 @@
 		}
 
 		pending = true;
+		await new Promise((resolve) => setTimeout(resolve, 5000));
+
 		formData.set(
 			'securityLevel',
 			securityLevelString === 'low' ? '0' : securityLevelString === 'medium' ? '1' : '2'
@@ -158,21 +161,12 @@
 	</fieldset>
 	<PrimaryButton type="submit" class="w-max" disabled={pending}>
 		<div class="flex gap-x-3 items-center">
-			<div class="w-6 h-6 relative overflow-hidden">
-				<div
-					class="absolute transition duration-200 ease-in-out {!pending
-						? 'scale-0 opacity-0'
-						: ''}"
-				>
+			<Pending {pending}>
+				<div slot="pending">
 					<Spinner class="w-full h-full" />
 				</div>
-				<Icon
-					name="PlusCircle"
-					class="transition duration-200 text-icon-base ease-in-out {pending
-						? 'scale-0 opacity-0'
-						: ''}"
-				/>
-			</div>
+				<Icon name="PlusCircle" class="text-icon-base" />
+			</Pending>
 			{text.submit()}
 		</div>
 	</PrimaryButton>

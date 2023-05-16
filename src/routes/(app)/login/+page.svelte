@@ -17,6 +17,7 @@
 	import Link from '~/lib/components/Link.svelte';
 	import type User from '~/lib/models/user';
 	import Icon from '~/lib/components/Icon.svelte';
+	import Pending from '~/lib/components/Pending.svelte';
 
 	type FormFields = 'email' | 'password';
 
@@ -37,12 +38,12 @@
 		const data = new FormData(this);
 		const schema = z.object({
 			email: z.string().trim().email($LL.login.email.regex()),
-			password: z.string().nonempty($LL.login.password.empty())
+			password: z.string().nonempty($LL.login.password.empty()),
 		});
 
 		const result = await schema.safeParseAsync({
 			email: data.get('email'),
-			password: data.get('password')
+			password: data.get('password'),
 		});
 		if (!result.success) {
 			fieldErrors = {};
@@ -58,7 +59,7 @@
 		data.set('email', result.data.email);
 		const json = await fetch(this.action, {
 			method: 'post',
-			body: data
+			body: data,
 		}).then((v) => v.json());
 
 		formResponse = json;
@@ -136,21 +137,12 @@
 				</div>
 				<Button type="submit" class="w-max" disabled={logging}>
 					<div class="flex gap-x-3 items-center">
-						<div class="w-6 h-6 relative overflow-hidden">
-							<div
-								class="absolute transition duration-200 ease-in-out {!logging
-									? 'scale-0 opacity-0'
-									: ''}"
-							>
+						<Pending pending={logging}>
+							<div slot="pending">
 								<Spinner class="w-full h-full" />
 							</div>
-							<Icon
-								name="ArrowRightOnRectangle"
-								class="transition duration-200 text-icon-base ease-in-out {logging
-									? 'scale-0 opacity-0'
-									: ''}"
-							/>
-						</div>
+							<Icon name="ArrowRightOnRectangle" class="text-icon-base" />
+						</Pending>
 						{$LL.login.login()}
 					</div>
 				</Button>

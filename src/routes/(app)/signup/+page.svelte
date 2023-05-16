@@ -18,6 +18,7 @@
 	import Link from '~/lib/components/Link.svelte';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 	import type { InsertOneResult } from 'mongodb';
+	import Pending from '~/lib/components/Pending.svelte';
 
 	type FormFields = 'email' | 'password' | 'confirmpassword';
 	export let data: PageData;
@@ -152,21 +153,12 @@
 				</div>
 				<PrimaryButton type="submit" class="w-max" disabled={!canSubmit || signing}>
 					<div class="flex gap-x-3 items-center">
-						<div class="w-6 h-6 relative overflow-hidden">
-							<div
-								class="absolute transition duration-200 ease-in-out {!signing
-									? 'scale-0 opacity-0'
-									: ''}"
-							>
+						<Pending pending={signing}>
+							<div slot="pending">
 								<Spinner class="w-full h-full" />
 							</div>
-							<Icon
-								name="ArrowRightOnRectangle"
-								class="transition duration-200 text-icon-base ease-in-out {signing
-									? 'scale-0 opacity-0'
-									: ''}"
-							/>
-						</div>
+							<Icon name="ArrowRightOnRectangle" class="text-icon-base" />
+						</Pending>
 						{$LL.signup.signup()}
 					</div>
 				</PrimaryButton>

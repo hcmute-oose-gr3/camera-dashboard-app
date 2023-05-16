@@ -11,13 +11,14 @@
 	import { instanceOf } from '~/lib/utils';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	import Pending from '~/lib/components/Pending.svelte';
 	type FormFields = 'name' | 'serial' | 'activate';
 	export let showModal: boolean;
 	export let data: any;
 	let dialog: HTMLDialogElement;
 	let fieldErrors: Partial<Record<FormFields, string>> = {};
 	const inputElements: Record<FormFields, HTMLInputElement> = {} as any;
-	let submiting = false;
+	let submitting = false;
 	let canSubmit = false;
 	let formResponse: ApiResponse | undefined;
 	const dispatcher = createEventDispatcher<{ submit: () => void }>();
@@ -27,13 +28,13 @@
 	$: if (dialog && showModal) dialog.showModal();
 	async function submit(this: HTMLFormElement) {
 		const form = new FormData(this);
-		submiting = true;
+		submitting = true;
 		formResponse = undefined;
 		const schema = z.object({
-			name: z.string().min(6, $LL.dashboard.area.modal.name.min())
+			name: z.string().min(6, $LL.dashboard.area.modal.name.min()),
 		});
 		const result = await schema.safeParseAsync({
-			name: form.get('name')
+			name: form.get('name'),
 		});
 		if (!result.success) {
 			fieldErrors = {};
@@ -41,7 +42,7 @@
 				fieldErrors[iss.path[idx] as FormFields] = iss.message;
 			});
 			inputElements[result.error.issues[0].path[0] as FormFields].focus();
-			submiting = false;
+			submitting = false;
 			return;
 		}
 		form.set('name', result.data.name);
@@ -54,11 +55,11 @@
 		form.set('id', data.id);
 		const json = await fetch(this.action, {
 			method: 'post',
-			body: form
+			body: form,
 		})
 			.then((v) => v.json())
 			.finally(() => {
-				submiting = false;
+				submitting = false;
 				dispatcher('submit');
 			});
 		formResponse = json;
@@ -95,23 +96,14 @@
 		</div>
 		<div class="mt-12 flex justify-between pb-12">
 			<div class="">
-				<PrimaryButton type="submit" class="w-max" disabled={!canSubmit || submiting}>
+				<PrimaryButton type="submit" class="w-max" disabled={!canSubmit || submitting}>
 					<div class="flex gap-x-3 items-center">
-						<div class="w-6 h-6 relative overflow-hidden">
-							<div
-								class="absolute transition duration-200 ease-in-out {!submiting
-									? 'scale-0 opacity-0'
-									: ''}"
-							>
+						<Pending pending={submitting}>
+							<div slot="pending">
 								<Spinner class="w-full h-full" />
 							</div>
-							<Icon
-								name="ArrowRightOnRectangle"
-								class="transition duration-200 text-icon-base ease-in-out {submiting
-									? 'scale-0 opacity-0'
-									: ''}"
-							/>
-						</div>
+							<Icon name="ArrowRightOnRectangle" class="text-icon-base" />
+						</Pending>
 						{$LL.dashboard.area.modal.title()}
 					</div>
 				</PrimaryButton>

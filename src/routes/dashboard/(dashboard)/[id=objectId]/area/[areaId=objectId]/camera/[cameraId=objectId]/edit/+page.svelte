@@ -16,6 +16,7 @@
 	import Toast from '~/lib/components/Toast.svelte';
 	import { fly } from 'svelte/transition';
 	import { quadIn, quadOut } from 'svelte/easing';
+	import Pending from '~/lib/components/Pending.svelte';
 
 	type FormFields = 'name' | 'url' | 'securityLevel';
 
@@ -169,21 +170,12 @@
 	</fieldset>
 	<PrimaryButton type="submit" class="w-max" disabled={pending}>
 		<div class="flex gap-x-3 items-center">
-			<div class="w-6 h-6 relative overflow-hidden">
-				<div
-					class="absolute transition duration-200 ease-in-out {!pending
-						? 'scale-0 opacity-0'
-						: ''}"
-				>
+			<Pending {pending}>
+				<div slot="pending">
 					<Spinner class="w-full h-full" />
 				</div>
-				<Icon
-					name="PlusCircle"
-					class="transition duration-200 text-icon-base ease-in-out {pending
-						? 'scale-0 opacity-0'
-						: ''}"
-				/>
-			</div>
+				<Icon name="PlusCircle" class="text-icon-base" />
+			</Pending>
 			{text.submit()}
 		</div>
 	</PrimaryButton>
