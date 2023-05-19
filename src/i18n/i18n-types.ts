@@ -124,6 +124,40 @@ type RootTranslation = {
 		 * S​e​l​e​c​t​ ​o​n​e​ ​o​f​ ​t​h​e​ ​d​a​s​h​b​o​a​r​d​s​ ​b​e​l​o​w​ ​t​o​ ​c​o​n​t​i​n​u​e​.
 		 */
 		action: string
+		add: {
+			meta: {
+				/**
+				 * A​d​d​ ​d​a​s​h​b​o​a​r​d
+				 */
+				title: string
+			}
+			/**
+			 * F​i​l​l​ ​t​h​e​ ​f​o​r​m​ ​b​e​l​o​w​ ​t​o​ ​c​r​e​a​t​e​ ​a​ ​d​a​s​h​b​o​a​r​d​.
+			 */
+			legends: string
+			name: {
+				/**
+				 * D​a​s​h​b​o​a​r​d​ ​n​a​m​e
+				 */
+				label: string
+				/**
+				 * E​n​t​e​r​ ​d​a​s​h​b​o​a​r​d​ ​n​a​m​e
+				 */
+				placeholder: string
+				/**
+				 * D​a​s​h​b​o​a​r​d​ ​n​a​m​e​ ​m​u​s​t​ ​n​o​t​ ​b​e​ ​e​m​p​t​y​.
+				 */
+				nonempty: string
+			}
+			/**
+			 * C​r​e​a​t​e​ ​d​a​s​h​b​o​a​r​d
+			 */
+			submit: string
+			/**
+			 * D​a​s​h​b​o​a​r​d​ ​h​a​s​ ​b​e​e​n​ ​c​r​e​a​t​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+			 */
+			success: string
+		}
 		entry: {
 			/**
 			 * D​a​s​h​b​o​a​r​d
@@ -705,6 +739,40 @@ export type TranslationFunctions = {
 		 * Select one of the dashboards below to continue.
 		 */
 		action: () => LocalizedString
+		add: {
+			meta: {
+				/**
+				 * Add dashboard
+				 */
+				title: () => LocalizedString
+			}
+			/**
+			 * Fill the form below to create a dashboard.
+			 */
+			legends: () => LocalizedString
+			name: {
+				/**
+				 * Dashboard name
+				 */
+				label: () => LocalizedString
+				/**
+				 * Enter dashboard name
+				 */
+				placeholder: () => LocalizedString
+				/**
+				 * Dashboard name must not be empty.
+				 */
+				nonempty: () => LocalizedString
+			}
+			/**
+			 * Create dashboard
+			 */
+			submit: () => LocalizedString
+			/**
+			 * Dashboard has been created successfully.
+			 */
+			success: () => LocalizedString
+		}
 		entry: {
 			/**
 			 * Dashboard
