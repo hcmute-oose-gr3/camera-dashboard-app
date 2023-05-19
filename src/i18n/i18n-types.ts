@@ -111,11 +111,19 @@ type RootTranslation = {
 	dashboard: {
 		meta: {
 			/**
+			 * D​a​s​h​b​o​a​r​d​s
+			 */
+			title: string
+			/**
 			 * D​a​s​h​b​o​a​r​d​ ​-​ ​{​d​a​s​h​b​o​a​r​d​N​a​m​e​}
 			 * @param {string} dashboardName
 			 */
-			title: RequiredParams<'dashboardName'>
+			namedTitle: RequiredParams<'dashboardName'>
 		}
+		/**
+		 * S​e​l​e​c​t​ ​o​n​e​ ​o​f​ ​t​h​e​ ​d​a​s​h​b​o​a​r​d​s​ ​b​e​l​o​w​ ​t​o​ ​c​o​n​t​i​n​u​e​.
+		 */
+		action: string
 		entry: {
 			/**
 			 * D​a​s​h​b​o​a​r​d
@@ -136,15 +144,24 @@ type RootTranslation = {
 		}
 		card: {
 			/**
-			 * C​r​e​a​t​e​d​ ​d​a​t​e​:​ ​{​d​a​t​e​|​s​h​o​r​t​D​a​t​e​}
+			 * C​r​e​a​t​e​d​ ​d​a​t​e​:​ ​{​d​a​t​e​|​s​h​o​r​t​D​a​t​e​}​.
 			 * @param {Date} date
 			 */
 			createdAt: RequiredParams<'date|shortDate'>
 			/**
-			 * L​a​s​t​ ​m​o​d​i​f​i​e​d​ ​d​a​t​e​:​ ​{​d​a​t​e​|​s​h​o​r​t​D​a​t​e​}
+			 * L​a​s​t​ ​m​o​d​i​f​i​e​d​ ​d​a​t​e​:​ ​{​d​a​t​e​|​s​h​o​r​t​D​a​t​e​}​.
 			 * @param {Date} date
 			 */
 			updatedAt: RequiredParams<'date|shortDate'>
+			/**
+			 * C​r​e​a​t​e​d​ ​{​d​a​y​s​}​ ​d​a​y​s​ ​a​g​o​.
+			 * @param {number} days
+			 */
+			createdDaysAgo: RequiredParams<'days'>
+			/**
+			 * C​r​e​a​t​e​d​ ​t​o​d​a​y​.
+			 */
+			createdToday: string
 		}
 		area: {
 			meta: {
@@ -676,10 +693,18 @@ export type TranslationFunctions = {
 	dashboard: {
 		meta: {
 			/**
+			 * Dashboards
+			 */
+			title: () => LocalizedString
+			/**
 			 * Dashboard - {dashboardName}
 			 */
-			title: (arg: { dashboardName: string }) => LocalizedString
+			namedTitle: (arg: { dashboardName: string }) => LocalizedString
 		}
+		/**
+		 * Select one of the dashboards below to continue.
+		 */
+		action: () => LocalizedString
 		entry: {
 			/**
 			 * Dashboard
@@ -700,13 +725,21 @@ export type TranslationFunctions = {
 		}
 		card: {
 			/**
-			 * Created date: {date|shortDate}
+			 * Created date: {date|shortDate}.
 			 */
 			createdAt: (arg: { date: Date }) => LocalizedString
 			/**
-			 * Last modified date: {date|shortDate}
+			 * Last modified date: {date|shortDate}.
 			 */
 			updatedAt: (arg: { date: Date }) => LocalizedString
+			/**
+			 * Created {days} days ago.
+			 */
+			createdDaysAgo: (arg: { days: number }) => LocalizedString
+			/**
+			 * Created today.
+			 */
+			createdToday: () => LocalizedString
 		}
 		area: {
 			meta: {

@@ -35,7 +35,22 @@ const en = {
 	},
 	dashboard: {
 		meta: {
-			title: 'Dashboard - {dashboardName:string}',
+			title: 'Dashboards',
+			namedTitle: 'Dashboard - {dashboardName:string}',
+		},
+		action: 'Select one of the dashboards below to continue.',
+		add: {
+			meta: {
+				title: 'Add dashboard',
+			},
+			legends: 'Fill the form below to create a dashboard.',
+			name: {
+				label: 'Dashboard name',
+				placeholder: 'Enter dashboard name',
+				nonempty: 'Dashboard name must not be empty.',
+			},
+			submit: 'Create dashboard',
+			success: 'Dashboard has been created successfully.',
 		},
 		entry: {
 			dashboard: 'Dashboard',
@@ -44,8 +59,10 @@ const en = {
 			logout: 'Sign out',
 		},
 		card: {
-			createdAt: 'Created date: {date:Date|shortDate}',
-			updatedAt: 'Last modified date: {date:Date|shortDate}',
+			createdAt: 'Created date: {date:Date|shortDate}.',
+			updatedAt: 'Last modified date: {date:Date|shortDate}.',
+			createdDaysAgo: 'Created {days:number} days ago.',
+			createdToday: 'Created today.',
 		},
 		area: {
 			meta: {

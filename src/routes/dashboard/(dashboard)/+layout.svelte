@@ -1,17 +1,15 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { getContext, setContext } from 'svelte';
 	import Typewriter from 'svelte-typewriter';
 	import { backIn, backOut, quadOut } from 'svelte/easing';
-	import { writable } from 'svelte/store';
 	import { fly, scale } from 'svelte/transition';
 	import LL from '~/i18n/i18n-svelte';
-	import type { PageMeta } from '.';
 	import type { LayoutData } from './$types';
 	import type { NavigationEntryData } from './components';
 	import SideBarNavigation from './components/SideBarNavigation.svelte';
 	import TopRight from './components/TopRight.svelte';
 	import type { WritablePageMeta } from '~/routes';
+	import { getContext } from 'svelte';
 
 	export let data: LayoutData;
 
