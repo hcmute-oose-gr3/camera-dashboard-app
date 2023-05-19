@@ -6,7 +6,7 @@
 	import { invalidate } from '$app/navigation';
 	import Table from './components/Table.svelte';
 	import { getContext } from 'svelte';
-	import type { WritablePageMeta } from '../..';
+	import type { WritablePageMeta } from '~/routes';
 
 	export let data: PageData;
 

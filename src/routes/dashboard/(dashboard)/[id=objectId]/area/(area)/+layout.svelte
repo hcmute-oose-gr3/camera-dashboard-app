@@ -1,22 +1,20 @@
 <script lang="ts">
+	import { backIn, backOut } from 'svelte/easing';
 	import NavigationBar from '~/routes/dashboard/(dashboard)/[id=objectId]/components/NavigationBar.svelte';
 	import type { NavigationItemData } from '~/routes/dashboard/(dashboard)/[id=objectId]/components';
 	import type { LayoutData } from './$types';
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
-	import { backIn, backOut } from 'svelte/easing';
-	import { getContext } from 'svelte';
 	import LL from '~/i18n/i18n-svelte';
-	import type { WritablePageMeta } from '~/routes';
 	export let data: LayoutData;
 	const items = [
 		{
-			text: 'All cameras',
-			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`,
+			text: $LL.dashboard.area.layout.home(),
+			href: `/dashboard/${$page.params.id}/area`,
 		},
 		{
-			text: 'Add camera',
-			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera/add`,
+			text: $LL.dashboard.area.layout.add(),
+			href: `/dashboard/${$page.params.id}/area/modal`,
 		},
 	] satisfies NavigationItemData[];
 
@@ -27,9 +25,6 @@
 		delta = index > lastIndex ? 1 : -1;
 		lastIndex = index;
 	}
-
-	const meta = getContext('meta') satisfies WritablePageMeta;
-	$: $meta.title = $LL.dashboard.area.meta.namedTitle({ areaName: data.areaName });
 </script>
 
 <NavigationBar {items} />
