@@ -39,7 +39,10 @@ const en = {
 			namedTitle: 'Dashboard - {dashboardName:string}',
 		},
 		action: 'Select one of the dashboards below to continue.',
-		addForm: {
+		add: {
+			meta: {
+				title: 'Add dashboard',
+			},
 			legends: 'Fill the form below to create a dashboard.',
 			name: {
 				label: 'Dashboard name',
