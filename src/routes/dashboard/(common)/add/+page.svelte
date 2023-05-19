@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import { backIn, backOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 	import { z } from 'zod';
@@ -12,6 +12,7 @@
 	import Toast from '~/lib/components/Toast.svelte';
 	import type { ApiResponse } from '~/lib/models/api-response';
 	import { instanceOf } from '~/lib/utils';
+	import type { WritablePageMeta } from '~/routes';
 
 	type FormFields = 'name';
 
@@ -19,7 +20,7 @@
 	let fieldErrors: { [key in FormFields]?: string } = {};
 	let inputElements: { [key in FormFields]?: HTMLInputElement } = {};
 	let formResponse: ApiResponse;
-	$: ({ addForm: text } = $LL.dashboard);
+	$: ({ add: text } = $LL.dashboard);
 
 	onMount(() => {
 		pending = false;
@@ -56,6 +57,9 @@
 				pending = false;
 			});
 	}
+
+	const meta = getContext<WritablePageMeta>('meta');
+	$: $meta.title = text.meta.title();
 </script>
 
 <p class="mt-1 font-body font-medium">{text.legends()}</p>
