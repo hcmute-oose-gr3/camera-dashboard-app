@@ -58,6 +58,7 @@ const vi = {
 			alert: 'Cảnh báo',
 			setting: 'Cài đặt',
 			profiles: 'Hồ sơ',
+			statistic: 'Thống kê',
 			logout: 'Đăng xuất',
 		},
 		card: {
@@ -403,6 +404,9 @@ const vi = {
 			submit: 'Cập nhật máy quay',
 			success: 'Máy quay đã được cập nhật thành công.',
 		},
+	},
+	statistic: {
+		title: 'Thống kê',
 	},
 } satisfies Translation;
 

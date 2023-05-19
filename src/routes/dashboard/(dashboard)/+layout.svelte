@@ -35,6 +35,11 @@
 			href: `/dashboard/${$page.params.id}/profiles`,
 			icon: 'User',
 		},
+		{
+			text: $LL.dashboard.entry.statistic(),
+			href: `/dashboard/${$page.params.id}/statistic`,
+			icon: 'ChartBar',
+		},
 	];
 	let footerEntries: NavigationEntryData[];
 	$: footerEntries = [
