@@ -87,10 +87,17 @@ const vi = {
 				},
 			},
 			home: 'Nhà',
-			add: 'thêm',
 			serial: 'Mã khu vực',
 			name: 'Tên',
 			activate: 'Hoạt Động',
+			add: {
+				success: 'Thêm area thành công',
+				failure: 'Thêm area thất bại',
+			},
+			layout: {
+				home: 'Nhà',
+				add: 'Thêm khu vực',
+			},
 		},
 	},
 	signup: {

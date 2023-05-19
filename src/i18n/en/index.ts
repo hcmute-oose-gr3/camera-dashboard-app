@@ -88,10 +88,17 @@ const en = {
 				},
 			},
 			home: 'Home',
-			add: 'add',
 			serial: 'Serial',
 			name: 'Name',
 			activate: 'Activate',
+			add: {
+				success: 'Add area success',
+				failure: 'Add area false',
+			},
+			layout: {
+				home: 'Home',
+				add: 'Add area',
+			},
 		},
 	},
 	signup: {

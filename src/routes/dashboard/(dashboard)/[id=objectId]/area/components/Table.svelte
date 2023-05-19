@@ -8,6 +8,7 @@
 	import type { TranslationFunctions } from '~/i18n/i18n-types';
 	import CheckBox from '~/lib/components/CheckBox.svelte';
 	import Icon from '~/lib/components/Icon.svelte';
+	import Link from '~/lib/components/Link.svelte';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 	import type { ApiErrorResponse, ApiDataResponse } from '~/lib/models/api-response';
 	import type { Area } from '~/lib/models/dashboard';
@@ -29,7 +30,7 @@
 		const area = areas[index];
 		form.set('activate', area.activate.toString());
 		form.set('id', $page.params.id);
-		form.set('idA', area._id);
+		form.set('idA', area._id as any as string);
 		const json = await fetch(ApiRoutes.AREA, {
 			method: 'put',
 			body: form,
@@ -104,9 +105,9 @@
 					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.name.header()}:</span
 					>
-					<a href={`/dashboard/${$page.params.id}/area/${area._id}/camera`}>
+					<Link href={`/dashboard/${$page.params.id}/area/${area._id}/camera`}>
 						{area.name}
-					</a></td
+					</Link></td
 				>
 				<td class="block lg:table-cell px-4 py-6"
 					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"

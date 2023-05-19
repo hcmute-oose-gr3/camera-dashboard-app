@@ -243,10 +243,6 @@ type RootTranslation = {
 			 */
 			home: string
 			/**
-			 * a​d​d
-			 */
-			add: string
-			/**
 			 * S​e​r​i​a​l
 			 */
 			serial: string
@@ -258,6 +254,26 @@ type RootTranslation = {
 			 * A​c​t​i​v​a​t​e
 			 */
 			activate: string
+			add: {
+				/**
+				 * A​d​d​ ​a​r​e​a​ ​s​u​c​c​e​s​s
+				 */
+				success: string
+				/**
+				 * A​d​d​ ​a​r​e​a​ ​f​a​l​s​e
+				 */
+				failure: string
+			}
+			layout: {
+				/**
+				 * H​o​m​e
+				 */
+				home: string
+				/**
+				 * A​d​d​ ​a​r​e​a
+				 */
+				add: string
+			}
 		}
 	}
 	signup: {
@@ -788,10 +804,6 @@ export type TranslationFunctions = {
 			 */
 			home: () => LocalizedString
 			/**
-			 * add
-			 */
-			add: () => LocalizedString
-			/**
 			 * Serial
 			 */
 			serial: () => LocalizedString
@@ -803,6 +815,26 @@ export type TranslationFunctions = {
 			 * Activate
 			 */
 			activate: () => LocalizedString
+			add: {
+				/**
+				 * Add area success
+				 */
+				success: () => LocalizedString
+				/**
+				 * Add area false
+				 */
+				failure: () => LocalizedString
+			}
+			layout: {
+				/**
+				 * Home
+				 */
+				home: () => LocalizedString
+				/**
+				 * Add area
+				 */
+				add: () => LocalizedString
+			}
 		}
 	}
 	signup: {
