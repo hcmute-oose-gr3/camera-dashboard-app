@@ -12,6 +12,7 @@
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import Pending from '~/lib/components/Pending.svelte';
+	import type { PageData } from './$types';
 	type FormFields = 'name' | 'serial' | 'activate';
 	let dialog: HTMLDialogElement;
 	let fieldErrors: Partial<Record<FormFields, string>> = {};
@@ -75,7 +76,7 @@
 					type="text"
 					spellcheck={false}
 					class="transition"
-					label={$LL.dashboard.area.modal.name.title()}
+					label={$LL.dashboard.area.modal.name.titel()}
 					caption={fieldErrors?.name}
 					accent={fieldErrors?.name ? 'negative' : undefined}
 				/>

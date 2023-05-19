@@ -177,9 +177,19 @@ type RootTranslation = {
 					/**
 					 * E​n​t​e​r​ ​n​a​m​e​ ​a​r​e​a​ ​c​o​d​e​:​ 
 					 */
-					title: string
+					titel: string
 					/**
 					 * C​o​d​e​ ​n​a​m​e​ ​w​i​t​h​ ​a​t​ ​l​e​a​s​t​ ​6​ ​c​h​a​r​a​c​t​e​r​s
+					 */
+					min: string
+				}
+				serial: {
+					/**
+					 * E​n​t​e​r​ ​n​a​m​e​ ​a​r​e​a​:​ 
+					 */
+					titel: string
+					/**
+					 * N​a​m​e​ ​w​i​t​h​ ​a​t​ ​l​e​a​s​t​ ​6​ ​c​h​a​r​a​c​t​e​r​s
 					 */
 					min: string
 				}
@@ -728,9 +738,19 @@ export type TranslationFunctions = {
 					/**
 					 * Enter name area code: 
 					 */
-					title: () => LocalizedString
+					titel: () => LocalizedString
 					/**
 					 * Code name with at least 6 characters
+					 */
+					min: () => LocalizedString
+				}
+				serial: {
+					/**
+					 * Enter name area: 
+					 */
+					titel: () => LocalizedString
+					/**
+					 * Name with at least 6 characters
 					 */
 					min: () => LocalizedString
 				}
