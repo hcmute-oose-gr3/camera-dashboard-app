@@ -7,6 +7,7 @@
 	type="checkbox"
 	on:pointerdown
 	on:input
+	on:click
 	bind:checked
 	{...$$restProps}
 	class={twMerge(
