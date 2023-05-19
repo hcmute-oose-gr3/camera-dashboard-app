@@ -12,7 +12,7 @@
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import Pending from '~/lib/components/Pending.svelte';
-	import type { PageData } from './$types';
+	import { page } from '$app/stores';
 	type FormFields = 'name' | 'serial' | 'activate';
 	let dialog: HTMLDialogElement;
 	let fieldErrors: Partial<Record<FormFields, string>> = {};
@@ -21,7 +21,6 @@
 	let canSubmit = false;
 	let formResponse: ApiResponse | undefined;
 	const dispatcher = createEventDispatcher<{ submit: () => void }>();
-	export let data: PageData;
 	onMount(() => {
 		canSubmit = true;
 	});
@@ -45,7 +44,7 @@
 			return;
 		}
 		form.set('name', result.data.name);
-		form.set('id', data.id);
+		form.set('id', $page.params.id);
 		if (form.get('activate') === null) {
 			console.log('asds');
 			form.set('activate', 'false');
