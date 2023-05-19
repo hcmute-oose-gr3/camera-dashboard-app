@@ -38,7 +38,10 @@ const vi = {
 			namedTitle: 'Bảng điều khiển - {dashboardName}',
 		},
 		action: 'Chọn một trong các bảng điều khiển dưới đây để tiếp tục.',
-		addForm: {
+		add: {
+			meta: {
+				title: 'Tạo bảng điều khiển',
+			},
 			legends: 'Điền thông tin vào biểu mẫu bên dưới để tạo bảng điều khiển.',
 			name: {
 				label: 'Tên bảng điều khiển',
