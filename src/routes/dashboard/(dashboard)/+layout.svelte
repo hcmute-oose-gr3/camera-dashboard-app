@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { setContext } from 'svelte';
+	import { getContext, setContext } from 'svelte';
 	import Typewriter from 'svelte-typewriter';
 	import { backIn, backOut, quadOut } from 'svelte/easing';
 	import { writable } from 'svelte/store';
@@ -11,7 +11,6 @@
 	import type { NavigationEntryData } from './components';
 	import SideBarNavigation from './components/SideBarNavigation.svelte';
 	import TopRight from './components/TopRight.svelte';
-	import { getContext } from 'svelte/types/runtime/internal/lifecycle';
 	import type { WritablePageMeta } from '~/routes';
 
 	export let data: LayoutData;
