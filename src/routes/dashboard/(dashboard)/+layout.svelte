@@ -11,6 +11,8 @@
 	import type { NavigationEntryData } from './components';
 	import SideBarNavigation from './components/SideBarNavigation.svelte';
 	import TopRight from './components/TopRight.svelte';
+	import { getContext } from 'svelte/types/runtime/internal/lifecycle';
+	import type { WritablePageMeta } from '~/routes';
 
 	export let data: LayoutData;
 
@@ -37,9 +39,6 @@
 	let lastIndex: number = -1;
 	let delta = 1;
 
-	const meta = writable<PageMeta>({ title: '' });
-	setContext('meta', meta);
-
 	$: {
 		const index = entries.findIndex((e) => e.href === data.url.pathname);
 		delta = index > lastIndex ? 1 : -1;
@@ -47,12 +46,9 @@
 		currentEntry = entries[index];
 	}
 
+	const meta = getContext<WritablePageMeta>('meta');
 	$: ({ title } = $meta);
 </script>
-
-<svelte:head>
-	<title>{$meta.title}</title>
-</svelte:head>
 
 <div in:scale={{ start: 1.04, duration: 700, easing: quadOut }} class="flex min-h-screen h-full">
 	<SideBarNavigation {entries} {footerEntries} />
