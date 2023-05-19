@@ -9,9 +9,6 @@
 	export let data: PageData;
 </script>
 
-<h1>
-	{$LL.dashboard.meta.title()}
-</h1>
 <p class="mt-1 font-body font-medium">{$LL.dashboard.action()}</p>
 <div
 	out:scale={{ start: 0.98, duration: 400, easing: quadIn }}
