@@ -2,13 +2,8 @@
 	import { fly } from 'svelte/transition';
 	import { backIn, backOut } from 'svelte/easing';
 	import type { LayoutData } from '../$types';
-	import { getContext } from 'svelte';
-	import type { WritablePageMeta } from '~/routes';
-	import LL from '~/i18n/i18n-svelte';
+	import { page } from '$app/stores';
 	export let data: LayoutData;
-
-	const meta = getContext<WritablePageMeta>('meta');
-	$: $meta.title = $LL.dashboard.meta.title();
 </script>
 
 {#key data.url.href}
@@ -18,7 +13,7 @@
 		class="absolute w-full h-full p-16"
 	>
 		<h1>
-			{$meta.title}
+			{$page.data.meta?.title}
 		</h1>
 		<slot />
 	</section>

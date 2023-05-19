@@ -8,8 +8,6 @@
 	import type { NavigationEntryData } from './components';
 	import SideBarNavigation from './components/SideBarNavigation.svelte';
 	import TopRight from './components/TopRight.svelte';
-	import type { WritablePageMeta } from '~/routes';
-	import { getContext } from 'svelte';
 
 	export let data: LayoutData;
 
@@ -42,9 +40,6 @@
 		lastIndex = index;
 		currentEntry = entries[index];
 	}
-
-	const meta = getContext<WritablePageMeta>('meta');
-	$: ({ title } = $meta);
 </script>
 
 <div in:scale={{ start: 1.04, duration: 700, easing: quadOut }} class="flex min-h-screen h-full">
@@ -54,7 +49,7 @@
 			<div>
 				<Typewriter delay={150} interval={55} mode="cascade">
 					<h1>
-						{title}
+						{$page.data.meta.title}
 					</h1>
 				</Typewriter>
 			</div>

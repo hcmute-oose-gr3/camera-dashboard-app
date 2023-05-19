@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { backIn, backOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 	import { z } from 'zod';
@@ -12,7 +12,6 @@
 	import Toast from '~/lib/components/Toast.svelte';
 	import type { ApiResponse } from '~/lib/models/api-response';
 	import { instanceOf } from '~/lib/utils';
-	import type { WritablePageMeta } from '~/routes';
 
 	type FormFields = 'name';
 
@@ -57,9 +56,6 @@
 				pending = false;
 			});
 	}
-
-	const meta = getContext<WritablePageMeta>('meta');
-	$: $meta.title = text.meta.title();
 </script>
 
 <p class="mt-1 font-body font-medium">{text.legends()}</p>

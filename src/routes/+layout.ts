@@ -6,6 +6,7 @@ import { isLocale } from '~/i18n/i18n-util';
 import type { Locales } from '~/i18n/i18n-types';
 
 export const load: LayoutLoad = async ({ data, url }) => {
+	console.log('layout 1');
 	let language: Locales | null = data.locale;
 	if (browser) {
 		language = url.searchParams.get('lang') as Locales | null;
