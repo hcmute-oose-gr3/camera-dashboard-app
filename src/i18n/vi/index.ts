@@ -34,7 +34,19 @@ const vi = {
 	},
 	dashboard: {
 		meta: {
-			title: 'Bảng điều khiển - {dashboardName}',
+			title: 'Bảng điều khiển',
+			namedTitle: 'Bảng điều khiển - {dashboardName}',
+		},
+		action: 'Chọn một trong các bảng điều khiển dưới đây để tiếp tục.',
+		addForm: {
+			legends: 'Điền thông tin vào biểu mẫu bên dưới để tạo bảng điều khiển.',
+			name: {
+				label: 'Tên bảng điều khiển',
+				placeholder: 'Nhập tên bảng điều khiển',
+				nonempty: 'Tên bảng điều khiển không được trống.',
+			},
+			submit: 'Tạo bảng điều khiển',
+			success: 'Bảng điều khiển đã được tạo thành công.',
 		},
 		entry: {
 			dashboard: 'Bảng điều khiển',
@@ -43,8 +55,10 @@ const vi = {
 			logout: 'Đăng xuất',
 		},
 		card: {
-			createdAt: 'Ngày tạo: {date|shortDate}',
-			updatedAt: 'Chỉnh sửa cuối: {date|shortDate}',
+			createdAt: 'Ngày tạo: {date|shortDate}.',
+			updatedAt: 'Chỉnh sửa cuối: {date|shortDate}.',
+			createdDaysAgo: 'Được tạo từ {days} ngày trước.',
+			createdToday: 'Được tạo trong hôm nay.',
 		},
 		area: {
 			meta: {
