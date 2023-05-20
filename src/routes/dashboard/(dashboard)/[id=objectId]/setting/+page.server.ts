@@ -43,7 +43,6 @@ export const load = (async ({ params, locals }) => {
 			])
 			.toArray(),
 	]);
-	console.log(count);
 	return {
 		dashboard: dashboardWithName,
 		cameras: areas.flatMap(
@@ -54,6 +53,12 @@ export const load = (async ({ params, locals }) => {
 						areaId: v._id.toHexString(),
 					})
 				) || []
+		),
+		numberOfitems: count.map(
+			(v) =>
+				Object.assign(v, {
+					_id: v._id.toHexString(),
+				}) || []
 		),
 	};
 }) satisfies PageServerLoad;
