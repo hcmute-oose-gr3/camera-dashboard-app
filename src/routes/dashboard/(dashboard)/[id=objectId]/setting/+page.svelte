@@ -6,9 +6,13 @@
 	import { isLocale } from '~/i18n/i18n-util';
 	import type { Locales } from '~/i18n/i18n-types';
 	import { getContext } from 'svelte';
-	import type { WritablePageMeta } from '../..';
+	import type { WritablePageMeta } from '~/routes';
+	import Dialog from './components/Dialog.svelte';
+	import type { PageData } from '../$types';
 	let check = false;
+	let showModal = false;
 	let options = ['en', 'vi'];
+	export let data: PageData;
 	const setTheme = () => {
 		const a = document.getElementById('html');
 		if (a?.getAttribute('data-theme') === 'light') {
@@ -34,6 +38,7 @@
 </script>
 
 <!-- svelte-ignore missing-declaration -->
+<Dialog bind:showModal {data} />
 <div class="space-y-6 px-6 mt-12">
 	<div class="">
 		<h2>{$LL.dashboard.setting.theme.title()}</h2>
@@ -59,6 +64,36 @@
 			>
 				{#each options as value}<option class="">{value}</option>{/each}
 			</select>
+		</div>
+	</div>
+	<div class="">
+		<h2>{$LL.dashboard.setting.delete.title()}</h2>
+		<div class="mt-4 lg:ml-12 items-center flex space-x-12">
+			<div class="">
+				<h4>{$LL.dashboard.setting.delete.message()}</h4>
+				<p class="text-xs">{$LL.dashboard.setting.delete.warning()}</p>
+			</div>
+			<div class="mt-2">
+				{#if check}
+					<button
+						class="text-red-500 items-center border-[1px] px-2 pt-2 pb-1
+						border-white bg-white bg-opacity-5 border-opacity-20 rounded-md
+						hover:bg-red-500 hover:text-white"
+						on:click={() => (showModal = true)}
+					>
+						<p>{$LL.dashboard.setting.delete.button.message()}</p>
+					</button>
+				{:else}
+					<button
+						class="text-red-500 items-center border-[1px] px-2 pt-2 pb-1
+						border-black bg-black bg-opacity-5 border-opacity-20 rounded-md
+						hover:bg-red-500 hover:text-white"
+						on:click={() => (showModal = true)}
+					>
+						<p>{$LL.dashboard.setting.delete.button.message()}</p>
+					</button>
+				{/if}
+			</div>
 		</div>
 	</div>
 </div>
