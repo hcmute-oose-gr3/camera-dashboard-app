@@ -8,7 +8,7 @@
 	import { getContext } from 'svelte';
 	import type { WritablePageMeta } from '~/routes';
 	import Dialog from './components/Dialog.svelte';
-	import type { PageData } from '../$types';
+	import type { PageData } from './$types';
 	let check = false;
 	let showModal = false;
 	let options = ['en', 'vi'];
@@ -35,6 +35,7 @@
 	const meta = getContext('meta') as WritablePageMeta;
 
 	$: $meta.title = $LL.dashboard.setting.meta.title();
+	$: console.log(data.numberOfitems);
 </script>
 
 <!-- svelte-ignore missing-declaration -->
