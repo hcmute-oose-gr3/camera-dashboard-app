@@ -129,6 +129,14 @@ const vi = {
 				title: 'Ngôn ngữ',
 				language: 'Chọn ngôn ngữ',
 			},
+			delete: {
+				title: 'Khu vực cảnh báo',
+				message: 'Xóa dashboard hiện tại',
+				warning: 'Khi bạn xóa dashboard, nó sẽ không lấy lại. Vui lòng cẩn thận.',
+				button: {
+					message: 'Xóa dashboard hiện tại',
+				},
+			},
 		},
 	},
 	signup: {

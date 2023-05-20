@@ -130,6 +130,14 @@ const en = {
 				title: 'Language',
 				language: 'Choose language',
 			},
+			delete: {
+				title: 'Danger zone',
+				message: 'Delete this dashboard',
+				warning: 'Once you delete a dashboard, there is not go back. Please be certain.',
+				button: {
+					message: 'Delete this dashboard',
+				},
+			},
 		},
 	},
 	signup: {

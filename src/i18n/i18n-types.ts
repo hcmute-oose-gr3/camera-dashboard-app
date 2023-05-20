@@ -357,6 +357,26 @@ type RootTranslation = {
 				 */
 				language: string
 			}
+			'delete': {
+				/**
+				 * D​a​n​g​e​r​ ​z​o​n​e
+				 */
+				title: string
+				/**
+				 * D​e​l​e​t​e​ ​t​h​i​s​ ​d​a​s​h​b​o​a​r​d
+				 */
+				message: string
+				/**
+				 * O​n​c​e​ ​y​o​u​ ​d​e​l​e​t​e​ ​a​ ​d​a​s​h​b​o​a​r​d​,​ ​t​h​e​r​e​ ​i​s​ ​n​o​t​ ​g​o​ ​b​a​c​k​.​ ​P​l​e​a​s​e​ ​b​e​ ​c​e​r​t​a​i​n​.
+				 */
+				warning: string
+				button: {
+					/**
+					 * D​e​l​e​t​e​ ​t​h​i​s​ ​d​a​s​h​b​o​a​r​d
+					 */
+					message: string
+				}
+			}
 		}
 	}
 	signup: {
@@ -999,6 +1019,26 @@ export type TranslationFunctions = {
 				 * Choose language
 				 */
 				language: () => LocalizedString
+			}
+			'delete': {
+				/**
+				 * Danger zone
+				 */
+				title: () => LocalizedString
+				/**
+				 * Delete this dashboard
+				 */
+				message: () => LocalizedString
+				/**
+				 * Once you delete a dashboard, there is not go back. Please be certain.
+				 */
+				warning: () => LocalizedString
+				button: {
+					/**
+					 * Delete this dashboard
+					 */
+					message: () => LocalizedString
+				}
 			}
 		}
 	}
