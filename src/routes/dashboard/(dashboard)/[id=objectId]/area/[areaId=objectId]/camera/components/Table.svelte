@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { invalidate } from '$app/navigation';
 	import { page } from '$app/stores';
-	import type { DeleteResult, WithId } from 'mongodb';
+	import type { DeleteResult } from 'mongodb';
 	import { flip } from 'svelte/animate';
 	import { quadInOut } from 'svelte/easing';
 	import LL from '~/i18n/i18n-svelte';
 	import type { TranslationFunctions } from '~/i18n/i18n-types';
 	import CheckBox from '~/lib/components/CheckBox.svelte';
 	import Icon from '~/lib/components/Icon.svelte';
+	import Pending from '~/lib/components/Pending.svelte';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
+	import Spinner from '~/lib/components/Spinner.svelte';
 	import type { ApiDataResponse, ApiErrorResponse } from '~/lib/models/api-response';
 	import { CameraConnection, CameraSecurityLevel, type Camera } from '~/lib/models/dashboard';
 	import { instanceOf } from '~/lib/utils';
@@ -43,17 +45,17 @@
 			checked = checked;
 		}
 	}
-	let deletingSome = false;
 	async function deleteSome() {
 		const deleting = cameras.filter((_, i) => checked[i]).map((c) => c._id);
-		deletingSome = true;
+		deletePendings = checked.map((v) => v);
+		await new Promise((resolve) => setTimeout(resolve, 2000));
 		const json = await fetch(
 			`/api/v1/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`,
 			{ method: 'delete', body: JSON.stringify(deleting) }
 		)
 			.then((v) => v.json())
 			.finally(() => {
-				deletingSome = false;
+				deletePendings = [];
 			});
 		if (instanceOf<ApiErrorResponse>(json, 'error')) {
 			alert(json.error.message);
@@ -62,6 +64,8 @@
 			checked = checked.filter((v) => !v);
 		}
 	}
+
+	$: deletingSome = deletePendings.some((v) => v);
 	$: someChecked = checked.some((v) => v);
 	$: allChecked = checked.every((v) => v);
 </script>
@@ -86,10 +90,17 @@
 					<div class="overflow-hidden">
 						<div class="p-1 flex">
 							<SecondaryButton
-								class="text-negative-700 border-negative-700 p-0.5"
+								class="text-negative-700 border-negative-700 p-0.5
+								disabled:border-transparent disabled:bg-negative-300 focus:ring-negative-500"
 								on:click={deleteSome}
+								disabled={deletingSome}
 							>
-								<Icon name="Trash" class="w-7 h-7" />
+								<Pending pending={deletingSome}>
+									<div slot="pending">
+										<Spinner class="w-full h-full text-negative-700" />
+									</div>
+									<Icon name="Trash" class="w-7 h-7" />
+								</Pending>
 							</SecondaryButton>
 						</div>
 					</div>
@@ -165,14 +176,20 @@
 							</SecondaryButton>
 						</a>
 						<SecondaryButton
-							class="text-negative-700 border-negative-700 p-0.5"
+							class="text-negative-700 border-negative-700 p-0.5
+							disabled:border-transparent disabled:bg-negative-300 focus:ring-negative-500"
 							on:click={(e) => {
 								e.stopPropagation();
 								deleteThis(i);
 							}}
 							disabled={deletePendings[i]}
 						>
-							<Icon name="Trash" class="w-7 h-7" />
+							<Pending pending={deletePendings[i]}>
+								<div slot="pending">
+									<Spinner class="w-full h-full text-negative-700" />
+								</div>
+								<Icon name="Trash" class="w-7 h-7" />
+							</Pending>
 						</SecondaryButton>
 					</div>
 				</td>
@@ -188,14 +205,20 @@
 							</SecondaryButton>
 						</a>
 						<SecondaryButton
-							class="text-negative-700 border-negative-700 p-0.5"
+							class="text-negative-700 border-negative-700 p-0.5
+							disabled:border-transparent disabled:bg-negative-300 focus:ring-negative-500"
 							on:click={(e) => {
 								e.stopPropagation();
 								deleteThis(i);
 							}}
 							disabled={deletePendings[i]}
 						>
-							<Icon name="Trash" class="w-7 h-7" />
+							<Pending pending={deletePendings[i]}>
+								<div slot="pending">
+									<Spinner class="w-full h-full text-negative-700" />
+								</div>
+								<Icon name="Trash" class="w-7 h-7" />
+							</Pending>
 						</SecondaryButton>
 					</div>
 				</td>
