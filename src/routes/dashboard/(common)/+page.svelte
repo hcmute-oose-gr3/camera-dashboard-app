@@ -5,8 +5,11 @@
 	import { quadIn } from 'svelte/easing';
 	import LL from '~/i18n/i18n-svelte';
 	import Icon from '~/lib/components/Icon.svelte';
+	import { meta } from '~/routes';
 
 	export let data: PageData;
+
+	$meta.title = $LL.dashboard.meta.title();
 </script>
 
 <p class="mt-1 font-body font-medium">{$LL.dashboard.action()}</p>

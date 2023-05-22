@@ -1,13 +1,11 @@
 <script lang="ts">
 	import '~/app.css';
 	import NavigationProgressBar from '~/lib/components/NavigationProgressBar.svelte';
-	import { page } from '$app/stores';
+	import { meta } from '~/routes';
 </script>
 
 <svelte:head>
-	{#if $page.data.meta}
-		<title>{$page.data.meta.title}</title>
-	{/if}
+	<title>{$meta.title}</title>
 </svelte:head>
 
 <slot />

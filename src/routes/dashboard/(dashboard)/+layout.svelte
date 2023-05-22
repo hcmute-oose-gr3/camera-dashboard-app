@@ -8,6 +8,7 @@
 	import type { NavigationEntryData } from './components';
 	import SideBarNavigation from './components/SideBarNavigation.svelte';
 	import TopRight from './components/TopRight.svelte';
+	import { meta } from '~/routes';
 
 	export let data: LayoutData;
 
@@ -42,14 +43,14 @@
 	}
 </script>
 
-<div in:scale={{ start: 1.04, duration: 700, easing: quadOut }} class="flex min-h-screen h-full">
+<div in:scale={{ start: 1.04, duration: 400, easing: quadOut }} class="flex min-h-screen h-full">
 	<SideBarNavigation {entries} {footerEntries} />
 	<div class="ml-16 transition-[margin] lg:ml-52 p-6 w-full">
 		<div class="flex justify-between items-center mb-3 relative gap-x-12">
 			<div>
 				<Typewriter delay={150} interval={55} mode="cascade">
 					<h1>
-						{$page.data.meta.title}
+						{$meta.title}
 					</h1>
 				</Typewriter>
 			</div>

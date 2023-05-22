@@ -6,6 +6,8 @@
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 	import LL from '~/i18n/i18n-svelte';
+	import { meta } from '~/routes';
+
 	export let data: LayoutData;
 	const items = [
 		{
@@ -25,6 +27,8 @@
 		delta = index > lastIndex ? 1 : -1;
 		lastIndex = index;
 	}
+
+	$meta.title = $LL.dashboard.area.meta.title();
 </script>
 
 <NavigationBar {items} />
