@@ -9,6 +9,7 @@
 	import SideBarNavigation from './components/SideBarNavigation.svelte';
 	import TopRight from './components/TopRight.svelte';
 	import { meta } from '~/routes';
+	import Icon from '~/lib/components/Icon.svelte';
 
 	export let data: LayoutData;
 
@@ -48,11 +49,26 @@
 	<div class="ml-16 transition-[margin] lg:ml-52 p-6 w-full">
 		<div class="flex justify-between items-center mb-3 relative gap-x-12">
 			<div>
-				<Typewriter delay={150} interval={55} mode="cascade">
-					<h1>
-						{$meta.title}
-					</h1>
-				</Typewriter>
+				<div class="flex gap-x-3">
+					{#if globalThis.history?.length}
+						<button
+							on:click={() => {
+								globalThis.history?.back();
+							}}
+						>
+							<Icon
+								name="ArrowLongLeft"
+								class="transition ease-in-out
+							hover:-translate-x-1 hover:text-primary-700"
+							/>
+						</button>
+					{/if}
+					<Typewriter delay={150} interval={55} mode="cascade">
+						<h1>
+							{$meta.title}
+						</h1>
+					</Typewriter>
+				</div>
 			</div>
 			<TopRight data={{ email: data.user?.email ?? '', imageUrl: '' }} />
 		</div>

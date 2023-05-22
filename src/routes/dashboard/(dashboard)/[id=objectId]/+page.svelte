@@ -6,7 +6,9 @@
 
 	export let data: PageData;
 
-	$meta.title = $LL.dashboard.meta.namedTitle({ dashboardName: data.dashboard?.name ?? '...' });
+	$meta = {
+		title: $LL.dashboard.meta.namedTitle({ dashboardName: data.dashboard?.name ?? '...' }),
+	};
 </script>
 
 <div class="grid grid-cols-3 gap-6 w-full">

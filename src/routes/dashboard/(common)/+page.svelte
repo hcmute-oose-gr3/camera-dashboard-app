@@ -9,7 +9,7 @@
 
 	export let data: PageData;
 
-	$meta.title = $LL.dashboard.meta.title();
+	$meta = { title: $LL.dashboard.meta.title() };
 </script>
 
 <p class="mt-1 font-body font-medium">{$LL.dashboard.action()}</p>

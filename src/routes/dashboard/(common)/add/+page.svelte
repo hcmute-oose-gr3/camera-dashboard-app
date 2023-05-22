@@ -58,7 +58,7 @@
 			});
 	}
 
-	$meta.title = $LL.dashboard.add.meta.title();
+	$meta = { title: $LL.dashboard.add.meta.title() };
 </script>
 
 <p class="mt-1 font-body font-medium">{text.legends()}</p>

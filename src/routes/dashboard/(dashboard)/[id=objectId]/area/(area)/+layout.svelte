@@ -28,7 +28,7 @@
 		lastIndex = index;
 	}
 
-	$meta.title = $LL.dashboard.area.meta.title();
+	$meta = { title: $LL.dashboard.area.meta.title() };
 </script>
 
 <NavigationBar {items} />
