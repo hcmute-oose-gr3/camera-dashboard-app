@@ -22,7 +22,7 @@ export const load = (async ({ params, locals }) => {
 				},
 				{
 					$project: {
-						numberOfAreas: { $size: '$areas' },
+						numberOfAreas: { $size: { $ifNull: ['$areas', []] } },
 						numberOfCameras: {
 							$sum: {
 								$map: {
@@ -60,5 +60,6 @@ export const load = (async ({ params, locals }) => {
 					_id: v._id.toHexString(),
 				}) || []
 		),
+		dashoardId: params.id,
 	};
 }) satisfies PageServerLoad;

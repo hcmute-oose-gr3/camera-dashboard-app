@@ -3,8 +3,6 @@
 	import { loadLocaleAsync } from '~/i18n/i18n-util.async';
 	import LL, { setLocale } from '~/i18n/i18n-svelte';
 	import { browser } from '$app/environment';
-	import { isLocale } from '~/i18n/i18n-util';
-	import type { Locales } from '~/i18n/i18n-types';
 	import { getContext } from 'svelte';
 	import type { WritablePageMeta } from '~/routes';
 	import Dialog from './components/Dialog.svelte';
@@ -35,10 +33,8 @@
 	const meta = getContext('meta') as WritablePageMeta;
 
 	$: $meta.title = $LL.dashboard.setting.meta.title();
-	$: console.log(data.numberOfitems);
 </script>
 
-<!-- svelte-ignore missing-declaration -->
 <Dialog bind:showModal {data} />
 <div class="space-y-6 px-6 mt-12">
 	<div class="">
