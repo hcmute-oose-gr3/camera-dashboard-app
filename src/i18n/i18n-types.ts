@@ -377,6 +377,26 @@ type RootTranslation = {
 					message: string
 				}
 			}
+			modal: {
+				/**
+				 * D​e​l​e​t​e
+				 */
+				title: string
+				items: {
+					/**
+					 * A​r​e​a​s
+					 */
+					area: string
+					/**
+					 * C​a​m​e​r​a​s
+					 */
+					camera: string
+				}
+				/**
+				 * I​ ​w​a​n​t​ ​t​o​ ​d​e​l​e​t​e​ ​t​h​i​s​ ​d​a​s​h​b​o​a​r​d
+				 */
+				button: string
+			}
 		}
 	}
 	signup: {
@@ -1039,6 +1059,26 @@ export type TranslationFunctions = {
 					 */
 					message: () => LocalizedString
 				}
+			}
+			modal: {
+				/**
+				 * Delete
+				 */
+				title: () => LocalizedString
+				items: {
+					/**
+					 * Areas
+					 */
+					area: () => LocalizedString
+					/**
+					 * Cameras
+					 */
+					camera: () => LocalizedString
+				}
+				/**
+				 * I want to delete this dashboard
+				 */
+				button: () => LocalizedString
 			}
 		}
 	}

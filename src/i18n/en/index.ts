@@ -138,6 +138,14 @@ const en = {
 					message: 'Delete this dashboard',
 				},
 			},
+			modal: {
+				title: 'Delete',
+				items: {
+					area: 'Areas',
+					camera: 'Cameras',
+				},
+				button: 'I want to delete this dashboard',
+			},
 		},
 	},
 	signup: {

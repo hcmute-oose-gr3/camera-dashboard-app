@@ -137,6 +137,14 @@ const vi = {
 					message: 'Xóa dashboard hiện tại',
 				},
 			},
+			modal: {
+				title: 'Xóa',
+				items: {
+					area: 'Khu vực',
+					camera: 'Cameras',
+				},
+				button: 'Tôi muốn xóa dashboard này',
+			},
 		},
 	},
 	signup: {
