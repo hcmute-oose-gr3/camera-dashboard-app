@@ -61,7 +61,6 @@
 	$meta.title = $LL.dashboard.add.meta.title();
 </script>
 
-<h1>{$LL.dashboard.add.meta.title()}</h1>
 <p class="mt-1 font-body font-medium">{text.legends()}</p>
 <form action="/api/v1/dashboard" class="mt-4 flex flex-col gap-y-4" on:submit={submit}>
 	<div class="flex flex-col gap-y-1 w-fit min-w-[21em]">
