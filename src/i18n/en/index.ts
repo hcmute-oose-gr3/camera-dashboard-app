@@ -56,7 +56,7 @@ const en = {
 			dashboard: 'Dashboard',
 			camera: 'Camera',
 			area: 'Area',
-			setting: 'Setting',
+			setting: 'Settings',
 			logout: 'Sign out',
 		},
 		card: {
@@ -118,9 +118,9 @@ const en = {
 				add: 'Add area',
 			},
 		},
-		setting: {
+		settings: {
 			meta: {
-				title: 'Setting',
+				title: 'Settings',
 			},
 			theme: {
 				title: 'Theme',
@@ -129,6 +129,10 @@ const en = {
 			language: {
 				title: 'Language',
 				language: 'Choose language',
+				options: {
+					en: 'English',
+					vi: 'Vietnamese',
+				},
 			},
 			delete: {
 				title: 'Danger zone',
@@ -139,7 +143,7 @@ const en = {
 				},
 			},
 			modal: {
-				title: 'Delete',
+				title: 'Delete {dashboard:string}',
 				items: {
 					area: 'Areas',
 					camera: 'Cameras',

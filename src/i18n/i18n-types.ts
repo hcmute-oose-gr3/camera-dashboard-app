@@ -330,10 +330,10 @@ type RootTranslation = {
 				add: string
 			}
 		}
-		setting: {
+		settings: {
 			meta: {
 				/**
-				 * S​e​t​t​i​n​g
+				 * S​e​t​t​i​n​g​s
 				 */
 				title: string
 			}
@@ -356,6 +356,16 @@ type RootTranslation = {
 				 * C​h​o​o​s​e​ ​l​a​n​g​u​a​g​e
 				 */
 				language: string
+				options: {
+					/**
+					 * E​n​g​l​i​s​h
+					 */
+					en: string
+					/**
+					 * V​i​e​t​n​a​m​e​s​e
+					 */
+					vi: string
+				}
 			}
 			'delete': {
 				/**
@@ -379,9 +389,10 @@ type RootTranslation = {
 			}
 			modal: {
 				/**
-				 * D​e​l​e​t​e
+				 * D​e​l​e​t​e​ ​{​d​a​s​h​b​o​a​r​d​}
+				 * @param {string} dashboard
 				 */
-				title: string
+				title: RequiredParams<'dashboard'>
 				items: {
 					/**
 					 * A​r​e​a​s
@@ -1013,10 +1024,10 @@ export type TranslationFunctions = {
 				add: () => LocalizedString
 			}
 		}
-		setting: {
+		settings: {
 			meta: {
 				/**
-				 * Setting
+				 * Settings
 				 */
 				title: () => LocalizedString
 			}
@@ -1039,6 +1050,16 @@ export type TranslationFunctions = {
 				 * Choose language
 				 */
 				language: () => LocalizedString
+				options: {
+					/**
+					 * English
+					 */
+					en: () => LocalizedString
+					/**
+					 * Vietnamese
+					 */
+					vi: () => LocalizedString
+				}
 			}
 			'delete': {
 				/**
@@ -1062,9 +1083,9 @@ export type TranslationFunctions = {
 			}
 			modal: {
 				/**
-				 * Delete
+				 * Delete {dashboard}
 				 */
-				title: () => LocalizedString
+				title: (arg: { dashboard: string }) => LocalizedString
 				items: {
 					/**
 					 * Areas

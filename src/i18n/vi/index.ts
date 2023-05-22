@@ -117,7 +117,7 @@ const vi = {
 				add: 'Thêm khu vực',
 			},
 		},
-		setting: {
+		settings: {
 			meta: {
 				title: 'Cài đặt',
 			},
@@ -128,22 +128,27 @@ const vi = {
 			language: {
 				title: 'Ngôn ngữ',
 				language: 'Chọn ngôn ngữ',
+				options: {
+					en: 'Tiếng Anh',
+					vi: 'Tiếng Việt',
+				},
 			},
 			delete: {
 				title: 'Khu vực cảnh báo',
-				message: 'Xóa dashboard hiện tại',
-				warning: 'Khi bạn xóa dashboard, nó sẽ không lấy lại. Vui lòng cẩn thận.',
+				message: 'Xóa bảng điều khiển hiện tại',
+				warning:
+					'Sau khi xóa, bảng điều khiển sẽ không thể khôi phục lại. Vui lòng cẩn thận.',
 				button: {
-					message: 'Xóa dashboard hiện tại',
+					message: 'Xóa bảng điều khiển hiện tại',
 				},
 			},
 			modal: {
-				title: 'Xóa',
+				title: 'Xóa {dashboard}',
 				items: {
 					area: 'Khu vực',
-					camera: 'Cameras',
+					camera: 'Máy quay',
 				},
-				button: 'Tôi muốn xóa dashboard này',
+				button: 'Tôi muốn xóa bảng điều khiển này',
 			},
 		},
 	},
