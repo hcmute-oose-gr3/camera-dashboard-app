@@ -1,5 +1,9 @@
+<script lang="ts">
+	import { twMerge } from 'tailwind-merge';
+</script>
+
 <svg
-	class="animate-spin text-white {$$restProps.class}"
+	class={twMerge('animate-spin text-fill-100', $$restProps.class)}
 	xmlns="http://www.w3.org/2000/svg"
 	fill="none"
 	viewBox="0 0 24 24"
