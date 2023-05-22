@@ -43,7 +43,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@popperjs/core": "^2.11.7",
 		"@types/nodemailer": "^6.4.7",
 		"bcrypt": "^5.1.0",
 		"http-status": "^1.6.2",
