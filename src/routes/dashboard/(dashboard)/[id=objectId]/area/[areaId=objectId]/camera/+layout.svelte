@@ -5,9 +5,9 @@
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 	import { backIn, backOut } from 'svelte/easing';
-	import { getContext } from 'svelte';
 	import LL from '~/i18n/i18n-svelte';
-	import type { WritablePageMeta } from '~/routes';
+	import { meta } from '~/routes';
+
 	export let data: LayoutData;
 	const items = [
 		{
@@ -28,8 +28,7 @@
 		lastIndex = index;
 	}
 
-	const meta = getContext('meta') satisfies WritablePageMeta;
-	$: $meta.title = $LL.dashboard.area.meta.namedTitle({ areaName: data.areaName });
+	$meta.title = $LL.dashboard.area.meta.namedTitle({ areaName: data.areaName });
 </script>
 
 <NavigationBar {items} />

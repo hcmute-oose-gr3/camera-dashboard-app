@@ -1,16 +1,11 @@
 <script lang="ts">
 	import '~/app.css';
 	import NavigationProgressBar from '~/lib/components/NavigationProgressBar.svelte';
-	import type { PageMeta } from '.';
-	import { setContext } from 'svelte';
-	import { writable } from 'svelte/store';
-	const meta = writable<PageMeta>({ title: '' });
-	setContext('meta', meta);
-	$: ({ title } = $meta);
+	import { meta } from '~/routes';
 </script>
 
 <svelte:head>
-	<title>{title}</title>
+	<title>{$meta.title}</title>
 </svelte:head>
 
 <slot />

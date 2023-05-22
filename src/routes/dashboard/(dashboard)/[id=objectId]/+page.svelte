@@ -1,14 +1,12 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
+	import LL from '~/i18n/i18n-svelte';
+	import { meta } from '~/routes';
 	import type { PageData } from './$types';
 	import Video from './components/Video.svelte';
-	import LL from '~/i18n/i18n-svelte';
-	import type { WritablePageMeta } from '..';
 
 	export let data: PageData;
-	const meta = getContext('meta') as WritablePageMeta;
 
-	$: $meta.title = $LL.dashboard.meta.title({ dashboardName: data.dashboard?.name ?? '' });
+	$meta.title = $LL.dashboard.meta.namedTitle({ dashboardName: data.dashboard?.name ?? '...' });
 </script>
 
 <div class="grid grid-cols-3 gap-6 w-full">

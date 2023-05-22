@@ -1,7 +1,7 @@
-import type { Writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 
 export interface PageMeta {
 	title: string;
 }
 
-export type WritablePageMeta = Writable<PageMeta>;
+export const meta = writable<PageMeta>({ title: '' });
