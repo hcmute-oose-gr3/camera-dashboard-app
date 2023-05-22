@@ -75,8 +75,6 @@
 		}
 
 		pending = true;
-		await new Promise((resolve) => setTimeout(resolve, 5000));
-
 		formData.set(
 			'securityLevel',
 			securityLevelString === 'low' ? '0' : securityLevelString === 'medium' ? '1' : '2'
