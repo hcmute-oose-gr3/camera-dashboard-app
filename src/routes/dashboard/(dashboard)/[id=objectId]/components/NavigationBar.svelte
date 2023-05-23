@@ -7,9 +7,7 @@
 </script>
 
 <AnimateSharedLayout>
-	<nav
-		class="font-display text-h4 font-bold px-4 py-1 bg-primary-100 -z-50 rounded-md border-primary-300 border"
-	>
+	<nav class="font-display text-h4 font-bold px-4 -z-50 border-fill-300 border-b">
 		<ul class="flex items-center gap-x-8">
 			{#each items as item}
 				<NavigationItem {item} />
