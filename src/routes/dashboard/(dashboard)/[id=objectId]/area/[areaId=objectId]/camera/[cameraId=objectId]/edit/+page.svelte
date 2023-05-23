@@ -12,7 +12,7 @@
 	import type { ApiResponse } from '~/lib/models/api-response';
 	import { instanceOf } from '~/lib/utils';
 	import type { PageData } from './$types';
-	import { CameraSecurityLevel } from '~/lib/models/dashboard';
+	import { CameraSecurityLevel } from '~/lib/models/camera';
 	import Toast from '~/lib/components/Toast.svelte';
 	import { fly } from 'svelte/transition';
 	import { quadIn, quadOut } from 'svelte/easing';

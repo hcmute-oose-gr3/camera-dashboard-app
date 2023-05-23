@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types';
 import httpStatus from 'http-status';
 import { DbClient } from '~/lib/server/services/db-client';
 import { ObjectId } from 'mongodb';
-import { CameraConnection, CameraSecurityLevel } from '~/lib/models/dashboard';
+import { CameraConnection, CameraSecurityLevel } from '~/lib/models/camera';
 
 export const GET = (async (e) => {
 	try {
@@ -46,7 +46,7 @@ export const GET = (async (e) => {
 		const dashboard = await DbClient.instance.collections.dashboards.findOne(
 			{
 				_id: new ObjectId(e.params.id),
-				'areas._id': new ObjectId(e.params.areaId)
+				'areas._id': new ObjectId(e.params.areaId),
 			},
 			{ projection: { _id: 0, areas: { 'cameras.$': 1 } } }
 		);
@@ -55,14 +55,14 @@ export const GET = (async (e) => {
 				data:
 					dashboard?.areas?.[0].cameras?.map((e) =>
 						Object.assign(e, { _id: e._id.toHexString() })
-					) || []
+					) || [],
 			},
 			httpStatus.OK
 		);
 	} catch (e: any) {
 		return ApiResponder.instance.error(
 			{
-				error: { code: 'EXCEPTION_ERROR', message: e.message || 'Exception' }
+				error: { code: 'EXCEPTION_ERROR', message: e.message || 'Exception' },
 			},
 			httpStatus.INTERNAL_SERVER_ERROR
 		);

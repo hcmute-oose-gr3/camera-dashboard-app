@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types';
 import httpStatus from 'http-status';
 import { DbClient } from '~/lib/server/services/db-client';
 import { ObjectId } from 'mongodb';
-import { CameraConnection, CameraSecurityLevel } from '~/lib/models/dashboard';
+import { CameraConnection, CameraSecurityLevel } from '~/lib/models/camera';
 import { z } from 'zod';
 
 export const POST = (async (e) => {
