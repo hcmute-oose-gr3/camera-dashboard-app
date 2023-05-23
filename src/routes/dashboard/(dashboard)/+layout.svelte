@@ -9,7 +9,6 @@
 	import SideBarNavigation from './components/SideBarNavigation.svelte';
 	import TopRight from './components/TopRight.svelte';
 	import { meta } from '~/routes';
-	import Icon from '~/lib/components/Icon.svelte';
 	import BackNavigationButton from '~/lib/components/BackNavigationButton.svelte';
 
 	export let data: LayoutData;
@@ -25,6 +24,11 @@
 			text: $LL.dashboard.entry.area(),
 			href: `/dashboard/${$page.params.id}/area`,
 			icon: 'Square2Stack',
+		},
+		{
+			text: $LL.dashboard.entry.alert(),
+			href: `/dashboard/${$page.params.id}/alerts`,
+			icon: 'ShieldExclamation',
 		},
 	];
 	let footerEntries: NavigationEntryData[];

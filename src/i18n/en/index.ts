@@ -57,6 +57,7 @@ const en = {
 			camera: 'Camera',
 			area: 'Area',
 			setting: 'Settings',
+			alert: 'Alert',
 			logout: 'Sign out',
 		},
 		card: {

@@ -56,6 +56,7 @@ const vi = {
 			camera: 'Camera',
 			area: 'Khu vực',
 			setting: 'Cài đặt',
+			alert: 'Cảnh báo',
 			logout: 'Đăng xuất',
 		},
 		card: {

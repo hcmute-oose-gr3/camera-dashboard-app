@@ -172,9 +172,13 @@ type RootTranslation = {
 			 */
 			area: string
 			/**
-			 * S​e​t​t​i​n​g
+			 * S​e​t​t​i​n​g​s
 			 */
 			setting: string
+			/**
+			 * A​l​e​r​t
+			 */
+			alert: string
 			/**
 			 * S​i​g​n​ ​o​u​t
 			 */
@@ -870,9 +874,13 @@ export type TranslationFunctions = {
 			 */
 			area: () => LocalizedString
 			/**
-			 * Setting
+			 * Settings
 			 */
 			setting: () => LocalizedString
+			/**
+			 * Alert
+			 */
+			alert: () => LocalizedString
 			/**
 			 * Sign out
 			 */
