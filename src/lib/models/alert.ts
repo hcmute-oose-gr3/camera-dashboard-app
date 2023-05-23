@@ -1,17 +1,21 @@
 import type { ObjectId } from 'mongodb';
 
-export interface Alert {}
+export interface Alert {
+	dashboardId: ObjectId;
+}
 
 export interface TimeBasedAlert extends Alert {
-	dashboardId: ObjectId;
 	start: string;
 	end: string;
 	level: number;
 }
 
-export interface ProfileBasedAlert extends Alert {}
+export interface ProfileBasedAlert extends Alert {
+	profileId: ObjectId;
+}
 
 export interface ZoneBasedAlert extends Alert {
+	cameraId: ObjectId;
 	top: number;
 	left: number;
 	width: number;
