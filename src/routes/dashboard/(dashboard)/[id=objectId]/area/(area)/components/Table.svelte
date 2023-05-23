@@ -11,7 +11,7 @@
 	import Link from '~/lib/components/Link.svelte';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 	import type { ApiErrorResponse, ApiDataResponse } from '~/lib/models/api-response';
-	import type { Area } from '~/lib/models/dashboard';
+	import type { Area } from '~/lib/models/area';
 	import { instanceOf } from '~/lib/utils';
 	import { ApiRoutes } from '~/lib/utils/api-routes';
 	export let areas: (Area & { _id: string })[];

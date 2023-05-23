@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
 import { ObjectId, type WithId } from 'mongodb';
-import type { Area } from '~/lib/models/dashboard';
+import type { Area } from '~/lib/models/area';
 import { DashboardRepository } from '~/lib/server/repositories/dashboard-repository';
 
 export const load = (async ({ params, depends }) => {
@@ -12,6 +12,6 @@ export const load = (async ({ params, depends }) => {
 			.then(
 				(v) =>
 					v?.areas?.map((c: any) => Object.assign(c, { _id: c._id.toHexString() })) || []
-			)) as (WithId<Area> & { _id: string })[]
+			)) as (WithId<Area> & { _id: string })[],
 	};
 }) satisfies PageServerLoad;
