@@ -12,7 +12,7 @@
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 	import Spinner from '~/lib/components/Spinner.svelte';
 	import type { ApiDataResponse, ApiErrorResponse } from '~/lib/models/api-response';
-	import { CameraConnection, CameraSecurityLevel, type Camera } from '~/lib/models/dashboard';
+	import { CameraConnection, CameraSecurityLevel, type Camera } from '~/lib/models/camera';
 	import { instanceOf } from '~/lib/utils';
 	export let cameras: (Camera & { _id: string })[];
 	export let checked: boolean[];
