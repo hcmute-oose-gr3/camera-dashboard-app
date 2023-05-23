@@ -1,7 +1,7 @@
 import { DbClient } from '~/lib/server/services/db-client';
 import type { PageServerLoad } from './$types';
 import { ObjectId, type WithId } from 'mongodb';
-import type { Camera } from '~/lib/models/dashboard';
+import type { Camera } from '~/lib/models/camera';
 import { error } from '@sveltejs/kit';
 import httpStatus from 'http-status';
 
