@@ -18,11 +18,7 @@
 			? 'text-primary-700'
 			: 'hover:bg-fill-200 text-fill-1000 hover:text-primary-700 bg-transparent'}"
 	>
-		<a
-			data-sveltekit-preload-data="tap"
-			href={data.href}
-			class="peer py-1.5 px-2 flex items-center gap-x-2"
-		>
+		<a href={data.href} class="peer py-1.5 px-2 flex items-center gap-x-2">
 			<Icon class="peer z-50" name={data.icon} />
 			<div
 				class="transition ease-in-out -translate-x-1 opacity-0 border-2 bg-fill-100 border-fill-200 n w-max rounded-l-none text-fill-1000 px-2 py-1 absolute text-xs left-full ml-3
