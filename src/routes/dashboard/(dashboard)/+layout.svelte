@@ -10,6 +10,7 @@
 	import TopRight from './components/TopRight.svelte';
 	import { meta } from '~/routes';
 	import Icon from '~/lib/components/Icon.svelte';
+	import BackNavigationButton from '~/lib/components/BackNavigationButton.svelte';
 
 	export let data: LayoutData;
 
@@ -50,19 +51,7 @@
 		<div class="flex justify-between items-center mb-3 relative gap-x-12">
 			<div>
 				<div class="flex gap-x-3">
-					{#if globalThis.history?.length}
-						<button
-							on:click={() => {
-								globalThis.history?.back();
-							}}
-						>
-							<Icon
-								name="ArrowLongLeft"
-								class="transition ease-in-out
-							hover:-translate-x-1 hover:text-primary-700"
-							/>
-						</button>
-					{/if}
+					<BackNavigationButton />
 					<Typewriter delay={150} interval={55} mode="cascade">
 						<h1>
 							{$meta.title}
