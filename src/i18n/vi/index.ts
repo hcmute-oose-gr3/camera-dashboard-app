@@ -55,6 +55,7 @@ const vi = {
 			dashboard: 'Bảng điều khiển',
 			camera: 'Camera',
 			area: 'Khu vực',
+			setting: 'Cài đặt',
 			logout: 'Đăng xuất',
 		},
 		card: {
@@ -114,6 +115,40 @@ const vi = {
 			layout: {
 				home: 'Nhà',
 				add: 'Thêm khu vực',
+			},
+		},
+		settings: {
+			meta: {
+				title: 'Cài đặt',
+			},
+			theme: {
+				title: 'Màu sắc',
+				color: 'Màu của trang',
+			},
+			language: {
+				title: 'Ngôn ngữ',
+				language: 'Chọn ngôn ngữ',
+				options: {
+					en: 'Tiếng Anh',
+					vi: 'Tiếng Việt',
+				},
+			},
+			delete: {
+				title: 'Khu vực cảnh báo',
+				message: 'Xóa bảng điều khiển hiện tại',
+				warning:
+					'Sau khi xóa, bảng điều khiển sẽ không thể khôi phục lại. Vui lòng cẩn thận.',
+				button: {
+					message: 'Xóa bảng điều khiển hiện tại',
+				},
+			},
+			modal: {
+				title: 'Xóa {dashboard}',
+				items: {
+					area: 'Khu vực',
+					camera: 'Máy quay',
+				},
+				button: 'Tôi muốn xóa bảng điều khiển này',
 			},
 		},
 	},

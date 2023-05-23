@@ -56,6 +56,7 @@ const en = {
 			dashboard: 'Dashboard',
 			camera: 'Camera',
 			area: 'Area',
+			setting: 'Settings',
 			logout: 'Sign out',
 		},
 		card: {
@@ -115,6 +116,39 @@ const en = {
 			layout: {
 				home: 'Home',
 				add: 'Add area',
+			},
+		},
+		settings: {
+			meta: {
+				title: 'Settings',
+			},
+			theme: {
+				title: 'Theme',
+				color: 'Page color',
+			},
+			language: {
+				title: 'Language',
+				language: 'Choose language',
+				options: {
+					en: 'English',
+					vi: 'Vietnamese',
+				},
+			},
+			delete: {
+				title: 'Danger zone',
+				message: 'Delete this dashboard',
+				warning: 'Once you delete a dashboard, there is not go back. Please be certain.',
+				button: {
+					message: 'Delete this dashboard',
+				},
+			},
+			modal: {
+				title: 'Delete {dashboard:string}',
+				items: {
+					area: 'Areas',
+					camera: 'Cameras',
+				},
+				button: 'I want to delete this dashboard',
 			},
 		},
 	},

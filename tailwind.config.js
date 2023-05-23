@@ -1,3 +1,5 @@
+const { createThemes } = require('tw-colors');
+
 const sansSerifStack = [
 	'Frutiger',
 	"'Frutiger Linotype'",
@@ -20,8 +22,10 @@ const sansSerifStack = [
 
 /** @type {import('tailwindcss').Config} */
 export default {
+	darkMode: 'class',
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		darkMode: 'class',
 		extend: {
 			fontSize: {
 				h1: ['1.8462rem', { fontWeight: 'bold' }],
@@ -40,7 +44,64 @@ export default {
 				display: ["'Alegreya Sans'", ...sansSerifStack],
 				body: ["'Work Sans'", ...sansSerifStack],
 			},
-			colors: {
+		},
+	},
+	plugins: [
+		require('@tailwindcss/forms')({
+			strategy: 'class',
+		}),
+		createThemes({
+			dark: {
+				primary: {
+					1000: '#f6f7fe',
+					900: '#eceffd',
+					800: '#d0d8fb',
+					700: '#b4c0f8',
+					600: '#7b90f3',
+					500: '#4361ee',
+					400: '#3c57d6',
+					300: '#3249b3',
+					200: '#283a8f',
+					100: '#213075',
+				},
+				fill: {
+					1000: '#ffffff',
+					900: '#f0f0f5',
+					800: '#d3d4dd',
+					700: '#aaaab9',
+					600: '#8f8fa2',
+					500: '#7a7b8e',
+					400: '#696979',
+					300: '#515162',
+					200: '#3a3a47',
+					100: '#24252E',
+				},
+				positive: {
+					1000: '#ffffff',
+					900: '#e1f6df',
+					800: '#9de695',
+					700: '#54c241',
+					600: '#40a42b',
+					500: '#2e8e16',
+					400: '#217b00',
+					300: '#166000',
+					200: '#0e4700',
+					100: '#052d00',
+				},
+				negative: {
+					1000: '#ffffff',
+					900: '#feeced',
+					800: '#fac8c9',
+					700: '#ff888b',
+					600: '#f75b60',
+					500: '#f02532',
+					400: '#d01e29',
+					300: '#a4151e',
+					200: '#790c14',
+					100: '#510609',
+				},
+			},
+			light: {
 				primary: {
 					100: '#f6f7fe',
 					200: '#eceffd',
@@ -53,18 +114,6 @@ export default {
 					900: '#283a8f',
 					1000: '#213075',
 				},
-				// primary: {
-				// 	100: '#ffffff',
-				// 	200: '#ecf0ff',
-				// 	300: '#c5d4ff',
-				// 	400: '#84aaff',
-				// 	500: '#498fff',
-				// 	600: '#007af0',
-				// 	700: '#0069d0',
-				// 	800: '#0051a2',
-				// 	900: '#003a79',
-				// 	1000: '#002451'
-				// },
 				fill: {
 					100: '#ffffff',
 					200: '#f0f0f5',
@@ -102,11 +151,6 @@ export default {
 					1000: '#510609',
 				},
 			},
-		},
-	},
-	plugins: [
-		require('@tailwindcss/forms')({
-			strategy: 'class',
 		}),
 	],
 };

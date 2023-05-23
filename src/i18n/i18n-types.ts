@@ -172,6 +172,10 @@ type RootTranslation = {
 			 */
 			area: string
 			/**
+			 * S​e​t​t​i​n​g
+			 */
+			setting: string
+			/**
 			 * S​i​g​n​ ​o​u​t
 			 */
 			logout: string
@@ -324,6 +328,85 @@ type RootTranslation = {
 				 * A​d​d​ ​a​r​e​a
 				 */
 				add: string
+			}
+		}
+		settings: {
+			meta: {
+				/**
+				 * S​e​t​t​i​n​g​s
+				 */
+				title: string
+			}
+			theme: {
+				/**
+				 * T​h​e​m​e
+				 */
+				title: string
+				/**
+				 * P​a​g​e​ ​c​o​l​o​r
+				 */
+				color: string
+			}
+			language: {
+				/**
+				 * L​a​n​g​u​a​g​e
+				 */
+				title: string
+				/**
+				 * C​h​o​o​s​e​ ​l​a​n​g​u​a​g​e
+				 */
+				language: string
+				options: {
+					/**
+					 * E​n​g​l​i​s​h
+					 */
+					en: string
+					/**
+					 * V​i​e​t​n​a​m​e​s​e
+					 */
+					vi: string
+				}
+			}
+			'delete': {
+				/**
+				 * D​a​n​g​e​r​ ​z​o​n​e
+				 */
+				title: string
+				/**
+				 * D​e​l​e​t​e​ ​t​h​i​s​ ​d​a​s​h​b​o​a​r​d
+				 */
+				message: string
+				/**
+				 * O​n​c​e​ ​y​o​u​ ​d​e​l​e​t​e​ ​a​ ​d​a​s​h​b​o​a​r​d​,​ ​t​h​e​r​e​ ​i​s​ ​n​o​t​ ​g​o​ ​b​a​c​k​.​ ​P​l​e​a​s​e​ ​b​e​ ​c​e​r​t​a​i​n​.
+				 */
+				warning: string
+				button: {
+					/**
+					 * D​e​l​e​t​e​ ​t​h​i​s​ ​d​a​s​h​b​o​a​r​d
+					 */
+					message: string
+				}
+			}
+			modal: {
+				/**
+				 * D​e​l​e​t​e​ ​{​d​a​s​h​b​o​a​r​d​}
+				 * @param {string} dashboard
+				 */
+				title: RequiredParams<'dashboard'>
+				items: {
+					/**
+					 * A​r​e​a​s
+					 */
+					area: string
+					/**
+					 * C​a​m​e​r​a​s
+					 */
+					camera: string
+				}
+				/**
+				 * I​ ​w​a​n​t​ ​t​o​ ​d​e​l​e​t​e​ ​t​h​i​s​ ​d​a​s​h​b​o​a​r​d
+				 */
+				button: string
 			}
 		}
 	}
@@ -787,6 +870,10 @@ export type TranslationFunctions = {
 			 */
 			area: () => LocalizedString
 			/**
+			 * Setting
+			 */
+			setting: () => LocalizedString
+			/**
 			 * Sign out
 			 */
 			logout: () => LocalizedString
@@ -935,6 +1022,84 @@ export type TranslationFunctions = {
 				 * Add area
 				 */
 				add: () => LocalizedString
+			}
+		}
+		settings: {
+			meta: {
+				/**
+				 * Settings
+				 */
+				title: () => LocalizedString
+			}
+			theme: {
+				/**
+				 * Theme
+				 */
+				title: () => LocalizedString
+				/**
+				 * Page color
+				 */
+				color: () => LocalizedString
+			}
+			language: {
+				/**
+				 * Language
+				 */
+				title: () => LocalizedString
+				/**
+				 * Choose language
+				 */
+				language: () => LocalizedString
+				options: {
+					/**
+					 * English
+					 */
+					en: () => LocalizedString
+					/**
+					 * Vietnamese
+					 */
+					vi: () => LocalizedString
+				}
+			}
+			'delete': {
+				/**
+				 * Danger zone
+				 */
+				title: () => LocalizedString
+				/**
+				 * Delete this dashboard
+				 */
+				message: () => LocalizedString
+				/**
+				 * Once you delete a dashboard, there is not go back. Please be certain.
+				 */
+				warning: () => LocalizedString
+				button: {
+					/**
+					 * Delete this dashboard
+					 */
+					message: () => LocalizedString
+				}
+			}
+			modal: {
+				/**
+				 * Delete {dashboard}
+				 */
+				title: (arg: { dashboard: string }) => LocalizedString
+				items: {
+					/**
+					 * Areas
+					 */
+					area: () => LocalizedString
+					/**
+					 * Cameras
+					 */
+					camera: () => LocalizedString
+				}
+				/**
+				 * I want to delete this dashboard
+				 */
+				button: () => LocalizedString
 			}
 		}
 	}

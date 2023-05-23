@@ -14,7 +14,8 @@
 
 	export let data: LayoutData;
 
-	let entries: NavigationEntryData[] = [
+	let entries: NavigationEntryData[];
+	$: entries = [
 		{
 			text: $LL.dashboard.entry.dashboard(),
 			href: `/dashboard/${$page.params.id}`,
@@ -26,7 +27,13 @@
 			icon: 'Square2Stack',
 		},
 	];
-	let footerEntries = [
+	let footerEntries: NavigationEntryData[];
+	$: footerEntries = [
+		{
+			text: $LL.dashboard.entry.setting(),
+			href: `/dashboard/${$page.params.id}/settings`,
+			icon: 'Cog8Tooth',
+		},
 		{
 			text: $LL.dashboard.entry.logout(),
 			href: `/logout`,
