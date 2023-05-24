@@ -44,6 +44,7 @@
 	"type": "module",
 	"dependencies": {
 		"@types/nodemailer": "^6.4.7",
+		"apexcharts": "^3.40.0",
 		"bcrypt": "^5.1.0",
 		"cloudinary": "^1.37.0",
 		"http-status": "^1.6.2",
