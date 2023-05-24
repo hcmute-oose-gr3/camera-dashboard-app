@@ -172,9 +172,13 @@ type RootTranslation = {
 			 */
 			area: string
 			/**
-			 * S​e​t​t​i​n​g
+			 * S​e​t​t​i​n​g​s
 			 */
 			setting: string
+			/**
+			 * A​l​e​r​t
+			 */
+			alert: string
 			/**
 			 * S​i​g​n​ ​o​u​t
 			 */
@@ -407,6 +411,180 @@ type RootTranslation = {
 				 * I​ ​w​a​n​t​ ​t​o​ ​d​e​l​e​t​e​ ​t​h​i​s​ ​d​a​s​h​b​o​a​r​d
 				 */
 				button: string
+			}
+		}
+		alert: {
+			meta: {
+				/**
+				 * A​l​e​r​t​s
+				 */
+				title: string
+			}
+			table: {
+				serial: {
+					/**
+					 * S​e​r​i​a​l
+					 */
+					header: string
+				}
+				name: {
+					/**
+					 * N​a​m​e
+					 */
+					header: string
+				}
+				type: {
+					/**
+					 * T​y​p​e
+					 */
+					header: string
+					/**
+					 * T​i​m​e​-​b​a​s​e​d​ ​A​l​e​r​t
+					 */
+					timeBased: string
+					/**
+					 * P​r​o​f​i​l​e​-​b​a​s​e​d​ ​A​l​e​r​t
+					 */
+					profileBased: string
+					/**
+					 * Z​o​n​e​-​b​a​s​e​d​ ​A​l​e​r​t
+					 */
+					zoneBased: string
+				}
+				actions: {
+					/**
+					 * A​c​t​i​o​n​s
+					 */
+					header: string
+				}
+			}
+			navigation: {
+				/**
+				 * V​i​e​w​ ​a​l​e​r​t​s
+				 */
+				viewAlerts: string
+				/**
+				 * N​e​w​ ​a​l​e​r​t
+				 */
+				newAlert: string
+			}
+			'new': {
+				name: {
+					/**
+					 * N​a​m​e
+					 */
+					label: string
+					/**
+					 * E​n​t​e​r​ ​a​l​e​r​t​'​s​ ​n​a​m​e
+					 */
+					placeholder: string
+					/**
+					 * A​l​e​r​t​'​s​ ​n​a​m​e​ ​m​u​s​t​ ​n​o​t​ ​b​e​ ​e​m​p​t​y​.
+					 */
+					nonempty: string
+				}
+				/**
+				 * C​r​e​a​t​e​ ​a​l​e​r​t
+				 */
+				submit: string
+				/**
+				 * A​l​e​r​t​ ​h​a​s​ ​b​e​e​n​ ​c​r​e​a​t​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+				 */
+				success: string
+				time: {
+					/**
+					 * T​i​m​e​-​b​a​s​e​d
+					 */
+					navigation: string
+					startTime: {
+						/**
+						 * S​t​a​r​t​ ​t​i​m​e
+						 */
+						label: string
+						/**
+						 * I​n​v​a​l​i​d​ ​s​t​a​r​t​ ​t​i​m​e​ ​f​o​r​m​a​t​ ​(​m​u​s​t​ ​b​e​ ​h​h​:​m​m​)​.
+						 */
+						invalid: string
+					}
+					endTime: {
+						/**
+						 * E​n​d​ ​t​i​m​e
+						 */
+						label: string
+						/**
+						 * I​n​v​a​l​i​d​ ​e​n​d​ ​t​i​m​e​ ​f​o​r​m​a​t​ ​(​m​u​s​t​ ​b​e​ ​h​h​:​m​m​)​.
+						 */
+						invalid: string
+					}
+					alertLevel: {
+						/**
+						 * C​h​o​o​s​e​ ​a​n​ ​a​l​e​r​t​ ​l​e​v​e​l​:
+						 */
+						legend: string
+						low: {
+							/**
+							 * L​o​w
+							 */
+							label: string
+						}
+						medium: {
+							/**
+							 * M​e​d​i​u​m
+							 */
+							label: string
+						}
+						high: {
+							/**
+							 * H​i​g​h
+							 */
+							label: string
+						}
+						/**
+						 * A​n​ ​a​l​e​r​t​ ​l​e​v​e​l​ ​i​s​ ​r​e​q​u​i​r​e​d​.
+						 */
+						required: string
+					}
+				}
+				profile: {
+					/**
+					 * P​r​o​f​i​l​e​-​b​a​s​e​d
+					 */
+					navigation: string
+					profile: {
+						/**
+						 * P​r​o​f​i​l​e
+						 */
+						label: string
+						/**
+						 * A​ ​p​r​o​f​i​l​e​ ​m​u​s​t​ ​b​e​ ​s​e​l​e​c​t​e​d​.
+						 */
+						nonempty: string
+					}
+				}
+				zone: {
+					/**
+					 * Z​o​n​e​-​b​a​s​e​d
+					 */
+					navigation: string
+					camera: {
+						/**
+						 * C​a​m​e​r​a
+						 */
+						label: string
+						/**
+						 * A​ ​c​a​m​e​r​a​ ​m​u​s​t​ ​b​e​ ​s​e​l​e​c​t​e​d​.
+						 */
+						nonempty: string
+					}
+					/**
+					 * P​o​s​i​t​i​o​n​:
+					 */
+					position: string
+					/**
+					 * S​i​z​e​:
+					 */
+					size: string
+				}
 			}
 		}
 	}
@@ -870,9 +1048,13 @@ export type TranslationFunctions = {
 			 */
 			area: () => LocalizedString
 			/**
-			 * Setting
+			 * Settings
 			 */
 			setting: () => LocalizedString
+			/**
+			 * Alert
+			 */
+			alert: () => LocalizedString
 			/**
 			 * Sign out
 			 */
@@ -1100,6 +1282,180 @@ export type TranslationFunctions = {
 				 * I want to delete this dashboard
 				 */
 				button: () => LocalizedString
+			}
+		}
+		alert: {
+			meta: {
+				/**
+				 * Alerts
+				 */
+				title: () => LocalizedString
+			}
+			table: {
+				serial: {
+					/**
+					 * Serial
+					 */
+					header: () => LocalizedString
+				}
+				name: {
+					/**
+					 * Name
+					 */
+					header: () => LocalizedString
+				}
+				type: {
+					/**
+					 * Type
+					 */
+					header: () => LocalizedString
+					/**
+					 * Time-based Alert
+					 */
+					timeBased: () => LocalizedString
+					/**
+					 * Profile-based Alert
+					 */
+					profileBased: () => LocalizedString
+					/**
+					 * Zone-based Alert
+					 */
+					zoneBased: () => LocalizedString
+				}
+				actions: {
+					/**
+					 * Actions
+					 */
+					header: () => LocalizedString
+				}
+			}
+			navigation: {
+				/**
+				 * View alerts
+				 */
+				viewAlerts: () => LocalizedString
+				/**
+				 * New alert
+				 */
+				newAlert: () => LocalizedString
+			}
+			'new': {
+				name: {
+					/**
+					 * Name
+					 */
+					label: () => LocalizedString
+					/**
+					 * Enter alert's name
+					 */
+					placeholder: () => LocalizedString
+					/**
+					 * Alert's name must not be empty.
+					 */
+					nonempty: () => LocalizedString
+				}
+				/**
+				 * Create alert
+				 */
+				submit: () => LocalizedString
+				/**
+				 * Alert has been created successfully.
+				 */
+				success: () => LocalizedString
+				time: {
+					/**
+					 * Time-based
+					 */
+					navigation: () => LocalizedString
+					startTime: {
+						/**
+						 * Start time
+						 */
+						label: () => LocalizedString
+						/**
+						 * Invalid start time format (must be hh:mm).
+						 */
+						invalid: () => LocalizedString
+					}
+					endTime: {
+						/**
+						 * End time
+						 */
+						label: () => LocalizedString
+						/**
+						 * Invalid end time format (must be hh:mm).
+						 */
+						invalid: () => LocalizedString
+					}
+					alertLevel: {
+						/**
+						 * Choose an alert level:
+						 */
+						legend: () => LocalizedString
+						low: {
+							/**
+							 * Low
+							 */
+							label: () => LocalizedString
+						}
+						medium: {
+							/**
+							 * Medium
+							 */
+							label: () => LocalizedString
+						}
+						high: {
+							/**
+							 * High
+							 */
+							label: () => LocalizedString
+						}
+						/**
+						 * An alert level is required.
+						 */
+						required: () => LocalizedString
+					}
+				}
+				profile: {
+					/**
+					 * Profile-based
+					 */
+					navigation: () => LocalizedString
+					profile: {
+						/**
+						 * Profile
+						 */
+						label: () => LocalizedString
+						/**
+						 * A profile must be selected.
+						 */
+						nonempty: () => LocalizedString
+					}
+				}
+				zone: {
+					/**
+					 * Zone-based
+					 */
+					navigation: () => LocalizedString
+					camera: {
+						/**
+						 * Camera
+						 */
+						label: () => LocalizedString
+						/**
+						 * A camera must be selected.
+						 */
+						nonempty: () => LocalizedString
+					}
+					/**
+					 * Position:
+					 */
+					position: () => LocalizedString
+					/**
+					 * Size:
+					 */
+					size: () => LocalizedString
+				}
 			}
 		}
 	}

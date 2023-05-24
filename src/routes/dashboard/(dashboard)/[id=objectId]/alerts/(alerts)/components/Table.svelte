@@ -5,20 +5,23 @@
 	import { flip } from 'svelte/animate';
 	import { quadInOut } from 'svelte/easing';
 	import LL from '~/i18n/i18n-svelte';
-	import type { TranslationFunctions } from '~/i18n/i18n-types';
 	import CheckBox from '~/lib/components/CheckBox.svelte';
 	import Icon from '~/lib/components/Icon.svelte';
 	import Pending from '~/lib/components/Pending.svelte';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 	import Spinner from '~/lib/components/Spinner.svelte';
+	import type {
+		Alert,
+		ProfileBasedAlert,
+		TimeBasedAlert,
+		ZoneBasedAlert,
+	} from '~/lib/models/alert';
 	import type { ApiDataResponse, ApiErrorResponse } from '~/lib/models/api-response';
-	import { CameraConnection, CameraSecurityLevel, type Camera } from '~/lib/models/camera';
 	import { instanceOf } from '~/lib/utils';
-	export let cameras: (Camera & { _id: string })[];
+	export let alerts: ((ProfileBasedAlert | TimeBasedAlert | ZoneBasedAlert) & { _id: string })[];
 	export let checked: boolean[];
 	let deletePendings: boolean[] = [];
-	let text: TranslationFunctions['camera']['table'];
-	$: text = $LL.camera.table;
+	$: ({ table: text } = $LL.dashboard.alert);
 	function toggleCheckAll(e: Event) {
 		checked = checked.map(() => (e.target as HTMLInputElement).checked);
 	}
@@ -26,41 +29,40 @@
 		checked[index] = !checked[index];
 	}
 	async function deleteThis(index: number) {
-		const camera = cameras[index];
+		const alert = alerts[index];
 		deletePendings[index] = true;
-		const json = await fetch(
-			`/api/v1/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera/${camera._id}`,
-			{ method: 'delete' }
-		)
+		const json = await fetch(`/api/v1/dashboard/${$page.params.id}/alerts/${alert._id}`, {
+			method: 'delete',
+		})
 			.then((v) => v.json())
 			.finally(() => {
 				deletePendings[index] = false;
 			});
 		if (instanceOf<ApiErrorResponse>(json, 'error')) {
-			alert(json.error.message);
+			// TODO: Display error
 		} else if (instanceOf<ApiDataResponse<DeleteResult>>(json, 'data')) {
 			checked.splice(index, 1);
-			cameras.splice(index, 1);
-			cameras = cameras;
+			alerts.splice(index, 1);
+			alerts = alerts;
 			checked = checked;
 		}
 	}
 	async function deleteSome() {
-		const deleting = cameras.filter((_, i) => checked[i]).map((c) => c._id);
+		const deleting = alerts.filter((_, i) => checked[i]).map((c) => c._id);
 		deletePendings = checked.map((v) => v);
-		await new Promise((resolve) => setTimeout(resolve, 2000));
-		const json = await fetch(
-			`/api/v1/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`,
-			{ method: 'delete', body: JSON.stringify(deleting) }
-		)
+		console.log(deletePendings);
+		const json = await fetch(`/api/v1/dashboard/${$page.params.id}/alerts`, {
+			method: 'delete',
+			body: JSON.stringify(deleting),
+		})
 			.then((v) => v.json())
 			.finally(() => {
 				deletePendings = [];
 			});
 		if (instanceOf<ApiErrorResponse>(json, 'error')) {
-			alert(json.error.message);
+			// TODO: Display error
 		} else if (instanceOf<ApiDataResponse<DeleteResult>>(json, 'data')) {
-			invalidate('camera');
+			invalidate('alerts');
 			checked = checked.filter((v) => !v);
 		}
 	}
@@ -116,13 +118,12 @@
 				</div>
 			</th>
 			<th class="px-4 py-6 text-fill-700">{text.name.header()}</th>
-			<th class="px-4 py-6 text-fill-700">{text.connection.header()}</th>
-			<th class="px-4 py-6 text-fill-700">{text.securityLevel.header()}</th>
+			<th class="px-4 py-6 text-fill-700">{text.type.header()}</th>
 			<th class="px-4 py-6 text-fill-700">{text.actions.header()}</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each cameras as camera, i (camera._id)}
+		{#each alerts as alert, i (alert._id)}
 			<tr
 				animate:flip={{ duration: 400, easing: quadInOut }}
 				class="border-b border-primary-200 hover:bg-primary-100 transition-colors duration-75"
@@ -142,35 +143,42 @@
 				<td class="block lg:table-cell px-4 py-6"
 					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.serial.header()}:</span
-					>{parseInt(camera._id.substring(camera._id.length - 6), 16)}</td
+					>{parseInt(alert._id.substring(alert._id.length - 6), 16)}</td
 				>
 				<td class="block lg:table-cell px-4 py-6"
 					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
 						>{text.name.header()}:</span
-					>{camera.name}</td
+					>{alert.name}</td
 				>
-				<td class="block lg:table-cell px-4 py-6"
-					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
-						>{text.connection.header()}:</span
-					>{camera.connection === CameraConnection.Disconnected
-						? text.connection.disconnected()
-						: text.connection.connected()}</td
-				>
-				<td class="block lg:table-cell px-4 py-6"
-					><span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
-						>{text.securityLevel.header()}:</span
-					>{camera.securityLevel === CameraSecurityLevel.Low
-						? text.securityLevel.low()
-						: camera.securityLevel === CameraSecurityLevel.Medium
-						? text.securityLevel.medium()
-						: text.securityLevel.high()}</td
-				>
+				<td class="flex lg:table-cell px-4 py-6">
+					<span class="lg:hidden inline-block w-36 text-fill-700 font-bold"
+						>{text.type.header()}:</span
+					>
+					{#if instanceOf(alert, 'profileId')}
+						<Icon name="UserCircle" />
+					{:else if instanceOf(alert, 'cameraId')}
+						<div class="flex gap-x-4 items-center">
+							<Icon name="MapPin" class="text-yellow-700" />
+							<span
+								class="border-yellow-300 text-yellow-700 border px-1 rounded-lg font-bold text-sm"
+							>
+								{text.type.zoneBased()}
+							</span>
+						</div>
+					{:else if instanceOf(alert, 'startTime')}
+						<div class="flex gap-x-4 items-center">
+							<Icon name="Clock" class="text-positive-700" />
+							<span
+								class="border-positive-300 text-positive-700 border px-1 rounded-lg font-bold text-sm"
+							>
+								{alert.startTime} - {alert.endTime}
+							</span>
+						</div>
+					{/if}
+				</td>
 				<td class="lg:hidden pr-4 w-0">
 					<div class="flex flex-col gap-y-4 items-center justify-between">
-						<a
-							href="/dashboard/{$page.params.id}/area/{$page.params
-								.areaId}/camera/{camera._id}/edit"
-						>
+						<a href="./alerts">
 							<SecondaryButton class="text-yellow-600 border-yellow-600 p-0.5">
 								<Icon name="Pencil" class="w-7 h-7" />
 							</SecondaryButton>
@@ -195,11 +203,7 @@
 				</td>
 				<td class="hidden lg:table-cell px-4 py-6">
 					<div class="flex gap-x-4 items-center">
-						<a
-							class="flex"
-							href="/dashboard/{$page.params.id}/area/{$page.params
-								.areaId}/camera/{camera._id}/edit"
-						>
+						<a class="flex" href="./alerts">
 							<SecondaryButton class="text-yellow-600 border-yellow-600 p-0.5">
 								<Icon name="Pencil" class="w-7 h-7" />
 							</SecondaryButton>

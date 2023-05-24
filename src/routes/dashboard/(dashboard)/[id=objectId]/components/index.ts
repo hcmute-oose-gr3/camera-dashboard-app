@@ -1,4 +1,4 @@
 export interface NavigationItemData {
 	text: string;
-	href: string;
+	href: string | string[];
 }

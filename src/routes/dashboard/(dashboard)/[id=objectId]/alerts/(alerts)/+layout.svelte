@@ -1,22 +1,28 @@
 <script lang="ts">
+	import { backIn, backOut } from 'svelte/easing';
 	import NavigationBar from '~/routes/dashboard/(dashboard)/[id=objectId]/components/NavigationBar.svelte';
 	import type { NavigationItemData } from '~/routes/dashboard/(dashboard)/[id=objectId]/components';
 	import type { LayoutData } from './$types';
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
-	import { backIn, backOut } from 'svelte/easing';
 	import LL from '~/i18n/i18n-svelte';
 	import { meta } from '~/routes';
 
 	export let data: LayoutData;
-	const items = [
+	let items: NavigationItemData[];
+
+	$: items = [
 		{
-			text: 'All cameras',
-			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`,
+			text: $LL.dashboard.alert.navigation.viewAlerts(),
+			href: `/dashboard/${$page.params.id}/alerts`,
 		},
 		{
-			text: 'Add camera',
-			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera/add`,
+			text: $LL.dashboard.alert.navigation.newAlert(),
+			href: [
+				`/dashboard/${$page.params.id}/alerts/new/time`,
+				`/dashboard/${$page.params.id}/alerts/new/profile`,
+				`/dashboard/${$page.params.id}/alerts/new/zone`,
+			],
 		},
 	] satisfies NavigationItemData[];
 
@@ -28,11 +34,11 @@
 		lastIndex = index;
 	}
 
-	$meta = { title: $LL.dashboard.area.meta.namedTitle({ areaName: data.areaName }) };
+	$meta = { title: $LL.dashboard.alert.meta.title() };
 </script>
 
 <NavigationBar {items} />
-{#key data.url}
+{#key data.url.pathname.split('/', 5).slice(4).join('/')}
 	<div
 		class="mt-4"
 		in:fly|local={{ x: -6 * delta, duration: 400, delay: 100, easing: backOut }}

@@ -1,31 +1,37 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { quadIn, quadOut } from 'svelte/easing';
+	import { fly, scale, slide } from 'svelte/transition';
 	import { z } from 'zod';
 	import LL from '~/i18n/i18n-svelte';
 	import Icon from '~/lib/components/Icon.svelte';
+	// updatedAt: Date;
+	// serial: string;
+	// homeId: string;
+	// name: string;
+	// url: string;
+	// connection: CameraConnection;
+	// securityLevel: CameraSecurityLevel;
+
 	import Input from '~/lib/components/Input.svelte';
+	import Pending from '~/lib/components/Pending.svelte';
 	import PrimaryButton from '~/lib/components/PrimaryButton.svelte';
 	import Radio from '~/lib/components/Radio.svelte';
 	import RowVisibilityAnimate from '~/lib/components/RowVisibilityAnimate.svelte';
 	import Spinner from '~/lib/components/Spinner.svelte';
+	import Toast from '~/lib/components/Toast.svelte';
 	import type { ApiResponse } from '~/lib/models/api-response';
 	import { instanceOf } from '~/lib/utils';
-	import type { PageData } from './$types';
-	import { CameraSecurityLevel } from '~/lib/models/camera';
-	import Toast from '~/lib/components/Toast.svelte';
-	import { fly } from 'svelte/transition';
-	import { quadIn, quadOut } from 'svelte/easing';
-	import Pending from '~/lib/components/Pending.svelte';
 
 	type FormFields = 'name' | 'url' | 'securityLevel';
 
 	let pending = true;
 	let fieldErrors: { [key in FormFields]?: string } = {};
 	let inputElements: { [key in Exclude<FormFields, 'securityLevel'>]?: HTMLInputElement } = {};
-	$: ({ editForm: text } = $LL.camera);
+	let text = $LL.camera.addForm;
+	$: text = $LL.camera.addForm;
 	let formResponse: ApiResponse;
-	export let data: PageData;
 
 	onMount(() => {
 		pending = false;
@@ -73,7 +79,7 @@
 			'securityLevel',
 			securityLevelString === 'low' ? '0' : securityLevelString === 'medium' ? '1' : '2'
 		);
-		formResponse = await fetch(this.action, { method: 'put', body: formData })
+		formResponse = await fetch(this.action, { method: 'post', body: formData })
 			.then((v) => v.json())
 			.catch(() => {
 				// TODO: handle form error
@@ -86,22 +92,10 @@
 </script>
 
 <form
-	action="/api/v1/dashboard/{$page.params.id}/area/{$page.params.areaId}/camera/{$page.params
-		.cameraId}"
+	action="/api/v1/dashboard/{$page.params.id}/area/{$page.params.areaId}/camera"
 	class="flex flex-col gap-y-4"
 	on:submit={submit}
 >
-	<div class="flex flex-col gap-y-1">
-		<Input
-			bind:input={inputElements.name}
-			disabled
-			name="serial"
-			id="serial"
-			type="text"
-			label={text.serial.label()}
-			value={parseInt(data.camera._id.substring(data.camera._id.length - 6), 16)}
-		/>
-	</div>
 	<div class="flex flex-col gap-y-1">
 		<Input
 			bind:input={inputElements.name}
@@ -112,7 +106,6 @@
 			caption={fieldErrors.name}
 			accent={fieldErrors.name ? 'negative' : undefined}
 			placeholder={text.name.placeholder()}
-			value={data.camera.name}
 		/>
 	</div>
 	<div class="flex flex-col gap-y-1">
@@ -125,7 +118,6 @@
 			caption={fieldErrors.url}
 			accent={fieldErrors.url ? 'negative' : undefined}
 			placeholder={text.url.placeholder()}
-			value={data.camera.url}
 		/>
 	</div>
 	<fieldset class="flex flex-col gap-y-1">
@@ -138,7 +130,6 @@
 					name="securityLevel"
 					value="low"
 					class="text-negative-700 focus:ring-negative-500"
-					checked={data.camera.securityLevel === CameraSecurityLevel.Low}
 				/>
 			</div>
 			<div class="flex gap-x-2 items-center">
@@ -148,7 +139,6 @@
 					name="securityLevel"
 					value="medium"
 					class="text-yellow-600 focus:ring-yellow-500"
-					checked={data.camera.securityLevel === CameraSecurityLevel.Medium}
 				/>
 			</div>
 			<div class="flex gap-x-2 items-center">
@@ -158,11 +148,10 @@
 					name="securityLevel"
 					value="high"
 					class="text-positive-700 focus:ring-positive-500"
-					checked={data.camera.securityLevel === CameraSecurityLevel.High}
 				/>
 			</div>
 		</div>
-		<RowVisibilityAnimate visible={!fieldErrors.securityLevel}>
+		<RowVisibilityAnimate visible={!!fieldErrors.securityLevel}>
 			<p class="text-negative-700">
 				{fieldErrors.securityLevel}
 			</p>

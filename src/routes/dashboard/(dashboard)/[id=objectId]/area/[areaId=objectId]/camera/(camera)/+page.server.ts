@@ -1,6 +1,6 @@
 import { GET } from '~/routes/api/v1/dashboard/[id=objectId]/area/[areaId=objectId]/camera/+server';
 import type { PageServerLoad } from './$types';
-import type { Camera } from '~/lib/models/dashboard';
+import type { Camera } from '~/lib/models/camera';
 
 export const load = (async (e) => {
 	e.depends('camera');
