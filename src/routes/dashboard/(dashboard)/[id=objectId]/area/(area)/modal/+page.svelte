@@ -69,6 +69,7 @@
 		<div class="mt-12 justify-between flex">
 			<div class="flex flex-col gap-y-1">
 				<Input
+					autofocus
 					bind:input={inputElements.name}
 					id="name"
 					name="name"

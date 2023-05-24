@@ -95,6 +95,7 @@
 >
 	<div class="flex flex-col gap-y-1 w-fit min-w-[24rem]">
 		<Input
+			autofocus
 			type="text"
 			id="name"
 			name="name"

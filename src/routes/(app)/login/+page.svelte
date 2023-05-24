@@ -107,6 +107,7 @@
 			>
 				<div class="flex flex-col gap-y-1">
 					<Input
+						autofocus
 						bind:input={inputElements.email}
 						id="email"
 						name="email"
