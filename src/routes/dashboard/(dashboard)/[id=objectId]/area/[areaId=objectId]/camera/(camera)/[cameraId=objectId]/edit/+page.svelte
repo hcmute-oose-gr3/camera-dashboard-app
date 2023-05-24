@@ -162,7 +162,7 @@
 				/>
 			</div>
 		</div>
-		<RowVisibilityAnimate visible={!fieldErrors.securityLevel}>
+		<RowVisibilityAnimate visible={!!fieldErrors.securityLevel}>
 			<p class="text-negative-700">
 				{fieldErrors.securityLevel}
 			</p>
