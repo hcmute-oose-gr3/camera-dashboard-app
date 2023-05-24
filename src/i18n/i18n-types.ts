@@ -160,25 +160,33 @@ type RootTranslation = {
 		}
 		entry: {
 			/**
-			 * D​a​s​h​b​o​a​r​d
+			 * H​o​m​e
 			 */
 			dashboard: string
 			/**
-			 * C​a​m​e​r​a
+			 * C​a​m​e​r​a​s
 			 */
 			camera: string
 			/**
-			 * A​r​e​a
+			 * A​r​e​a​s
 			 */
 			area: string
+			/**
+			 * A​l​e​r​t​s
+			 */
+			alert: string
+			/**
+			 * P​r​o​f​i​l​e​s
+			 */
+			profiles: string
 			/**
 			 * S​e​t​t​i​n​g​s
 			 */
 			setting: string
 			/**
-			 * A​l​e​r​t
+			 * S​t​a​t​i​s​t​i​c
 			 */
-			alert: string
+			statistic: string
 			/**
 			 * S​i​g​n​ ​o​u​t
 			 */
@@ -572,9 +580,17 @@ type RootTranslation = {
 						 */
 						label: string
 						/**
+						 * S​e​l​e​c​t​ ​a​ ​c​a​m​e​r​a
+						 */
+						placeholder: string
+						/**
 						 * A​ ​c​a​m​e​r​a​ ​m​u​s​t​ ​b​e​ ​s​e​l​e​c​t​e​d​.
 						 */
 						nonempty: string
+						/**
+						 * A​ ​z​o​n​e​ ​o​n​ ​c​a​m​e​r​a​ ​m​u​s​t​ ​b​e​ ​d​r​a​w​n​.
+						 */
+						missingZone: string
 					}
 					/**
 					 * P​o​s​i​t​i​o​n​:
@@ -584,7 +600,119 @@ type RootTranslation = {
 					 * S​i​z​e​:
 					 */
 					size: string
+					/**
+					 * A​r​e​a
+					 */
+					area: string
 				}
+			}
+		}
+		profiles: {
+			meta: {
+				/**
+				 * P​r​o​f​i​l​e​s
+				 */
+				title: string
+			}
+			navigation: {
+				/**
+				 * V​i​e​w​ ​p​r​o​f​i​l​e​s
+				 */
+				viewProfiles: string
+				/**
+				 * N​e​w​ ​p​r​o​f​i​l​e
+				 */
+				newProfile: string
+			}
+			'new': {
+				name: {
+					/**
+					 * N​a​m​e
+					 */
+					label: string
+					/**
+					 * E​n​t​e​r​ ​p​r​o​f​i​l​e​'​s​ ​n​a​m​e
+					 */
+					placeholder: string
+					/**
+					 * P​r​o​f​i​l​e​'​s​ ​n​a​m​e​ ​m​u​s​t​ ​n​o​t​ ​b​e​ ​e​m​p​t​y​.
+					 */
+					nonempty: string
+				}
+				image: {
+					/**
+					 * I​m​a​g​e
+					 */
+					label: string
+					/**
+					 * P​l​e​a​s​e​ ​u​p​l​o​a​d​ ​a​n​ ​i​m​a​g​e​ ​f​o​r​ ​t​h​i​s​ ​p​r​o​f​i​l​e​.
+					 */
+					required: string
+				}
+				/**
+				 * C​r​e​a​t​e​ ​p​r​o​f​i​l​e
+				 */
+				submit: string
+				/**
+				 * P​r​o​f​i​l​e​ ​h​a​s​ ​b​e​e​n​ ​c​r​e​a​t​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+				 */
+				success: string
+			}
+			table: {
+				serial: {
+					/**
+					 * S​e​r​i​a​l
+					 */
+					header: string
+				}
+				name: {
+					/**
+					 * N​a​m​e
+					 */
+					header: string
+				}
+				actions: {
+					/**
+					 * A​c​t​i​o​n​s
+					 */
+					header: string
+				}
+			}
+			edit: {
+				id: {
+					/**
+					 * I​D
+					 */
+					label: string
+				}
+				name: {
+					/**
+					 * N​a​m​e
+					 */
+					label: string
+					/**
+					 * E​n​t​e​r​ ​p​r​o​f​i​l​e​'​s​ ​n​a​m​e
+					 */
+					placeholder: string
+					/**
+					 * P​r​o​f​i​l​e​'​s​ ​n​a​m​e​ ​m​u​s​t​ ​n​o​t​ ​b​e​ ​e​m​p​t​y​.
+					 */
+					nonempty: string
+				}
+				image: {
+					/**
+					 * I​m​a​g​e
+					 */
+					label: string
+				}
+				/**
+				 * E​d​i​t​ ​p​r​o​f​i​l​e
+				 */
+				submit: string
+				/**
+				 * P​r​o​f​i​l​e​ ​h​a​s​ ​b​e​e​n​ ​e​d​i​t​e​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​.
+				 */
+				success: string
 			}
 		}
 	}
@@ -697,6 +825,16 @@ type RootTranslation = {
 		 * A​d​d​ ​c​a​m​e​r​a
 		 */
 		addCamera: string
+		navigation: {
+			/**
+			 * V​i​e​w​ ​c​a​m​e​r​a​s
+			 */
+			viewCameras: string
+			/**
+			 * C​r​e​a​t​e​ ​c​a​m​e​r​a
+			 */
+			newCamera: string
+		}
 		table: {
 			serial: {
 				/**
@@ -888,6 +1026,12 @@ type RootTranslation = {
 			success: string
 		}
 	}
+	statistic: {
+		/**
+		 * S​t​a​t​i​s​t​i​c
+		 */
+		title: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -1036,25 +1180,33 @@ export type TranslationFunctions = {
 		}
 		entry: {
 			/**
-			 * Dashboard
+			 * Home
 			 */
 			dashboard: () => LocalizedString
 			/**
-			 * Camera
+			 * Cameras
 			 */
 			camera: () => LocalizedString
 			/**
-			 * Area
+			 * Areas
 			 */
 			area: () => LocalizedString
+			/**
+			 * Alerts
+			 */
+			alert: () => LocalizedString
+			/**
+			 * Profiles
+			 */
+			profiles: () => LocalizedString
 			/**
 			 * Settings
 			 */
 			setting: () => LocalizedString
 			/**
-			 * Alert
+			 * Statistic
 			 */
-			alert: () => LocalizedString
+			statistic: () => LocalizedString
 			/**
 			 * Sign out
 			 */
@@ -1443,9 +1595,17 @@ export type TranslationFunctions = {
 						 */
 						label: () => LocalizedString
 						/**
+						 * Select a camera
+						 */
+						placeholder: () => LocalizedString
+						/**
 						 * A camera must be selected.
 						 */
 						nonempty: () => LocalizedString
+						/**
+						 * A zone on camera must be drawn.
+						 */
+						missingZone: () => LocalizedString
 					}
 					/**
 					 * Position:
@@ -1455,7 +1615,119 @@ export type TranslationFunctions = {
 					 * Size:
 					 */
 					size: () => LocalizedString
+					/**
+					 * Area
+					 */
+					area: () => LocalizedString
 				}
+			}
+		}
+		profiles: {
+			meta: {
+				/**
+				 * Profiles
+				 */
+				title: () => LocalizedString
+			}
+			navigation: {
+				/**
+				 * View profiles
+				 */
+				viewProfiles: () => LocalizedString
+				/**
+				 * New profile
+				 */
+				newProfile: () => LocalizedString
+			}
+			'new': {
+				name: {
+					/**
+					 * Name
+					 */
+					label: () => LocalizedString
+					/**
+					 * Enter profile's name
+					 */
+					placeholder: () => LocalizedString
+					/**
+					 * Profile's name must not be empty.
+					 */
+					nonempty: () => LocalizedString
+				}
+				image: {
+					/**
+					 * Image
+					 */
+					label: () => LocalizedString
+					/**
+					 * Please upload an image for this profile.
+					 */
+					required: () => LocalizedString
+				}
+				/**
+				 * Create profile
+				 */
+				submit: () => LocalizedString
+				/**
+				 * Profile has been created successfully.
+				 */
+				success: () => LocalizedString
+			}
+			table: {
+				serial: {
+					/**
+					 * Serial
+					 */
+					header: () => LocalizedString
+				}
+				name: {
+					/**
+					 * Name
+					 */
+					header: () => LocalizedString
+				}
+				actions: {
+					/**
+					 * Actions
+					 */
+					header: () => LocalizedString
+				}
+			}
+			edit: {
+				id: {
+					/**
+					 * ID
+					 */
+					label: () => LocalizedString
+				}
+				name: {
+					/**
+					 * Name
+					 */
+					label: () => LocalizedString
+					/**
+					 * Enter profile's name
+					 */
+					placeholder: () => LocalizedString
+					/**
+					 * Profile's name must not be empty.
+					 */
+					nonempty: () => LocalizedString
+				}
+				image: {
+					/**
+					 * Image
+					 */
+					label: () => LocalizedString
+				}
+				/**
+				 * Edit profile
+				 */
+				submit: () => LocalizedString
+				/**
+				 * Profile has been edited successfully.
+				 */
+				success: () => LocalizedString
 			}
 		}
 	}
@@ -1565,6 +1837,16 @@ export type TranslationFunctions = {
 		 * Add camera
 		 */
 		addCamera: () => LocalizedString
+		navigation: {
+			/**
+			 * View cameras
+			 */
+			viewCameras: () => LocalizedString
+			/**
+			 * Create camera
+			 */
+			newCamera: () => LocalizedString
+		}
 		table: {
 			serial: {
 				/**
@@ -1755,6 +2037,12 @@ export type TranslationFunctions = {
 			 */
 			success: () => LocalizedString
 		}
+	}
+	statistic: {
+		/**
+		 * Statistic
+		 */
+		title: () => LocalizedString
 	}
 }
 

@@ -59,6 +59,7 @@ const en = {
 			alert: 'Alerts',
 			profiles: 'Profiles',
 			setting: 'Settings',
+			statistic: 'Statistic',
 			logout: 'Sign out',
 		},
 		card: {
@@ -403,6 +404,9 @@ const en = {
 			submit: 'Edit camera',
 			success: 'Camera has been edited successfully.',
 		},
+	},
+	statistic: {
+		title: 'Statistic',
 	},
 } satisfies BaseTranslation;
 
