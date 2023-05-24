@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { data } from './data';
+	import { data, series } from './data';
 	import { afterUpdate } from 'svelte';
 	import { getDaysArray } from './getMonthly';
 	let div: HTMLDivElement;
@@ -36,16 +36,34 @@
 
 						const daysArray = getDaysArray(2023, selectedMonth);
 						console.log(daysArray);
+						function getRandomData(min: any, max: any, length: any) {
+							const data = [];
+
+							for (let i = 0; i < length; i++) {
+								const randomValue =
+									Math.floor(Math.random() * (max - min + 1)) + min;
+								data.push(randomValue);
+							}
+
+							return data;
+						}
+
+						// Usage example:
+						const updatedSeries = series.map((item: any) => ({
+							name: item.name,
+							data: getRandomData(1, 100, item.data.length),
+						}));
 						chart2 = new ApexCharts(div2, {
-							series: [
-								{
-									name: 'PRODUCT A',
-									data: [
-										44, 55, 41, 67, 22, 43, 2, 1, 3, 31, 23, 12, 12, 0, 2, 0, 0,
-										0, 21, 0, 12, 2,
-									],
-								},
-							],
+							series: updatedSeries,
+							// series: [
+							// 	{
+							// 		name: 'PRODUCT A',
+							// 		data: [
+							// 			44, 55, 41, 67, 22, 43, 2, 1, 3, 31, 23, 12, 12, 0, 2, 0, 0,
+							// 			0, 21, 0, 12, 2,
+							// 		],
+							// 	},
+							// ],
 							chart: {
 								type: 'bar',
 								height: 350,
@@ -110,9 +128,6 @@
 			},
 			dataLabels: {
 				enabled: true,
-				formatter: function (val: number) {
-					return val + '%';
-				},
 				offsetY: -20,
 				style: {
 					fontSize: '12px',
@@ -164,12 +179,6 @@
 				},
 				axisTicks: {
 					show: false,
-				},
-				labels: {
-					show: false,
-					formatter: function (val: number) {
-						return val + '%';
-					},
 				},
 			},
 			title: {
