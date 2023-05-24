@@ -319,7 +319,11 @@ const vi = {
 		},
 	},
 	camera: {
-		addCamera: 'Thêm máy quay',
+		addCamera: 'Tạo máy quay',
+		navigation: {
+			viewCameras: 'Xem máy quay',
+			newCamera: 'Tạo máy quay',
+		},
 		table: {
 			serial: {
 				header: 'Mã số máy quay',
@@ -366,8 +370,8 @@ const vi = {
 				},
 				required: 'Hãy chọn một mức độ bảo mật cho máy quay.',
 			},
-			submit: 'Thêm máy quay',
-			success: 'Máy quay đã được thêm thành công.',
+			submit: 'Tạo máy quay',
+			success: 'Máy quay đã được tạo thành công.',
 		},
 		editForm: {
 			serial: {

@@ -320,6 +320,10 @@ const en = {
 	},
 	camera: {
 		addCamera: 'Add camera',
+		navigation: {
+			viewCameras: 'View cameras',
+			newCamera: 'Create camera',
+		},
 		table: {
 			serial: {
 				header: 'Serial',

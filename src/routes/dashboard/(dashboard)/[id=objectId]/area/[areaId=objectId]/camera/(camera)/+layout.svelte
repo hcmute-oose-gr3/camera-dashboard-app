@@ -11,11 +11,11 @@
 	export let data: LayoutData;
 	const items = [
 		{
-			text: 'All cameras',
+			text: $LL.camera.navigation.viewCameras(),
 			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`,
 		},
 		{
-			text: 'Add camera',
+			text: $LL.camera.navigation.newCamera(),
 			href: `/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera/add`,
 		},
 	] satisfies NavigationItemData[];
