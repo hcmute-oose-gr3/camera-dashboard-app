@@ -18,8 +18,8 @@ export const POST = async (e) => {
 			{
 				error: {
 					code: 'MISSING_DATA_ERROR',
-					message: 'Missing required data'
-				}
+					message: 'Missing required data',
+				},
 			},
 			httpStatus.UNAUTHORIZED
 		);
@@ -29,8 +29,8 @@ export const POST = async (e) => {
 			{
 				error: {
 					code: 'CONFIRM_PASSWORD_ERROR',
-					message: 'Password and confirm password do not match'
-				}
+					message: 'Password and confirm password do not match',
+				},
 			},
 			httpStatus.BAD_REQUEST
 		);
@@ -44,8 +44,8 @@ export const POST = async (e) => {
 			{
 				error: {
 					code: 'EMAIL_IN_USED_ERROR',
-					message: 'Email exist!!! please choose another email'
-				}
+					message: 'Email exist!!! please choose another email',
+				},
 			},
 			httpStatus.UNAUTHORIZED
 		);
@@ -58,15 +58,15 @@ export const POST = async (e) => {
 		response = await DbClient.instance.collections.users.insertOne({
 			email: email.valueOf().toString(),
 			password: hashPassword,
-			unverified: true
+			unverified: true,
 		});
 	} catch (e) {
 		return ApiResponder.instance.error(
 			{
 				error: {
 					code: 'SIGN_UP_EXCEPTION_ERROR',
-					message: 'SignUp Fail'
-				}
+					message: 'SignUp Fail',
+				},
 			},
 			httpStatus.INTERNAL_SERVER_ERROR
 		);
@@ -77,8 +77,8 @@ export const POST = async (e) => {
 		subject: get(LL).signup.verifyMail.subject(),
 		html: get(LL).signup.verifyMail.body({
 			email: email,
-			url: `http://localhost:5173/verify/${response.insertedId.toHexString()}`
-		})
+			url: `https://camera-dashboard-app-duydang2311.vercel.app/verify/${response.insertedId.toHexString()}`,
+		}),
 	};
 
 	try {
