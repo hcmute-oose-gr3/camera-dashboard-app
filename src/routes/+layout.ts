@@ -19,7 +19,9 @@ export const load: LayoutLoad = async ({ data, url }) => {
 			localStorage.setItem('lang', language);
 		}
 		data.locale = language;
-		document.getElementById('html')?.setAttribute('lang', language);
+		const html = document.getElementById('html')!;
+		html.setAttribute('lang', language);
+		html.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
 	}
 	await loadLocaleAsync(language);
 	setLocale(language);

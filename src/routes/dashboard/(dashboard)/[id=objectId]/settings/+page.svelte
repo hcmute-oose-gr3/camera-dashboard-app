@@ -7,16 +7,24 @@
 	import type { PageData } from './$types';
 	import SecondaryButton from '~/lib/components/SecondaryButton.svelte';
 	import { meta } from '~/routes';
+	import { onMount } from 'svelte';
 	let check = false;
 	let showModal = false;
 	export let data: PageData;
+
+	onMount(() => {
+		check = document.getElementById('html')!.getAttribute('data-theme') !== 'light';
+	});
+
 	const setTheme = () => {
 		const a = document.getElementById('html');
 		if (a?.getAttribute('data-theme') === 'light') {
 			a?.setAttribute('data-theme', 'dark');
 			check = true;
+			localStorage.setItem('theme', 'dark');
 		} else {
 			a?.setAttribute('data-theme', 'light');
+			localStorage.setItem('theme', 'light');
 			check = false;
 		}
 	};
