@@ -52,11 +52,12 @@ const vi = {
 			success: 'Bảng điều khiển đã được tạo thành công.',
 		},
 		entry: {
-			dashboard: 'Bảng điều khiển',
+			dashboard: 'Trang chủ',
 			camera: 'Camera',
 			area: 'Khu vực',
-			setting: 'Cài đặt',
 			alert: 'Cảnh báo',
+			setting: 'Cài đặt',
+			profiles: 'Hồ sơ',
 			logout: 'Đăng xuất',
 		},
 		card: {
@@ -228,6 +229,54 @@ const vi = {
 					size: 'Kích thước:',
 					area: 'Khu vực',
 				},
+			},
+		},
+		profiles: {
+			meta: {
+				title: 'Hồ sơ',
+			},
+			navigation: {
+				viewProfiles: 'Xem hồ sơ',
+				newProfile: 'Tạo hồ sơ',
+			},
+			new: {
+				name: {
+					label: 'Tên hồ sơ',
+					placeholder: 'Nhập tên hồ sơ',
+					nonempty: 'Tên hồ sơ không được trống.',
+				},
+				image: {
+					label: 'Hình ảnh',
+					required: 'Hãy tải lên một hình ảnh cho hồ sơ.',
+				},
+				submit: 'Tạo hồ sơ',
+				success: 'Hồ sơ đã được tạo thành công.',
+			},
+			table: {
+				serial: {
+					header: 'Mã hồ sơ',
+				},
+				name: {
+					header: 'Tên hồ sơ',
+				},
+				actions: {
+					header: 'Hành động',
+				},
+			},
+			edit: {
+				id: {
+					label: 'ID',
+				},
+				name: {
+					label: 'Tên hồ sơ',
+					placeholder: "Enter profile's name",
+					nonempty: "Profile's name must not be empty.",
+				},
+				image: {
+					label: 'Hình ảnh',
+				},
+				submit: 'Chỉnh sửa hồ sơ',
+				success: 'Hồ sơ đã được chỉnh sửa thành công.',
 			},
 		},
 	},
