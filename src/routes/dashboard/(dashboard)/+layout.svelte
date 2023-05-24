@@ -30,6 +30,11 @@
 			href: `/dashboard/${$page.params.id}/alerts`,
 			icon: 'ShieldExclamation',
 		},
+		{
+			text: $LL.dashboard.entry.profiles(),
+			href: `/dashboard/${$page.params.id}/profiles`,
+			icon: 'User',
+		},
 	];
 	let footerEntries: NavigationEntryData[];
 	$: footerEntries = [
@@ -80,7 +85,7 @@
 					delay: 100,
 					easing: backOut,
 				}}
-				out:fly|local={{ y: -4 * delta, opacity: 1, duration: 100, easing: backIn }}
+				out:fly|local={{ y: -4 * delta, duration: 100, easing: backIn }}
 			>
 				<slot />
 			</section>
