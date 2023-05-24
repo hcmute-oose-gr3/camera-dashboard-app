@@ -53,4 +53,15 @@ export class ApiResponder {
 			this.makeResponseInit(init)
 		);
 	}
+	public caught(e: any) {
+		return ApiResponder.instance.error(
+			{
+				error: {
+					code: e.name || 'INTERNAL_SERVER_ERROR',
+					message: e.message || httpStatus['500_MESSAGE'],
+				},
+			},
+			httpStatus.INTERNAL_SERVER_ERROR
+		);
+	}
 }
