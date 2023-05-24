@@ -2,12 +2,13 @@ import type { ObjectId } from 'mongodb';
 
 export interface Alert {
 	dashboardId: ObjectId;
+	name: string;
 }
 
 export interface TimeBasedAlert extends Alert {
-	start: string;
-	end: string;
-	level: number;
+	startTime: string;
+	endTime: string;
+	alertLevel: number;
 }
 
 export interface ProfileBasedAlert extends Alert {
