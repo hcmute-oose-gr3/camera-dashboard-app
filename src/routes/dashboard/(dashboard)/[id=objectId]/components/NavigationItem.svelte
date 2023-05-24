@@ -7,11 +7,16 @@
 	export let item: NavigationItemData;
 	let active = false;
 
-	$: active = item.href === $page.url.pathname;
+	$: active = Array.isArray(item.href)
+		? item.href.some((v) => v === $page.url.pathname)
+		: $page.url.pathname === item.href;
 </script>
 
 <li class="relative">
-	<a href={item.href} class="transition-colors {active ? 'text-primary-700' : ''}">
+	<a
+		href={Array.isArray(item.href) ? item.href[0] : item.href}
+		class="transition-colors {active ? 'text-primary-700' : ''}"
+	>
 		{item.text}
 	</a>
 	{#if active}
