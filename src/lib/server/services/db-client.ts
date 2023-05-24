@@ -1,6 +1,7 @@
 import { type Db, MongoClient, type MongoClientOptions } from 'mongodb';
 import type { Alert } from '~/lib/models/alert';
 import type { Dashboard } from '~/lib/models/dashboard';
+import type { Profile } from '~/lib/models/profile';
 import type User from '~/lib/models/user';
 
 interface DbClientOptions {
@@ -57,5 +58,9 @@ class Collections {
 
 	public get alerts() {
 		return this.db.collection<Alert>('alerts');
+	}
+
+	public get profiles() {
+		return this.db.collection<Profile>('profiles');
 	}
 }
