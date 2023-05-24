@@ -1,5 +1,5 @@
 import { type Db, MongoClient, type MongoClientOptions } from 'mongodb';
-import type { TimeBasedAlert } from '~/lib/models/alert';
+import type { Alert } from '~/lib/models/alert';
 import type { Dashboard } from '~/lib/models/dashboard';
 import type User from '~/lib/models/user';
 
@@ -56,6 +56,6 @@ class Collections {
 	}
 
 	public get alerts() {
-		return this.db.collection<TimeBasedAlert>('alerts');
+		return this.db.collection<Alert>('alerts');
 	}
 }
