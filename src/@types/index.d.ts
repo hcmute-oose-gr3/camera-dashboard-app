@@ -20,7 +20,7 @@ declare global {
 		interface ProcessEnv {
 			MONGO_URI: string;
 			NODE_ENV: 'production' | 'development';
-			CLOUDINARY_NAME: string;
+			CLOUDINARY_CLOUD_NAME: string;
 			CLOUDINARY_API_KEY: string;
 			CLOUDINARY_API_SECRET: string;
 			EMAIL_SERVER_USER: string;
