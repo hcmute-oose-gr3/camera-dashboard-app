@@ -152,6 +152,84 @@ const en = {
 				button: 'I want to delete this dashboard',
 			},
 		},
+		alert: {
+			meta: {
+				title: 'Alerts',
+			},
+			table: {
+				serial: {
+					header: 'Serial',
+				},
+				name: {
+					header: 'Name',
+				},
+				type: {
+					header: 'Type',
+					timeBased: 'Time-based Alert',
+					profileBased: 'Profile-based Alert',
+					zoneBased: 'Zone-based Alert',
+				},
+				actions: {
+					header: 'Actions',
+				},
+			},
+			navigation: {
+				viewAlerts: 'View alerts',
+				newAlert: 'New alert',
+			},
+			new: {
+				name: {
+					label: 'Name',
+					placeholder: "Enter alert's name",
+					nonempty: "Alert's name must not be empty.",
+				},
+				submit: 'Create alert',
+				success: 'Alert has been created successfully.',
+				time: {
+					navigation: 'Time-based',
+					startTime: {
+						label: 'Start time',
+						invalid: 'Invalid start time format (must be hh:mm).',
+					},
+					endTime: {
+						label: 'End time',
+						invalid: 'Invalid end time format (must be hh:mm).',
+					},
+					alertLevel: {
+						legend: 'Choose an alert level:',
+						low: {
+							label: 'Low',
+						},
+						medium: {
+							label: 'Medium',
+						},
+						high: {
+							label: 'High',
+						},
+						required: 'An alert level is required.',
+					},
+				},
+				profile: {
+					navigation: 'Profile-based',
+					profile: {
+						label: 'Profile',
+						nonempty: 'A profile must be selected.',
+					},
+				},
+				zone: {
+					navigation: 'Zone-based',
+					camera: {
+						label: 'Camera',
+						placeholder: 'Select a camera',
+						nonempty: 'A camera must be selected.',
+						missingZone: 'A zone on camera must be drawn.',
+					},
+					position: 'Position:',
+					size: 'Size:',
+					area: 'Area',
+				},
+			},
+		},
 	},
 	signup: {
 		header: 'Sign up for a camera dashboard',

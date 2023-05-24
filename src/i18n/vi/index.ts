@@ -152,6 +152,84 @@ const vi = {
 				button: 'Tôi muốn xóa bảng điều khiển này',
 			},
 		},
+		alert: {
+			meta: {
+				title: 'Cảnh báo',
+			},
+			table: {
+				serial: {
+					header: 'Mã cảnh báo',
+				},
+				name: {
+					header: 'Tên cảnh báo',
+				},
+				type: {
+					header: 'Loại cảnh báo',
+					timeBased: 'Thời gian',
+					profileBased: 'Khuôn mặt',
+					zoneBased: 'Khu vực',
+				},
+				actions: {
+					header: 'Hành động',
+				},
+			},
+			navigation: {
+				viewAlerts: 'Xem cảnh báo',
+				newAlert: 'Tạo cảnh báo',
+			},
+			new: {
+				name: {
+					label: 'Tên cảnh báo',
+					placeholder: 'Nhập tên cảnh báo',
+					nonempty: 'Tên cảnh báo không được trống.',
+				},
+				submit: 'Tạo cảnh báo',
+				success: 'Cảnh báo đã được tạo thành công.',
+				time: {
+					navigation: 'Thời gian',
+					startTime: {
+						label: 'Thời gian bắt đầu',
+						invalid: 'Thời gian không hợp lệ, định dạng đúng là "giờ:phút".',
+					},
+					endTime: {
+						label: 'Thời gian kết thúc',
+						invalid: 'Thời gian không hợp lệ, định dạng đúng là "giờ:phút".',
+					},
+					alertLevel: {
+						legend: 'Chọn một mức độ cảnh báo:',
+						low: {
+							label: 'Thấp',
+						},
+						medium: {
+							label: 'Trung bình',
+						},
+						high: {
+							label: 'Cao',
+						},
+						required: 'Hãy chọn một mức độ cảnh báo.',
+					},
+				},
+				profile: {
+					navigation: 'Hồ sơ',
+					profile: {
+						label: 'Hồ sơ',
+						nonempty: 'Cần chọn một hồ sơ từ danh sách.',
+					},
+				},
+				zone: {
+					navigation: 'Khu vực',
+					camera: {
+						label: 'Máy quay',
+						placeholder: 'Chọn một máy quay',
+						nonempty: 'Cần chọn một máy quay.',
+						missingZone: 'Cần vẽ một khu vực trên màn hình máy quay.',
+					},
+					position: 'Vị trí:',
+					size: 'Kích thước:',
+					area: 'Khu vực',
+				},
+			},
+		},
 	},
 	signup: {
 		header: 'Đăng ký tài khoản camera dashboard',
