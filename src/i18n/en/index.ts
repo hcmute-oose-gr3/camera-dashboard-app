@@ -53,11 +53,12 @@ const en = {
 			success: 'Dashboard has been created successfully.',
 		},
 		entry: {
-			dashboard: 'Dashboard',
-			camera: 'Camera',
-			area: 'Area',
+			dashboard: 'Home',
+			camera: 'Cameras',
+			area: 'Areas',
+			alert: 'Alerts',
+			profiles: 'Profiles',
 			setting: 'Settings',
-			alert: 'Alert',
 			logout: 'Sign out',
 		},
 		card: {
@@ -228,6 +229,54 @@ const en = {
 					size: 'Size:',
 					area: 'Area',
 				},
+			},
+		},
+		profiles: {
+			meta: {
+				title: 'Profiles',
+			},
+			navigation: {
+				viewProfiles: 'View profiles',
+				newProfile: 'New profile',
+			},
+			new: {
+				name: {
+					label: 'Name',
+					placeholder: "Enter profile's name",
+					nonempty: "Profile's name must not be empty.",
+				},
+				image: {
+					label: 'Image',
+					required: 'Please upload an image for this profile.',
+				},
+				submit: 'Create profile',
+				success: 'Profile has been created successfully.',
+			},
+			table: {
+				serial: {
+					header: 'Serial',
+				},
+				name: {
+					header: 'Name',
+				},
+				actions: {
+					header: 'Actions',
+				},
+			},
+			edit: {
+				id: {
+					label: 'ID',
+				},
+				name: {
+					label: 'Name',
+					placeholder: "Enter profile's name",
+					nonempty: "Profile's name must not be empty.",
+				},
+				image: {
+					label: 'Image',
+				},
+				submit: 'Edit profile',
+				success: 'Profile has been edited successfully.',
 			},
 		},
 	},
