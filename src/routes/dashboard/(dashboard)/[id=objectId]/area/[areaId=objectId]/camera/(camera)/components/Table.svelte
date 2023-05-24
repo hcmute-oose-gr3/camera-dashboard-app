@@ -48,7 +48,6 @@
 	async function deleteSome() {
 		const deleting = cameras.filter((_, i) => checked[i]).map((c) => c._id);
 		deletePendings = checked.map((v) => v);
-		await new Promise((resolve) => setTimeout(resolve, 2000));
 		const json = await fetch(
 			`/api/v1/dashboard/${$page.params.id}/area/${$page.params.areaId}/camera`,
 			{ method: 'delete', body: JSON.stringify(deleting) }
